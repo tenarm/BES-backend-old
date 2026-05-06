@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: core
+Version: 0.1.0
+Summary: ERP Core Kernel
+Requires-Python: >=3.10
+Requires-Dist: sqlmodel
+Requires-Dist: fastapi
+Requires-Dist: pydantic
+Requires-Dist: asyncpg
+Requires-Dist: aiosqlite
+Requires-Dist: python-jose[cryptography]>=3.5.0
+Requires-Dist: passlib[bcrypt]>=1.7.4
+Requires-Dist: python-multipart>=0.0.27

@@ -1,0 +1,8 @@
+[project]
+name = "finance"
+version = "0.1.0"
+description = "Finance Extension Module"
+requires-python = ">=3.10"
+dependencies = [
+    "core"
+]

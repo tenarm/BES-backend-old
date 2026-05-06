@@ -1,0 +1,8 @@
+[project]
+name = "sales"
+version = "0.1.0"
+description = "Sales Extension Module"
+requires-python = ">=3.10"
+dependencies = [
+    "core"
+]

@@ -1,0 +1,22 @@
+{
+  "modules": {
+    "finance": {
+      "resources": {
+        "invoices": { "actions": { "read": true, "write": true, "delete": true } },
+        "payments": { "actions": { "read": true, "write": true, "delete": true } }
+      }
+    },
+    "sales": {
+      "resources": {
+        "orders": { "actions": { "read": true, "write": true, "delete": true } },
+        "customers": { "actions": { "read": true, "write": true, "delete": true } }
+      }
+    },
+    "inventory": {
+      "resources": {
+        "items": { "actions": { "read": true, "write": true, "delete": true } },
+        "warehouses": { "actions": { "read": true, "write": true, "delete": true } }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+[project]
+name = "core"
+version = "0.1.0"
+description = "ERP Core Kernel"
+requires-python = ">=3.10"
+dependencies = [
+    "sqlmodel",
+    "fastapi",
+    "pydantic",
+    "asyncpg",
+    "aiosqlite",
+    "python-jose[cryptography]>=3.5.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.27"
+]

@@ -1,0 +1,28 @@
+[project]
+name = "erp-factory"
+version = "0.1.0"
+description = "Modular ERP Factory Monorepo"
+requires-python = ">=3.10"
+dependencies = [
+    "sqlmodel",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "aiosqlite>=0.22.1",
+    "asyncpg>=0.31.0",
+    "greenlet>=3.5.0",
+    "python-jose[cryptography]>=3.5.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.27",
+    "bcrypt<4.0.0"
+]
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.workspace]
+members = [
+    "core",
+    "extensions/*",
+    "instances/*"
+]
