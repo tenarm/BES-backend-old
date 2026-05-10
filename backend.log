@@ -1,0 +1,426 @@
+INFO:     Will watch for changes in these directories: ['/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [23451] using StatReload
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+INFO:     Started server process [23453]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:33:28,878 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:33:28,879 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:33:28,883 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:33:28,883 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 15:33:28,884 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 15:34:26,227 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:34:26,228 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:34:26,228 INFO sqlalchemy.engine.Engine [cached since 57.34s ago] ('admin',)
+INFO:     127.0.0.1:49215 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 15:34:26,497 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 15:34:26,507 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:34:26,509 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:34:26,509 INFO sqlalchemy.engine.Engine [cached since 57.63s ago] ('admin',)
+DEBUG: Returning permissions for admin: ['finance', 'sales', 'inventory', 'hr', 'crm', 'manufacturing', 'project_management', 'supply_chain', 'quality_management', 'asset_management', 'bi', 'document_management', 'marketing', 'service_desk', 'education', 'settings']
+INFO:     127.0.0.1:49217 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 15:34:26,510 INFO sqlalchemy.engine.Engine ROLLBACK
+WARNING:  StatReload detected changes in 'core/core/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23453]
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+INFO:     Started server process [23535]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,859 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:35:31,860 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,860 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:35:31,860 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:35:31,860 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:35:31,860 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:35:31,864 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:35:31,864 INFO sqlalchemy.engine.Engine [generated in 0.00007s] ('admin',)
+2026-05-10 15:35:31,865 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'instances/acme_corp/acme_corp/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23535]
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+INFO:     Started server process [23547]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:36:52,029 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:36:52,030 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:36:52,034 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:36:52,034 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 15:36:52,035 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'instances/acme_corp/acme_corp/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23547]
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for inventory: No module named 'inventory'
+Could not load router for hr: No module named 'hr'
+Could not load router for crm: No module named 'crm'
+Could not load router for manufacturing: No module named 'manufacturing'
+Could not load router for project_management: No module named 'project_management'
+Could not load router for supply_chain: No module named 'supply_chain'
+Could not load router for quality_management: No module named 'quality_management'
+Could not load router for asset_management: No module named 'asset_management'
+Could not load router for bi: No module named 'bi'
+Could not load router for document_management: No module named 'document_management'
+Could not load router for marketing: No module named 'marketing'
+Could not load router for service_desk: No module named 'service_desk'
+Could not load router for education: No module named 'education'
+Could not load router for settings: No module named 'settings'
+INFO:     Started server process [23571]
+INFO:     Waiting for application startup.
+Could not load models for inventory: No module named 'inventory'
+Could not load models for hr: No module named 'hr'
+Could not load models for crm: No module named 'crm'
+Could not load models for manufacturing: No module named 'manufacturing'
+Could not load models for project_management: No module named 'project_management'
+Could not load models for supply_chain: No module named 'supply_chain'
+Could not load models for quality_management: No module named 'quality_management'
+Could not load models for asset_management: No module named 'asset_management'
+Could not load models for bi: No module named 'bi'
+Could not load models for document_management: No module named 'document_management'
+Could not load models for marketing: No module named 'marketing'
+Could not load models for service_desk: No module named 'service_desk'
+Could not load models for education: No module named 'education'
+Could not load models for settings: No module named 'settings'
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:37:06,173 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:06,174 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:37:06,175 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:37:06,179 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:37:06,179 INFO sqlalchemy.engine.Engine [generated in 0.00008s] ('admin',)
+2026-05-10 15:37:06,179 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'instances/acme_corp/acme_corp/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23571]
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for inventory: No module named 'inventory'
+Could not load router for hr: No module named 'hr'
+Could not load router for crm: No module named 'crm'
+Could not load router for manufacturing: No module named 'manufacturing'
+Could not load router for project_management: No module named 'project_management'
+Could not load router for supply_chain: No module named 'supply_chain'
+Could not load router for quality_management: No module named 'quality_management'
+Could not load router for asset_management: No module named 'asset_management'
+Could not load router for bi: No module named 'bi'
+Could not load router for document_management: No module named 'document_management'
+Could not load router for marketing: No module named 'marketing'
+Could not load router for service_desk: No module named 'service_desk'
+Could not load router for education: No module named 'education'
+Could not load router for settings: No module named 'settings'
+INFO:     Started server process [23584]
+INFO:     Waiting for application startup.
+Could not load models for inventory: No module named 'inventory'
+Could not load models for hr: No module named 'hr'
+Could not load models for crm: No module named 'crm'
+Could not load models for manufacturing: No module named 'manufacturing'
+Could not load models for project_management: No module named 'project_management'
+Could not load models for supply_chain: No module named 'supply_chain'
+Could not load models for quality_management: No module named 'quality_management'
+Could not load models for asset_management: No module named 'asset_management'
+Could not load models for bi: No module named 'bi'
+Could not load models for document_management: No module named 'document_management'
+Could not load models for marketing: No module named 'marketing'
+Could not load models for service_desk: No module named 'service_desk'
+Could not load models for education: No module named 'education'
+Could not load models for settings: No module named 'settings'
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:37:16,856 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:37:16,857 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:37:16,858 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:37:16,858 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:37:16,863 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:37:16,863 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('admin',)
+2026-05-10 15:37:16,864 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 15:38:03,568 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:38:03,569 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:38:03,569 INFO sqlalchemy.engine.Engine [cached since 46.71s ago] ('admin',)
+INFO:     127.0.0.1:50165 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 15:38:03,571 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 15:38:03,574 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:38:03,574 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:38:03,575 INFO sqlalchemy.engine.Engine [cached since 46.71s ago] ('admin',)
+INFO:     127.0.0.1:50166 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 15:38:03,578 INFO sqlalchemy.engine.Engine ROLLBACK
+WARNING:  StatReload detected changes in 'instances/acme_corp/acme_corp/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23584]
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+INFO:     Started server process [23630]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:39:14,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:14,015 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:39:14,016 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:14,020 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:39:14,020 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 15:39:14,020 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50322 - "GET /api/v1/bootstrap HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'extensions/sales/sales/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23630]
+INFO:     Started server process [23648]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 15:39:50,477 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 15:39:50,478 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:50,483 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:39:50,483 INFO sqlalchemy.engine.Engine [generated in 0.00007s] ('admin',)
+2026-05-10 15:39:50,483 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 15:39:53,229 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:53,229 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:39:53,229 INFO sqlalchemy.engine.Engine [cached since 2.747s ago] ('admin',)
+INFO:     127.0.0.1:50339 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 15:39:53,231 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 15:39:53,233 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 15:39:53,233 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 15:39:53,233 INFO sqlalchemy.engine.Engine [cached since 2.751s ago] ('admin',)
+INFO:     127.0.0.1:50340 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 15:39:53,234 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:51023 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51023 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51284 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51285 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 16:42:08,957 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 16:42:08,957 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 16:42:08,958 INFO sqlalchemy.engine.Engine [cached since 3738s ago] ('admin',)
+INFO:     127.0.0.1:51351 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 16:42:09,177 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 16:42:09,182 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 16:42:09,182 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 16:42:09,182 INFO sqlalchemy.engine.Engine [cached since 3739s ago] ('admin',)
+INFO:     127.0.0.1:51352 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 16:42:09,183 INFO sqlalchemy.engine.Engine ROLLBACK

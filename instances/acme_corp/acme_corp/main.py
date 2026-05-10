@@ -18,15 +18,19 @@ print(f"DEBUG: BASE_DIR resolved to {BASE_DIR}")
 
 # Automatically add workspace members to sys.path for development
 # We use insert(0) to ensure these take priority
-for path in [BASE_DIR / "core", BASE_DIR / "extensions/sales", BASE_DIR / "extensions/finance"]:
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
-        print(f"DEBUG: Added to sys.path: {path}")
+sys.path.insert(0, str(BASE_DIR / "core"))
 
+# Load config to get licensed modules early for sys.path
 CONFIG_PATH = BASE_DIR / "onboarded" / "acme_corp.json"
-
 with open(CONFIG_PATH, "r") as f:
     client_config = json.load(f)
+    LICENSED_MODULES = client_config.get("licensed_modules", [])
+
+for mod in LICENSED_MODULES:
+    ext_path = BASE_DIR / "extensions" / mod
+    if ext_path.exists():
+        sys.path.insert(0, str(ext_path))
+        print(f"DEBUG: Added to sys.path: {ext_path}")
 
 # Set the database URL for the core engine to pick up BEFORE importing core
 os.environ["DATABASE_URL"] = client_config.get("database_url", "sqlite+aiosqlite:///./default.db")
@@ -35,8 +39,6 @@ os.environ["DATABASE_URL"] = client_config.get("database_url", "sqlite+aiosqlite
 from core.database import engine, get_async_session
 from core.responses import setup_exception_handlers
 from core.router import router as auth_router, seed_admin_user
-
-LICENSED_MODULES = client_config.get("licensed_modules", [])
 
 # --- 2. Dynamic Bootstrapper Lifespan ---
 @asynccontextmanager
@@ -108,7 +110,7 @@ def bootstrap():
     # Filter permissions to ONLY include licensed modules
     filtered_permissions = {
         k: v for k, v in full_json["permissions"].items()
-        if any(k.startswith(f"{mod}_") for mod in LICENSED_MODULES)
+        if k in LICENSED_MODULES
     }
     
     return {

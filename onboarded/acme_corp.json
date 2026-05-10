@@ -2,5 +2,22 @@
   "client_id": "acme_corp",
   "client_name": "Acme Corporation",
   "database_url": "sqlite+aiosqlite:///./acme_corp.db",
-  "licensed_modules": ["sales", "finance"]
+  "licensed_modules": [
+    "finance",
+    "sales",
+    "inventory",
+    "hr",
+    "crm",
+    "manufacturing",
+    "project_management",
+    "supply_chain",
+    "quality_management",
+    "asset_management",
+    "bi",
+    "document_management",
+    "marketing",
+    "service_desk",
+    "education",
+    "settings"
+  ]
 }
