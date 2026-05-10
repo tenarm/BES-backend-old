@@ -1,20 +1,68 @@
 import uuid
-from sqlmodel import SQLModel, Field
-from typing import Optional
-from core.models import Customer, Product
+from decimal import Decimal
+from enum import Enum
+from typing import Optional, List
+from sqlmodel import SQLModel, Field, Relationship
+from sqlalchemy import Column, Numeric
+from core.models import ERPBase, Customer, Product
 
-class SalesCustomerDetails(SQLModel, table=True):
+class QuotationStatus(str, Enum):
+    DRAFT = "DRAFT"
+    SENT = "SENT"
+    ACCEPTED = "ACCEPTED"
+    REJECTED = "REJECTED"
+    EXPIRED = "EXPIRED"
+
+class SalesCustomerDetails(ERPBase, table=True):
     __tablename__ = "sales_customer_details"
-    
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     customer_id: uuid.UUID = Field(foreign_key="customers.id", unique=True)
-    
-    credit_limit: float = Field(default=0.0)
+    credit_limit: Decimal = Field(
+        default=Decimal("0.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
     discount_tier: int = Field(default=1)
 
-class SalesOrder(SQLModel, table=True):
-    __tablename__ = "sales_orders"
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+class Quotation(ERPBase, table=True):
+    __tablename__ = "sales_quotations"
     customer_id: uuid.UUID = Field(foreign_key="customers.id")
-    total_amount: float = Field(default=0.0)
+    posting_date: Optional[str] = None
+    valid_until: Optional[str] = None
+    status: QuotationStatus = Field(default=QuotationStatus.DRAFT)
+    total_amount: Decimal = Field(
+        default=Decimal("0.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
+    
+    # Relationships
+    items: List["QuotationItem"] = Relationship(back_populates="quotation")
+
+class QuotationItem(ERPBase, table=True):
+    __tablename__ = "sales_quotation_items"
+    quotation_id: uuid.UUID = Field(foreign_key="sales_quotations.id")
+    product_id: uuid.UUID = Field(foreign_key="products.id")
+    qty: Decimal = Field(
+        default=Decimal("1.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
+    rate: Decimal = Field(
+        default=Decimal("0.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
+    amount: Decimal = Field(
+        default=Decimal("0.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
+
+    # Relationships
+    quotation: Quotation = Relationship(back_populates="items")
+
+class SalesOrder(ERPBase, table=True):
+    __tablename__ = "sales_orders"
+    customer_id: uuid.UUID = Field(foreign_key="customers.id")
+    total_amount: Decimal = Field(
+        default=Decimal("0.0"),
+        sa_column=Column(Numeric(precision=20, scale=4))
+    )
     status: str = Field(default="DRAFT")
+    quotation_id: Optional[uuid.UUID] = Field(default=None, foreign_key="sales_quotations.id")
+

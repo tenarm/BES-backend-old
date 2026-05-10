@@ -66,8 +66,25 @@ async def lifespan(app: FastAPI):
         
     yield
 
+from fastapi.middleware.cors import CORSMiddleware
+
 # --- 3. App Initialization ---
 app = FastAPI(title=client_config.get("client_name", "Dynamic ERP"), lifespan=lifespan)
+
+# CORS Configuration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:4200",
+        "http://127.0.0.1:4200",
+        "http://localhost:3000",
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 setup_exception_handlers(app)
 app.include_router(auth_router)
 

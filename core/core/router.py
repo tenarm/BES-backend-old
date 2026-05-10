@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .database import get_async_session
 from .models import User
 from .auth import create_access_token, verify_password, get_current_user, get_password_hash
-from .rbac import get_simplified_json
+from .rbac import PERMISSIONS_SCHEMA
 
 router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
 
@@ -30,15 +30,12 @@ async def login(
 
 @router.get("/me")
 async def get_me(user: User = Depends(get_current_user)):
-    # Include simplified permissions in the 'me' response for the frontend
-    permissions_data = get_simplified_json(str(user.id))
-    
     return {
         "id": user.id,
         "username": user.username,
         "full_name": user.full_name,
         "is_superuser": user.is_superuser,
-        "permissions": permissions_data["permissions"]
+        "permissions": PERMISSIONS_SCHEMA # Full nested structure
     }
 
 async def seed_admin_user(session: AsyncSession):
