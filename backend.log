@@ -424,3 +424,1380 @@ WHERE users.username = ?
 2026-05-10 16:42:09,182 INFO sqlalchemy.engine.Engine [cached since 3739s ago] ('admin',)
 INFO:     127.0.0.1:51352 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
 2026-05-10 16:42:09,183 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:51642 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51643 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 17:02:12,844 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:02:12,846 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:02:12,846 INFO sqlalchemy.engine.Engine [cached since 4942s ago] ('admin',)
+INFO:     127.0.0.1:51705 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 17:02:13,058 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:02:13,063 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:02:13,064 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:02:13,064 INFO sqlalchemy.engine.Engine [cached since 4943s ago] ('admin',)
+INFO:     127.0.0.1:51708 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:02:13,065 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:02:19,279 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:02:19,283 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:02:19,283 INFO sqlalchemy.engine.Engine [generated in 0.00026s] ()
+INFO:     127.0.0.1:51713 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:02:19,287 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:02:19,288 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:02:19,289 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:02:19,289 INFO sqlalchemy.engine.Engine [cached since 0.006448s ago] ()
+INFO:     127.0.0.1:51713 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:02:19,291 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:07:57,756 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:07:57,757 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:07:57,757 INFO sqlalchemy.engine.Engine [cached since 5287s ago] ('admin',)
+INFO:     127.0.0.1:51817 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:07:57,760 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:07:57,763 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:07:57,764 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:07:57,764 INFO sqlalchemy.engine.Engine [cached since 5287s ago] ('admin',)
+INFO:     127.0.0.1:51818 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:07:57,766 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:08:00,338 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:08:00,338 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:08:00,338 INFO sqlalchemy.engine.Engine [cached since 341.1s ago] ()
+INFO:     127.0.0.1:51819 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:08:00,340 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:08:00,342 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:08:00,342 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:08:00,342 INFO sqlalchemy.engine.Engine [cached since 341.1s ago] ()
+INFO:     127.0.0.1:51819 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:08:00,343 INFO sqlalchemy.engine.Engine ROLLBACK
+WARNING:  StatReload detected changes in 'extensions/finance/finance/models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23648]
+INFO:     Started server process [24930]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 17:09:45,759 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entries")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("finance_journal_entries")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entry_lines")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("finance_journal_entry_lines")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 17:09:45,760 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine 
+CREATE TABLE finance_journal_entries (
+	id CHAR(32) NOT NULL, 
+	created_at DATETIME NOT NULL, 
+	updated_at DATETIME NOT NULL, 
+	created_by VARCHAR, 
+	subsidiary_id VARCHAR, 
+	is_deleted BOOLEAN NOT NULL, 
+	metadata_ JSON NOT NULL, 
+	reference VARCHAR NOT NULL, 
+	date VARCHAR NOT NULL, 
+	narration VARCHAR NOT NULL, 
+	status VARCHAR(9) NOT NULL, 
+	total_amount NUMERIC(20, 4) NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+2026-05-10 17:09:45,761 INFO sqlalchemy.engine.Engine [no key 0.00003s] ()
+2026-05-10 17:09:45,762 INFO sqlalchemy.engine.Engine CREATE INDEX ix_finance_journal_entries_subsidiary_id ON finance_journal_entries (subsidiary_id)
+2026-05-10 17:09:45,762 INFO sqlalchemy.engine.Engine [no key 0.00002s] ()
+2026-05-10 17:09:45,763 INFO sqlalchemy.engine.Engine CREATE UNIQUE INDEX ix_finance_journal_entries_reference ON finance_journal_entries (reference)
+2026-05-10 17:09:45,763 INFO sqlalchemy.engine.Engine [no key 0.00002s] ()
+2026-05-10 17:09:45,763 INFO sqlalchemy.engine.Engine 
+CREATE TABLE finance_journal_entry_lines (
+	id CHAR(32) NOT NULL, 
+	created_at DATETIME NOT NULL, 
+	updated_at DATETIME NOT NULL, 
+	created_by VARCHAR, 
+	subsidiary_id VARCHAR, 
+	is_deleted BOOLEAN NOT NULL, 
+	metadata_ JSON NOT NULL, 
+	journal_entry_id CHAR(32) NOT NULL, 
+	account_id CHAR(32) NOT NULL, 
+	description VARCHAR NOT NULL, 
+	debit NUMERIC(20, 4) NOT NULL, 
+	credit NUMERIC(20, 4) NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(journal_entry_id) REFERENCES finance_journal_entries (id), 
+	FOREIGN KEY(account_id) REFERENCES finance_accounts (id)
+)
+
+
+2026-05-10 17:09:45,763 INFO sqlalchemy.engine.Engine [no key 0.00003s] ()
+2026-05-10 17:09:45,764 INFO sqlalchemy.engine.Engine CREATE INDEX ix_finance_journal_entry_lines_subsidiary_id ON finance_journal_entry_lines (subsidiary_id)
+2026-05-10 17:09:45,764 INFO sqlalchemy.engine.Engine [no key 0.00002s] ()
+2026-05-10 17:09:45,764 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:09:45,765 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:09:45,770 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:09:45,770 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 17:09:45,771 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'extensions/finance/finance/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24930]
+INFO:     Started server process [24940]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entries")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entry_lines")
+2026-05-10 17:10:07,259 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 17:10:07,260 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:10:07,261 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:10:07,266 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:10:07,266 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 17:10:07,266 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 17:10:38,583 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:10:38,586 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:10:38,586 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ()
+INFO:     127.0.0.1:51937 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:10:38,589 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:10:59,578 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:10:59,579 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:10:59,579 INFO sqlalchemy.engine.Engine [generated in 0.00009s] ()
+INFO:     127.0.0.1:51958 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:10:59,580 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52248 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:52249 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 17:18:35,277 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:35,277 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:18:35,277 INFO sqlalchemy.engine.Engine [cached since 508.1s ago] ('admin',)
+INFO:     127.0.0.1:52256 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 17:18:35,484 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:18:35,489 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:35,489 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:18:35,489 INFO sqlalchemy.engine.Engine [cached since 508.3s ago] ('admin',)
+INFO:     127.0.0.1:52257 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:18:35,490 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:18:39,842 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:39,843 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:18:39,843 INFO sqlalchemy.engine.Engine [cached since 481.3s ago] ()
+INFO:     127.0.0.1:52260 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:18:39,845 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:18:39,846 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:39,846 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:18:39,847 INFO sqlalchemy.engine.Engine [cached since 460.3s ago] ()
+2026-05-10 17:18:39,848 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:39,848 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:18:39,848 INFO sqlalchemy.engine.Engine [cached since 481.3s ago] ()
+INFO:     127.0.0.1:52260 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:18:39,849 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52261 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:18:39,851 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:18:39,852 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:18:39,852 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:18:39,853 INFO sqlalchemy.engine.Engine [cached since 460.3s ago] ()
+INFO:     127.0.0.1:52261 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:18:39,853 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:50,820 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:50,821 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:50,821 INFO sqlalchemy.engine.Engine [cached since 591.3s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:50,822 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:50,823 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:50,823 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:50,823 INFO sqlalchemy.engine.Engine [cached since 591.3s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:50,824 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:52,204 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:52,204 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:20:52,205 INFO sqlalchemy.engine.Engine [cached since 613.7s ago] ()
+2026-05-10 17:20:52,205 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:52,205 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:52,205 INFO sqlalchemy.engine.Engine [cached since 592.7s ago] ()
+INFO:     127.0.0.1:52296 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:52,207 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:20:52,208 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:52,208 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:52,209 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:52,209 INFO sqlalchemy.engine.Engine [cached since 592.7s ago] ()
+2026-05-10 17:20:52,210 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:52,210 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:20:52,210 INFO sqlalchemy.engine.Engine [cached since 613.7s ago] ()
+INFO:     127.0.0.1:52296 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:52,211 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:20:52,213 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:53,184 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:53,184 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:53,184 INFO sqlalchemy.engine.Engine [cached since 593.7s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:53,185 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:53,186 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:53,186 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:53,186 INFO sqlalchemy.engine.Engine [cached since 593.7s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:53,187 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:57,921 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:57,921 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:20:57,921 INFO sqlalchemy.engine.Engine [cached since 619.4s ago] ()
+2026-05-10 17:20:57,922 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:57,922 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:57,922 INFO sqlalchemy.engine.Engine [cached since 598.4s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:20:57,923 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52297 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:57,924 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:20:57,924 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:57,925 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:20:57,925 INFO sqlalchemy.engine.Engine [cached since 619.4s ago] ()
+2026-05-10 17:20:57,925 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:20:57,925 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:20:57,925 INFO sqlalchemy.engine.Engine [cached since 598.4s ago] ()
+INFO:     127.0.0.1:52295 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:20:57,926 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52297 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:20:57,927 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:27,870 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:27,871 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:27,871 INFO sqlalchemy.engine.Engine [cached since 628.4s ago] ()
+INFO:     127.0.0.1:52310 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:27,873 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:27,875 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:27,875 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:27,875 INFO sqlalchemy.engine.Engine [cached since 628.4s ago] ()
+INFO:     127.0.0.1:52310 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:27,876 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:28,908 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:28,908 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:28,908 INFO sqlalchemy.engine.Engine [cached since 650.4s ago] ()
+2026-05-10 17:21:28,909 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:28,910 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:28,910 INFO sqlalchemy.engine.Engine [cached since 629.4s ago] ()
+INFO:     127.0.0.1:52310 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:28,911 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:28,912 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:28,913 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:28,913 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:28,913 INFO sqlalchemy.engine.Engine [cached since 650.4s ago] ()
+2026-05-10 17:21:28,913 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:28,914 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:28,914 INFO sqlalchemy.engine.Engine [cached since 629.4s ago] ()
+INFO:     127.0.0.1:52310 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:28,915 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:28,916 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:33,150 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:33,151 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:33,151 INFO sqlalchemy.engine.Engine [cached since 633.6s ago] ()
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:33,152 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:33,153 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:33,153 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:33,153 INFO sqlalchemy.engine.Engine [cached since 633.6s ago] ()
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:33,153 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:34,818 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:34,818 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:34,818 INFO sqlalchemy.engine.Engine [cached since 656.3s ago] ()
+2026-05-10 17:21:34,819 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:34,819 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:34,819 INFO sqlalchemy.engine.Engine [cached since 635.3s ago] ()
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:34,820 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:34,822 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:34,822 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:34,823 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:34,823 INFO sqlalchemy.engine.Engine [cached since 656.3s ago] ()
+2026-05-10 17:21:34,823 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:34,823 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:34,823 INFO sqlalchemy.engine.Engine [cached since 635.3s ago] ()
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:34,824 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:34,825 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:36,135 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:36,136 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:36,136 INFO sqlalchemy.engine.Engine [cached since 636.6s ago] ()
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:36,138 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:36,139 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:36,140 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:36,140 INFO sqlalchemy.engine.Engine [cached since 636.6s ago] ()
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:36,141 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:37,600 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:37,600 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:37,600 INFO sqlalchemy.engine.Engine [cached since 659.1s ago] ()
+2026-05-10 17:21:37,601 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:37,601 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:37,601 INFO sqlalchemy.engine.Engine [cached since 638.1s ago] ()
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:37,602 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:37,603 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:37,603 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:37,603 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:21:37,603 INFO sqlalchemy.engine.Engine [cached since 659.1s ago] ()
+INFO:     127.0.0.1:52312 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:21:37,604 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:21:37,604 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:21:37,605 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:21:37,605 INFO sqlalchemy.engine.Engine [cached since 638.1s ago] ()
+INFO:     127.0.0.1:52311 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:21:37,606 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:28:36,540 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:28:36,543 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:28:36,543 INFO sqlalchemy.engine.Engine [cached since 1109s ago] ('admin',)
+INFO:     127.0.0.1:52489 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:28:36,550 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:28:36,552 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:28:36,552 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:28:36,552 INFO sqlalchemy.engine.Engine [cached since 1109s ago] ('admin',)
+INFO:     127.0.0.1:52490 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:28:36,555 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:24,381 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:24,382 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:29:24,382 INFO sqlalchemy.engine.Engine [cached since 1157s ago] ('admin',)
+INFO:     127.0.0.1:52531 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:29:24,384 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:24,386 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:24,386 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:29:24,386 INFO sqlalchemy.engine.Engine [cached since 1157s ago] ('admin',)
+INFO:     127.0.0.1:52532 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:29:24,390 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:27,425 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:27,426 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:29:27,426 INFO sqlalchemy.engine.Engine [cached since 1160s ago] ('admin',)
+INFO:     127.0.0.1:52545 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:29:27,427 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:27,430 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:27,430 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:29:27,430 INFO sqlalchemy.engine.Engine [cached since 1160s ago] ('admin',)
+INFO:     127.0.0.1:52546 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:29:27,431 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:29,433 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:29,433 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:29:29,433 INFO sqlalchemy.engine.Engine [cached since 1131s ago] ()
+2026-05-10 17:29:29,433 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:29,434 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:29:29,434 INFO sqlalchemy.engine.Engine [cached since 1110s ago] ()
+INFO:     127.0.0.1:52547 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52548 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:29:29,436 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:29,436 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:29,436 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:29,436 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:29:29,436 INFO sqlalchemy.engine.Engine [cached since 1131s ago] ()
+2026-05-10 17:29:29,437 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:29:29,437 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:29:29,437 INFO sqlalchemy.engine.Engine [cached since 1110s ago] ()
+INFO:     127.0.0.1:52547 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52548 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:29:29,438 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:29:29,438 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52559 - "OPTIONS /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:30:24,791 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:30:24,793 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entries (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, reference, date, narration, status, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:30:24,793 INFO sqlalchemy.engine.Engine [generated in 0.00024s] ('f039074cc796488fb4116dabc74c5dbf', '2026-05-10 12:00:24.790515', '2026-05-10 12:00:24.790526', None, None, 0, '{}', 'JV/2026/05/357', '2026-05-10', 'Machine bought', 'POSTED', 1000.0)
+2026-05-10 17:30:24,794 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:30:24,796 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:30:24,798 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries 
+WHERE finance_journal_entries.id = ?
+2026-05-10 17:30:24,798 INFO sqlalchemy.engine.Engine [generated in 0.00009s] ('f039074cc796488fb4116dabc74c5dbf',)
+2026-05-10 17:30:24,800 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:30:24,800 INFO sqlalchemy.engine.Engine [generated in 0.00017s] ('600f3678e7cc4ecfbe1e3ff7e3c0aab4', '2026-05-10 12:00:24.799299', '2026-05-10 12:00:24.799317', None, None, 0, '{}', 'f039074cc796488fb4116dabc74c5dbf', '7ce8740111474ac981874544d972a576', 'Machinery', 1000.0, 0.0)
+2026-05-10 17:30:24,802 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:30:24,802 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('7ce8740111474ac981874544d972a576',)
+2026-05-10 17:30:24,804 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:30:24,804 INFO sqlalchemy.engine.Engine [generated in 0.00012s] (1000.0, '7ce8740111474ac981874544d972a576')
+2026-05-10 17:30:24,805 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:30:24,805 INFO sqlalchemy.engine.Engine [cached since 0.004386s ago] ('46a2e3aad40544229f0b98e570096cc2', '2026-05-10 12:00:24.803539', '2026-05-10 12:00:24.803549', None, None, 0, '{}', 'f039074cc796488fb4116dabc74c5dbf', '6d53053f8aa64d06bea84d7f45e52752', 'paid in cash', 0.0, 1000.0)
+2026-05-10 17:30:24,805 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:30:24,805 INFO sqlalchemy.engine.Engine [cached since 0.003306s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 17:30:24,805 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:30:24,806 INFO sqlalchemy.engine.Engine [cached since 0.001496s ago] (-1000.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 17:30:24,806 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:52559 - "POST /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:32:34,100 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:34,102 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:34,102 INFO sqlalchemy.engine.Engine [cached since 1295s ago] ()
+INFO:     127.0.0.1:52600 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:34,104 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:47,032 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:47,033 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:32:47,033 INFO sqlalchemy.engine.Engine [cached since 1329s ago] ()
+2026-05-10 17:32:47,034 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:47,034 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:47,034 INFO sqlalchemy.engine.Engine [cached since 1308s ago] ()
+INFO:     127.0.0.1:52612 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:47,037 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:47,037 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:47,037 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:47,038 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:32:47,038 INFO sqlalchemy.engine.Engine [cached since 1329s ago] ()
+2026-05-10 17:32:47,038 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:47,039 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:47,039 INFO sqlalchemy.engine.Engine [cached since 1308s ago] ()
+INFO:     127.0.0.1:52612 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:32:47,040 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:47,041 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:51,621 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:51,621 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:51,621 INFO sqlalchemy.engine.Engine [cached since 1312s ago] ()
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:51,622 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:51,623 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:51,623 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:51,623 INFO sqlalchemy.engine.Engine [cached since 1312s ago] ()
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:51,624 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:56,172 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:56,173 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:32:56,173 INFO sqlalchemy.engine.Engine [cached since 1338s ago] ()
+2026-05-10 17:32:56,174 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:56,174 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:56,174 INFO sqlalchemy.engine.Engine [cached since 1317s ago] ()
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:32:56,174 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52614 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:56,176 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:32:56,176 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:56,176 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:32:56,176 INFO sqlalchemy.engine.Engine [cached since 1338s ago] ()
+2026-05-10 17:32:56,177 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:32:56,177 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:32:56,177 INFO sqlalchemy.engine.Engine [cached since 1317s ago] ()
+INFO:     127.0.0.1:52613 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:32:56,178 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52614 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:32:56,179 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:33:53,496 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:33:53,497 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entries (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, reference, date, narration, status, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:33:53,497 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('40cd5caf745c43aeb648ab41e608627c', '2026-05-10 12:03:53.495837', '2026-05-10 12:03:53.495855', None, None, 0, '{}', 'JV/2026/05/864', '2026-05-10', '', 'POSTED', 1000.0)
+2026-05-10 17:33:53,498 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:33:53,499 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:33:53,499 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries 
+WHERE finance_journal_entries.id = ?
+2026-05-10 17:33:53,499 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('40cd5caf745c43aeb648ab41e608627c',)
+2026-05-10 17:33:53,501 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:33:53,501 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('21e9afc746824216b460064685240f8b', '2026-05-10 12:03:53.500507', '2026-05-10 12:03:53.500517', None, None, 0, '{}', '40cd5caf745c43aeb648ab41e608627c', '7ce8740111474ac981874544d972a576', 'Machine 2', 0.0, 1000.0)
+2026-05-10 17:33:53,501 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:33:53,501 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('7ce8740111474ac981874544d972a576',)
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] (0.0, '7ce8740111474ac981874544d972a576')
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('abf1608f1d0d429ba3638e0bd5e653a2', '2026-05-10 12:03:53.501965', '2026-05-10 12:03:53.501971', None, None, 0, '{}', '40cd5caf745c43aeb648ab41e608627c', '6d53053f8aa64d06bea84d7f45e52752', 'Cash', 1000.0, 0.0)
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:33:53,502 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 17:33:53,503 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:33:53,503 INFO sqlalchemy.engine.Engine [cached since 208.7s ago] (0.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 17:33:53,503 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:52628 - "POST /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52643 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:52644 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 17:34:03,147 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:03,147 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:34:03,147 INFO sqlalchemy.engine.Engine [cached since 1436s ago] ('admin',)
+INFO:     127.0.0.1:52651 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 17:34:03,342 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:03,348 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:03,348 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:34:03,348 INFO sqlalchemy.engine.Engine [cached since 1436s ago] ('admin',)
+INFO:     127.0.0.1:52652 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:34:03,349 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:06,013 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:06,014 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:34:06,014 INFO sqlalchemy.engine.Engine [cached since 1408s ago] ()
+2026-05-10 17:34:06,014 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:06,014 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:06,014 INFO sqlalchemy.engine.Engine [cached since 1387s ago] ()
+INFO:     127.0.0.1:52653 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:34:06,017 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:06,017 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:06,017 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:06,018 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:34:06,018 INFO sqlalchemy.engine.Engine [cached since 1408s ago] ()
+2026-05-10 17:34:06,018 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:06,018 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:06,018 INFO sqlalchemy.engine.Engine [cached since 1387s ago] ()
+INFO:     127.0.0.1:52653 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:34:06,020 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:06,020 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:08,099 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:08,099 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:08,099 INFO sqlalchemy.engine.Engine [cached since 1389s ago] ()
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:34:08,101 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:08,102 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:08,102 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:08,102 INFO sqlalchemy.engine.Engine [cached since 1389s ago] ()
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:34:08,104 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:09,943 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:09,944 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:34:09,944 INFO sqlalchemy.engine.Engine [cached since 1411s ago] ()
+2026-05-10 17:34:09,944 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:09,944 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:09,944 INFO sqlalchemy.engine.Engine [cached since 1390s ago] ()
+INFO:     127.0.0.1:52653 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:34:09,946 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:09,946 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine [cached since 1390s ago] ()
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:34:09,947 INFO sqlalchemy.engine.Engine [cached since 1411s ago] ()
+INFO:     127.0.0.1:52653 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52654 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:34:09,949 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:34:09,949 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52845 - "OPTIONS /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:42:30,728 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:42:30,729 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entries (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, reference, date, narration, status, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:42:30,729 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('bb29978825e14a9fa60e81adf00e84bb', '2026-05-10 12:12:30.726931', '2026-05-10 12:12:30.726959', None, None, 0, '{}', 'JV/2026/05/460', '2026-05-10', 'test', 'POSTED', 1000.0)
+2026-05-10 17:42:30,730 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:42:30,733 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:42:30,733 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries 
+WHERE finance_journal_entries.id = ?
+2026-05-10 17:42:30,733 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('bb29978825e14a9fa60e81adf00e84bb',)
+2026-05-10 17:42:30,736 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:42:30,736 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('3383322feb984d45b4e43a22a4277b85', '2026-05-10 12:12:30.735419', '2026-05-10 12:12:30.735426', None, None, 0, '{}', 'bb29978825e14a9fa60e81adf00e84bb', '6d53053f8aa64d06bea84d7f45e52752', 'test', 1000.0, 0.0)
+2026-05-10 17:42:30,737 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:42:30,737 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 17:42:30,738 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:42:30,738 INFO sqlalchemy.engine.Engine [cached since 726s ago] (1000.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 17:42:30,739 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:42:30,739 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('065e0284747049dfa77c217cfec6d7b5', '2026-05-10 12:12:30.738439', '2026-05-10 12:12:30.738445', None, None, 0, '{}', 'bb29978825e14a9fa60e81adf00e84bb', '5b85754efa6145ecbd55b0a54d3725b8', 'test', 0.0, 1000.0)
+2026-05-10 17:42:30,739 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:42:30,739 INFO sqlalchemy.engine.Engine [cached since 726s ago] ('5b85754efa6145ecbd55b0a54d3725b8',)
+2026-05-10 17:42:30,740 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:42:30,740 INFO sqlalchemy.engine.Engine [cached since 726s ago] (1000.0, '5b85754efa6145ecbd55b0a54d3725b8')
+2026-05-10 17:42:30,740 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:52845 - "POST /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:43:41,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:43:41,477 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:43:41,477 INFO sqlalchemy.engine.Engine [cached since 1962s ago] ()
+INFO:     127.0.0.1:53149 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:43:41,478 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:19,467 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:19,467 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:44:19,467 INFO sqlalchemy.engine.Engine [cached since 2021s ago] ()
+2026-05-10 17:44:19,468 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:19,468 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:44:19,468 INFO sqlalchemy.engine.Engine [cached since 2000s ago] ()
+INFO:     127.0.0.1:53320 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53321 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:44:19,471 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:19,471 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:30,466 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:30,467 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:44:30,467 INFO sqlalchemy.engine.Engine [cached since 2032s ago] ()
+2026-05-10 17:44:30,467 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:30,467 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:44:30,467 INFO sqlalchemy.engine.Engine [cached since 2011s ago] ()
+INFO:     127.0.0.1:53373 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:44:30,468 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:53374 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:44:30,468 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine [cached since 2048s ago] ()
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:44:46,472 INFO sqlalchemy.engine.Engine [cached since 2027s ago] ()
+INFO:     127.0.0.1:53447 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53446 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:44:46,474 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:46,474 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine [cached since 2027s ago] ()
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:44:46,475 INFO sqlalchemy.engine.Engine [cached since 2048s ago] ()
+INFO:     127.0.0.1:53447 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:44:46,476 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:53446 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:44:46,477 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:44:46,477 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,477 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:44:46,477 INFO sqlalchemy.engine.Engine [cached since 2027s ago] ()
+2026-05-10 17:44:46,477 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:44:46,478 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:44:46,478 INFO sqlalchemy.engine.Engine [cached since 2048s ago] ()
+INFO:     127.0.0.1:53447 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:44:46,478 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:53446 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:44:46,479 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:48:23,479 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:23,479 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:48:23,479 INFO sqlalchemy.engine.Engine [cached since 2296s ago] ('admin',)
+INFO:     127.0.0.1:54387 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:48:23,484 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:48:23,488 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:23,488 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:48:23,488 INFO sqlalchemy.engine.Engine [cached since 2296s ago] ('admin',)
+INFO:     127.0.0.1:54388 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:48:23,491 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:48:26,848 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:26,849 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:48:26,849 INFO sqlalchemy.engine.Engine [cached since 2268s ago] ()
+2026-05-10 17:48:26,849 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:26,849 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:48:26,850 INFO sqlalchemy.engine.Engine [cached since 2247s ago] ()
+INFO:     127.0.0.1:54403 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:48:26,851 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54404 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:48:26,852 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:48:26,853 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:26,854 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:48:26,854 INFO sqlalchemy.engine.Engine [cached since 2268s ago] ()
+2026-05-10 17:48:26,854 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:26,854 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:48:26,854 INFO sqlalchemy.engine.Engine [cached since 2247s ago] ()
+INFO:     127.0.0.1:54403 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:48:26,856 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54404 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:48:26,858 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:48:43,664 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:43,665 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entries (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, reference, date, narration, status, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:48:43,665 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('490bad1c42ed42c8a3d3e92eb969ad39', '2026-05-10 12:18:43.663490', '2026-05-10 12:18:43.663518', None, None, 0, '{}', 'JV/2026/05/919', '2026-05-10', 'test 2', 'POSTED', 10000.0)
+2026-05-10 17:48:43,667 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 17:48:43,669 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:43,670 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries 
+WHERE finance_journal_entries.id = ?
+2026-05-10 17:48:43,670 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('490bad1c42ed42c8a3d3e92eb969ad39',)
+2026-05-10 17:48:43,672 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:48:43,672 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('f87352925d114f1e83eb2c1834679956', '2026-05-10 12:18:43.671666', '2026-05-10 12:18:43.671681', None, None, 0, '{}', '490bad1c42ed42c8a3d3e92eb969ad39', '6d53053f8aa64d06bea84d7f45e52752', 'test 2', 10000.0, 0.0)
+2026-05-10 17:48:43,674 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:48:43,675 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 17:48:43,677 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:48:43,677 INFO sqlalchemy.engine.Engine [cached since 1099s ago] (11000.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 17:48:43,677 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 17:48:43,677 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('5dd3310967254b1a90c9eaa10b821c1e', '2026-05-10 12:18:43.676121', '2026-05-10 12:18:43.676137', None, None, 0, '{}', '490bad1c42ed42c8a3d3e92eb969ad39', '5b85754efa6145ecbd55b0a54d3725b8', 'test 2', 0.0, 10000.0)
+2026-05-10 17:48:43,678 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 17:48:43,678 INFO sqlalchemy.engine.Engine [cached since 1099s ago] ('5b85754efa6145ecbd55b0a54d3725b8',)
+2026-05-10 17:48:43,678 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 17:48:43,678 INFO sqlalchemy.engine.Engine [cached since 1099s ago] (11000.0, '5b85754efa6145ecbd55b0a54d3725b8')
+2026-05-10 17:48:43,679 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:54480 - "POST /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:48:43,683 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:48:43,683 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:48:43,683 INFO sqlalchemy.engine.Engine [cached since 2285s ago] ()
+INFO:     127.0.0.1:54480 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:48:43,684 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54668 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54669 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 17:49:27,890 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:27,890 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:49:27,890 INFO sqlalchemy.engine.Engine [cached since 2361s ago] ('admin',)
+INFO:     127.0.0.1:54684 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 17:49:28,092 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:49:28,098 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:28,098 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 17:49:28,098 INFO sqlalchemy.engine.Engine [cached since 2361s ago] ('admin',)
+INFO:     127.0.0.1:54689 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 17:49:28,099 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:49:30,940 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:30,941 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:49:30,941 INFO sqlalchemy.engine.Engine [cached since 2332s ago] ()
+2026-05-10 17:49:30,942 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:30,943 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:49:30,943 INFO sqlalchemy.engine.Engine [cached since 2311s ago] ()
+INFO:     127.0.0.1:54699 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54698 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:49:30,945 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:49:30,945 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 17:49:30,946 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:30,946 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 17:49:30,946 INFO sqlalchemy.engine.Engine [cached since 2311s ago] ()
+2026-05-10 17:49:30,947 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 17:49:30,947 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 17:49:30,947 INFO sqlalchemy.engine.Engine [cached since 2332s ago] ()
+INFO:     127.0.0.1:54699 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 17:49:30,951 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54698 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 17:49:30,954 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57567 - "OPTIONS /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 18:00:48,567 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 18:00:48,568 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entries (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, reference, date, narration, status, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 18:00:48,568 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('f644117d3b7041d2a5628f599efd384a', '2026-05-10 12:30:48.566545', '2026-05-10 12:30:48.566566', None, None, 0, '{}', 'JV/2026/05/612', '2026-05-10', 'test3', 'POSTED', 1000.0)
+2026-05-10 18:00:48,570 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 18:00:48,572 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 18:00:48,573 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries 
+WHERE finance_journal_entries.id = ?
+2026-05-10 18:00:48,573 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('f644117d3b7041d2a5628f599efd384a',)
+2026-05-10 18:00:48,575 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 18:00:48,575 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('d4e2a59475c74a26955b8405461dfd3e', '2026-05-10 12:30:48.574244', '2026-05-10 12:30:48.574263', None, None, 0, '{}', 'f644117d3b7041d2a5628f599efd384a', '6d53053f8aa64d06bea84d7f45e52752', 'test3', 1000.0, 0.0)
+2026-05-10 18:00:48,576 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 18:00:48,576 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 18:00:48,578 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 18:00:48,578 INFO sqlalchemy.engine.Engine [cached since 1824s ago] (12000.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 18:00:48,578 INFO sqlalchemy.engine.Engine INSERT INTO finance_journal_entry_lines (id, created_at, updated_at, created_by, subsidiary_id, is_deleted, metadata_, journal_entry_id, account_id, description, debit, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-10 18:00:48,578 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('708fa914161e46d1af9d2fb0335d57e4', '2026-05-10 12:30:48.577461', '2026-05-10 12:30:48.577476', None, None, 0, '{}', 'f644117d3b7041d2a5628f599efd384a', '6d53053f8aa64d06bea84d7f45e52752', 'test3', 0.0, 1000.0)
+2026-05-10 18:00:48,579 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.id = ?
+2026-05-10 18:00:48,579 INFO sqlalchemy.engine.Engine [cached since 1824s ago] ('6d53053f8aa64d06bea84d7f45e52752',)
+2026-05-10 18:00:48,581 INFO sqlalchemy.engine.Engine UPDATE finance_accounts SET balance=? WHERE finance_accounts.id = ?
+2026-05-10 18:00:48,581 INFO sqlalchemy.engine.Engine [cached since 1824s ago] (11000.0, '6d53053f8aa64d06bea84d7f45e52752')
+2026-05-10 18:00:48,581 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:57567 - "POST /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 18:00:48,586 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 18:00:48,586 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 18:00:48,587 INFO sqlalchemy.engine.Engine [cached since 3010s ago] ()
+INFO:     127.0.0.1:57567 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 18:00:48,588 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 18:04:27,278 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 18:04:27,279 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 18:04:27,279 INFO sqlalchemy.engine.Engine [cached since 3260s ago] ('admin',)
+INFO:     127.0.0.1:58507 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 18:04:27,281 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 18:04:27,298 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 18:04:27,298 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 18:04:27,298 INFO sqlalchemy.engine.Engine [cached since 3260s ago] ('admin',)
+INFO:     127.0.0.1:58508 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 18:04:27,299 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58678 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58679 - "GET /api/v1/auth/me HTTP/1.1" 401 Unauthorized
+2026-05-10 21:12:22,593 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:22,595 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:12:22,595 INFO sqlalchemy.engine.Engine [cached since 4627s ago] ('admin',)
+INFO:     127.0.0.1:64586 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-05-10 21:12:22,802 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:22,806 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:22,806 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:12:22,806 INFO sqlalchemy.engine.Engine [cached since 4627s ago] ('admin',)
+INFO:     127.0.0.1:64590 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:12:22,807 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:25,213 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:25,213 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:25,213 INFO sqlalchemy.engine.Engine [cached since 4577s ago] ()
+INFO:     127.0.0.1:64604 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:25,215 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:25,216 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:25,217 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:25,217 INFO sqlalchemy.engine.Engine [cached since 4577s ago] ()
+INFO:     127.0.0.1:64604 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:25,218 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:27,335 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:27,336 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:12:27,336 INFO sqlalchemy.engine.Engine [cached since 4600s ago] ()
+2026-05-10 21:12:27,336 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:27,336 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:27,336 INFO sqlalchemy.engine.Engine [cached since 4579s ago] ()
+INFO:     127.0.0.1:64604 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:12:27,338 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:27,340 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine [cached since 4600s ago] ()
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:27,341 INFO sqlalchemy.engine.Engine [cached since 4579s ago] ()
+INFO:     127.0.0.1:64613 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64604 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:12:27,343 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:27,343 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:34,092 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:34,092 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:34,092 INFO sqlalchemy.engine.Engine [cached since 4586s ago] ()
+INFO:     127.0.0.1:64638 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:34,093 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:34,094 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:34,094 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:34,094 INFO sqlalchemy.engine.Engine [cached since 4586s ago] ()
+INFO:     127.0.0.1:64638 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:34,095 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:39,968 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:39,968 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:12:39,968 INFO sqlalchemy.engine.Engine [cached since 4613s ago] ()
+2026-05-10 21:12:39,969 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:39,969 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:39,969 INFO sqlalchemy.engine.Engine [cached since 4592s ago] ()
+INFO:     127.0.0.1:64671 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:12:39,970 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64672 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:39,971 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:12:39,972 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:39,972 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:12:39,972 INFO sqlalchemy.engine.Engine [cached since 4613s ago] ()
+2026-05-10 21:12:39,973 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:12:39,973 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:12:39,973 INFO sqlalchemy.engine.Engine [cached since 4592s ago] ()
+INFO:     127.0.0.1:64671 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:12:39,974 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64672 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:12:39,975 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:13:19,738 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:19,739 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:13:19,739 INFO sqlalchemy.engine.Engine [cached since 4684s ago] ('admin',)
+INFO:     127.0.0.1:64854 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:13:19,746 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:13:19,749 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:19,749 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:13:19,749 INFO sqlalchemy.engine.Engine [cached since 4684s ago] ('admin',)
+INFO:     127.0.0.1:64855 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:13:19,751 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:13:22,132 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:22,133 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:13:22,133 INFO sqlalchemy.engine.Engine [cached since 4655s ago] ()
+2026-05-10 21:13:22,133 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:22,134 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:13:22,134 INFO sqlalchemy.engine.Engine [cached since 4634s ago] ()
+INFO:     127.0.0.1:64866 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+2026-05-10 21:13:22,135 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64865 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:13:22,136 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:13:22,137 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:22,137 INFO sqlalchemy.engine.Engine SELECT finance_accounts.id, finance_accounts.created_at, finance_accounts.updated_at, finance_accounts.created_by, finance_accounts.subsidiary_id, finance_accounts.is_deleted, finance_accounts.metadata_, finance_accounts.code, finance_accounts.name, finance_accounts.type, finance_accounts.is_group, finance_accounts.parent_id, finance_accounts.balance 
+FROM finance_accounts 
+WHERE finance_accounts.is_deleted = 0 ORDER BY finance_accounts.code
+2026-05-10 21:13:22,137 INFO sqlalchemy.engine.Engine [cached since 4634s ago] ()
+2026-05-10 21:13:22,138 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:13:22,138 INFO sqlalchemy.engine.Engine SELECT finance_journal_entries.id, finance_journal_entries.created_at, finance_journal_entries.updated_at, finance_journal_entries.created_by, finance_journal_entries.subsidiary_id, finance_journal_entries.is_deleted, finance_journal_entries.metadata_, finance_journal_entries.reference, finance_journal_entries.date, finance_journal_entries.narration, finance_journal_entries.status, finance_journal_entries.total_amount 
+FROM finance_journal_entries ORDER BY finance_journal_entries.date DESC
+2026-05-10 21:13:22,138 INFO sqlalchemy.engine.Engine [cached since 4655s ago] ()
+INFO:     127.0.0.1:64866 - "GET /api/v1/finance/accounts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64865 - "GET /api/v1/finance/journal-entries HTTP/1.1" 200 OK
+2026-05-10 21:13:22,141 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:13:22,141 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:16:20,200 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:16:20,200 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:16:20,201 INFO sqlalchemy.engine.Engine [cached since 4864s ago] ('admin',)
+INFO:     127.0.0.1:49249 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:16:20,203 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:16:20,233 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:16:20,233 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:16:20,233 INFO sqlalchemy.engine.Engine [cached since 4865s ago] ('admin',)
+INFO:     127.0.0.1:49250 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:16:20,236 INFO sqlalchemy.engine.Engine ROLLBACK
+WARNING:  StatReload detected changes in 'extensions/finance/finance/models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24940]
+INFO:     Started server process [26036]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 21:19:00,965 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:19:00,965 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,967 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 21:19:00,968 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,968 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 21:19:00,968 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:19:00,968 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 21:19:00,968 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:19:00,973 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:19:00,973 INFO sqlalchemy.engine.Engine [generated in 0.00009s] ('admin',)
+2026-05-10 21:19:00,973 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 21:19:01,179 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:19:01,179 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:19:01,179 INFO sqlalchemy.engine.Engine [cached since 0.2067s ago] ('admin',)
+INFO:     127.0.0.1:49962 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:19:01,184 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:19:01,201 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:19:01,202 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:19:01,202 INFO sqlalchemy.engine.Engine [cached since 0.2289s ago] ('admin',)
+INFO:     127.0.0.1:49963 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:19:01,204 INFO sqlalchemy.engine.Engine ROLLBACK
+WARNING:  StatReload detected changes in 'extensions/finance/finance/models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26036]
+INFO:     Started server process [26052]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entry_lines")
+2026-05-10 21:21:55,640 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entries")
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:21:55,641 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 21:21:55,642 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:21:55,646 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:21:55,646 INFO sqlalchemy.engine.Engine [generated in 0.00006s] ('admin',)
+2026-05-10 21:21:55,647 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'extensions/finance/finance/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26052]
+INFO:     Started server process [26059]
+INFO:     Waiting for application startup.
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
+2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("products")
+2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("uoms")
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_accounts")
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_invoices")
+2026-05-10 21:22:24,012 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entry_lines")
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("finance_journal_entries")
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_customer_details")
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotations")
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_quotation_items")
+2026-05-10 21:22:24,013 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,014 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_orders")
+2026-05-10 21:22:24,014 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-05-10 21:22:24,014 INFO sqlalchemy.engine.Engine COMMIT
+2026-05-10 21:22:24,014 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:22:24,019 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:22:24,019 INFO sqlalchemy.engine.Engine [generated in 0.00008s] ('admin',)
+2026-05-10 21:22:24,019 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2026-05-10 21:23:41,270 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:23:41,271 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:23:41,271 INFO sqlalchemy.engine.Engine [cached since 77.25s ago] ('admin',)
+INFO:     127.0.0.1:51163 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:23:41,274 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:23:41,278 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:23:41,278 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:23:41,278 INFO sqlalchemy.engine.Engine [cached since 77.26s ago] ('admin',)
+INFO:     127.0.0.1:51164 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:23:41,283 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:24:41,190 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:24:41,191 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:24:41,191 INFO sqlalchemy.engine.Engine [cached since 137.2s ago] ('admin',)
+INFO:     127.0.0.1:51425 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:24:41,193 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-05-10 21:24:41,217 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-05-10 21:24:41,218 INFO sqlalchemy.engine.Engine SELECT users.id, users.created_at, users.updated_at, users.created_by, users.subsidiary_id, users.is_deleted, users.metadata_, users.username, users.email, users.hashed_password, users.full_name, users.is_active, users.is_superuser 
+FROM users 
+WHERE users.username = ?
+2026-05-10 21:24:41,218 INFO sqlalchemy.engine.Engine [cached since 137.2s ago] ('admin',)
+INFO:     127.0.0.1:51426 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+2026-05-10 21:24:41,220 INFO sqlalchemy.engine.Engine ROLLBACK

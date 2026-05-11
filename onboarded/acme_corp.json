@@ -1,7 +1,7 @@
 {
   "client_id": "acme_corp",
   "client_name": "Acme Corporation",
-  "database_url": "sqlite+aiosqlite:///./acme_corp.db",
+  "database_url": "sqlite+aiosqlite:///./instances/acme_corp/data/acme_corp.db",
   "licensed_modules": [
     "finance",
     "sales",

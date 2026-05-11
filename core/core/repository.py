@@ -2,6 +2,7 @@ from typing import TypeVar, Type, Optional, Sequence, Generic, Any
 from sqlmodel import select, SQLModel
 from sqlalchemy.ext.asyncio import AsyncSession
 from .database import subsidiary_id_context
+from .middleware import correlation_id_context, current_user_id_context, current_user_name_context
 import uuid
 
 ModelType = TypeVar("ModelType", bound=SQLModel)
@@ -44,6 +45,12 @@ class BaseRepository(Generic[ModelType]):
             subs_id = subsidiary_id_context.get()
             if subs_id:
                 obj_in.subsidiary_id = subs_id
+
+        # Auto-inject created_by from current user context
+        if hasattr(obj_in, "created_by") and getattr(obj_in, "created_by", None) is None:
+            user_name = current_user_name_context.get()
+            if user_name:
+                obj_in.created_by = user_name
         
         session.add(obj_in)
         await session.commit()

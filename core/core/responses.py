@@ -1,25 +1,28 @@
-from typing import Any, Optional, Dict
+from typing import Optional, Any
 from pydantic import BaseModel
-from fastapi import Request, FastAPI, status
+from fastapi import Request, FastAPI, status, Query
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 import logging
 
 logger = logging.getLogger(__name__)
 
+
 class StandardResponse(BaseModel):
     status: str
     data: Optional[Any] = None
-    metadata: Optional[Dict[str, Any]] = None
+    metadata: Optional[dict[str, Any]] = None
     error: Optional[str] = None
 
-def success_response(data: Any, metadata: Optional[Dict[str, Any]] = None) -> StandardResponse:
+
+def success_response(data: Any, metadata: Optional[dict[str, Any]] = None) -> StandardResponse:
     return StandardResponse(
         status="success",
         data=data,
         metadata=metadata,
         error=None
     )
+
 
 def error_response(error_msg: str) -> StandardResponse:
     return StandardResponse(
@@ -28,6 +31,27 @@ def error_response(error_msg: str) -> StandardResponse:
         metadata=None,
         error=error_msg
     )
+
+
+def paginated_response(
+    data: Any,
+    total: int,
+    page: int,
+    page_size: int
+) -> StandardResponse:
+    """Wraps data with pagination metadata in the standard envelope."""
+    return StandardResponse(
+        status="success",
+        data=data,
+        metadata={
+            "total": total,
+            "page": page,
+            "page_size": page_size,
+            "total_pages": (total + page_size - 1) // page_size if page_size > 0 else 0
+        },
+        error=None
+    )
+
 
 def setup_exception_handlers(app: FastAPI):
     """
