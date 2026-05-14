@@ -1,10 +1,10 @@
-# ERP Factory Backend
+# BES Factory Backend
 
-This is the "Repo-Ready" Modular Monolith backend for the ERP Factory. It uses a PDM-based monorepo structure to maintain strict boundaries between the Core Kernel, Product Extensions, and Client Instances.
+This is the "Repo-Ready" Modular Monolith backend for the BES Factory. It uses a PDM-based monorepo structure to maintain strict boundaries between the Core Kernel, Product Extensions, and Client Instances.
 
 ## Directory Structure
 
-- `core/`: The ERP Kernel (Auth, DB Foundation, Event Bus, Base Models).
+- `core/`: The BES Kernel (Auth, DB Foundation, Event Bus, Base Models).
 - `extensions/`: Shared Product Modules (e.g., Sales, Finance).
 - `instances/`: Client-specific deployment entry points.
 

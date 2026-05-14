@@ -1,9 +1,9 @@
 """
-ERP Audit & Traceability System.
+BES Audit & Traceability System.
 
 Provides immutable, tamper-proof audit logging, field-level change tracking,
 persistent event storage, and real-time SSE broadcasting. This is the backbone
-of the ERP's process transparency — feeding the frontend Timeline,
+of the BES's process transparency — feeding the frontend Timeline,
 ProcessPipeline, and Activity Feed components with real data.
 
 Design: "Fixed Envelope + Flexible JSON Payload"
@@ -61,7 +61,7 @@ def _utc_now() -> datetime:
 class ImmutableBase(SQLModel):
     """
     Base for audit/compliance tables that must be tamper-proof.
-    Unlike ERPBase, this has NO is_deleted, NO updated_at mutation.
+    Unlike BESBase, this has NO is_deleted, NO updated_at mutation.
     Records are write-once, read-many.
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
@@ -72,7 +72,7 @@ class ImmutableBase(SQLModel):
 
 class AuditLog(ImmutableBase, table=True):
     """
-    Immutable record of every business action in the ERP.
+    Immutable record of every business action in the BES.
     This is the single source of truth for "what happened?"
     """
     __tablename__ = "audit_log"
@@ -143,7 +143,7 @@ class EventStore(ImmutableBase, table=True):
 class AuditService:
     """
     Central service for recording audit trail entries.
-    Every mutation in the ERP should flow through this service.
+    Every mutation in the BES should flow through this service.
     """
 
     @staticmethod

@@ -1,7 +1,7 @@
 Metadata-Version: 2.4
 Name: core
 Version: 0.1.0
-Summary: ERP Core Kernel
+Summary: BES Core Kernel
 Requires-Python: >=3.10
 Requires-Dist: sqlmodel
 Requires-Dist: fastapi

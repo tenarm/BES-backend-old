@@ -1,13 +1,13 @@
-INFO:     Will watch for changes in these directories: ['/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend']
+INFO:     Will watch for changes in these directories: ['/Users/bvk/BVK_Workspace/BES_NEW/bes-backend']
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 INFO:     Started reloader process [23451] using StatReload
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 INFO:     Started server process [23453]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
 2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:33:28,877 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -57,13 +57,13 @@ INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [23453]
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 INFO:     Started server process [23535]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
 2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:35:31,858 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -98,13 +98,13 @@ INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [23535]
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 INFO:     Started server process [23547]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
 2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:36:52,028 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -139,7 +139,7 @@ INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [23547]
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 Could not load router for inventory: No module named 'inventory'
 Could not load router for hr: No module named 'hr'
 Could not load router for crm: No module named 'crm'
@@ -170,9 +170,9 @@ Could not load models for marketing: No module named 'marketing'
 Could not load models for service_desk: No module named 'service_desk'
 Could not load models for education: No module named 'education'
 Could not load models for settings: No module named 'settings'
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
 2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:37:06,172 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -207,7 +207,7 @@ INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [23571]
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 Could not load router for inventory: No module named 'inventory'
 Could not load router for hr: No module named 'hr'
 Could not load router for crm: No module named 'crm'
@@ -238,9 +238,9 @@ Could not load models for marketing: No module named 'marketing'
 Could not load models for service_desk: No module named 'service_desk'
 Could not load models for education: No module named 'education'
 Could not load models for settings: No module named 'settings'
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
 2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:37:16,855 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -289,26 +289,26 @@ INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [23584]
-Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/core/core/database.py)
+Could not load router for sales: cannot import name 'get_session' from 'core.database' (/Users/bvk/BVK_Workspace/BES_NEW/bes-backend/core/core/database.py)
 INFO:     Started server process [23630]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:39:14,013 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -346,23 +346,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [23630]
 INFO:     Started server process [23648]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 15:39:50,476 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -489,23 +489,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [23648]
 INFO:     Started server process [24930]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 17:09:45,758 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -596,23 +596,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [24930]
 INFO:     Started server process [24940]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 17:10:07,258 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -1599,23 +1599,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [24940]
 INFO:     Started server process [26036]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 21:19:00,965 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 21:19:00,965 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 21:19:00,966 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -1666,23 +1666,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [26036]
 INFO:     Started server process [26052]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 21:21:55,639 INFO sqlalchemy.engine.Engine [raw sql] ()
@@ -1723,23 +1723,23 @@ INFO:     Application shutdown complete.
 INFO:     Finished server process [26052]
 INFO:     Started server process [26059]
 INFO:     Waiting for application startup.
-DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/finance
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/sales
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/inventory
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/hr
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/crm
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/manufacturing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/project_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/supply_chain
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/quality_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/asset_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/bi
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/document_management
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/marketing
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/service_desk
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/education
-DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/ERP_NEW/erp-backend/extensions/settings
+DEBUG: BASE_DIR resolved to /Users/bvk/BVK_Workspace/BES_NEW/bes-backend
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/finance
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/sales
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/inventory
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/hr
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/crm
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/manufacturing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/project_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/supply_chain
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/quality_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/asset_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/bi
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/document_management
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/marketing
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/service_desk
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/education
+DEBUG: Added to sys.path: /Users/bvk/BVK_Workspace/BES_NEW/bes-backend/extensions/settings
 2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("customers")
 2026-05-10 21:22:24,011 INFO sqlalchemy.engine.Engine [raw sql] ()

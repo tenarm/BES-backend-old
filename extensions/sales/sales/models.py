@@ -4,7 +4,7 @@ from enum import Enum
 from typing import Optional, List
 from sqlmodel import SQLModel, Field, Relationship
 from sqlalchemy import Column, Numeric
-from core.models import ERPBase, Customer, Product
+from core.models import BESBase, Customer, Product
 
 class QuotationStatus(str, Enum):
     DRAFT = "DRAFT"
@@ -13,7 +13,7 @@ class QuotationStatus(str, Enum):
     REJECTED = "REJECTED"
     EXPIRED = "EXPIRED"
 
-class SalesCustomerDetails(ERPBase, table=True):
+class SalesCustomerDetails(BESBase, table=True):
     __tablename__ = "sales_customer_details"
     customer_id: uuid.UUID = Field(foreign_key="customers.id", unique=True)
     credit_limit: Decimal = Field(
@@ -22,7 +22,7 @@ class SalesCustomerDetails(ERPBase, table=True):
     )
     discount_tier: int = Field(default=1)
 
-class Quotation(ERPBase, table=True):
+class Quotation(BESBase, table=True):
     __tablename__ = "sales_quotations"
     customer_id: uuid.UUID = Field(foreign_key="customers.id")
     posting_date: Optional[str] = None
@@ -36,7 +36,7 @@ class Quotation(ERPBase, table=True):
     # Relationships
     items: List["QuotationItem"] = Relationship(back_populates="quotation")
 
-class QuotationItem(ERPBase, table=True):
+class QuotationItem(BESBase, table=True):
     __tablename__ = "sales_quotation_items"
     quotation_id: uuid.UUID = Field(foreign_key="sales_quotations.id")
     product_id: uuid.UUID = Field(foreign_key="products.id")
@@ -56,7 +56,7 @@ class QuotationItem(ERPBase, table=True):
     # Relationships
     quotation: Quotation = Relationship(back_populates="items")
 
-class SalesOrder(ERPBase, table=True):
+class SalesOrder(BESBase, table=True):
     __tablename__ = "sales_orders"
     customer_id: uuid.UUID = Field(foreign_key="customers.id")
     total_amount: Decimal = Field(

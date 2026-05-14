@@ -1,7 +1,7 @@
 [project]
-name = "erp-factory"
+name = "bes-factory"
 version = "0.1.0"
-description = "Modular ERP Factory Monorepo"
+description = "Modular BES Factory Monorepo"
 requires-python = ">=3.10"
 dependencies = [
     "sqlmodel",

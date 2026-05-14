@@ -8,9 +8,9 @@ from sqlalchemy import Column, JSON, Numeric, event
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
-class ERPBase(SQLModel):
+class BESBase(SQLModel):
     """
-    Unified base model for all ERP tables.
+    Unified base model for all BES tables.
     Provides UUID primary keys, audit trail, multi-org scoping,
     soft-deletion, and a JSONB expansion joint.
     """
@@ -24,7 +24,7 @@ class ERPBase(SQLModel):
     metadata_: dict[str, Any] = Field(default_factory=dict, sa_type=JSON)
 
 # --- SQLAlchemy event to auto-update `updated_at` on modification ---
-@event.listens_for(ERPBase, "before_update", propagate=True)
+@event.listens_for(BESBase, "before_update", propagate=True)
 def receive_before_update(mapper, connection, target):
     """Automatically set updated_at to current UTC time before any update."""
     target.updated_at = utc_now()
@@ -32,7 +32,7 @@ def receive_before_update(mapper, connection, target):
 
 # --- Core Domain Models ---
 
-class Role(ERPBase, table=True):
+class Role(BESBase, table=True):
     """
     Role-based access control: each role defines a permission set
     stored as a nested JSON structure matching admin_permissions.json format.
@@ -43,7 +43,7 @@ class Role(ERPBase, table=True):
     permissions: dict[str, Any] = Field(default_factory=dict, sa_type=JSON)
 
 
-class User(ERPBase, table=True):
+class User(BESBase, table=True):
     __tablename__ = "users"
     username: str = Field(index=True, unique=True)
     email: str = Field(index=True, unique=True)
@@ -54,7 +54,7 @@ class User(ERPBase, table=True):
     role_id: Optional[uuid.UUID] = Field(default=None, foreign_key="roles.id")
 
 
-class RefreshToken(ERPBase, table=True):
+class RefreshToken(BESBase, table=True):
     """
     Stores issued refresh tokens for revocation support.
     Each row represents one active refresh token.
@@ -66,14 +66,14 @@ class RefreshToken(ERPBase, table=True):
     is_revoked: bool = Field(default=False)
 
 
-class Customer(ERPBase, table=True):
+class Customer(BESBase, table=True):
     __tablename__ = "customers"
     name: str
     tax_id: Optional[str] = None
     primary_email: Optional[str] = None
 
 
-class Product(ERPBase, table=True):
+class Product(BESBase, table=True):
     __tablename__ = "products"
     name: str
     sku: str = Field(index=True, unique=True)
@@ -85,7 +85,7 @@ class Product(ERPBase, table=True):
     uom_id: Optional[uuid.UUID] = Field(default=None, foreign_key="uoms.id")
 
 
-class UOM(ERPBase, table=True):
+class UOM(BESBase, table=True):
     __tablename__ = "uoms"
     code: str = Field(index=True, unique=True)  # e.g., 'KG', 'EA'
     name: str  # e.g., 'Kilograms', 'Each'

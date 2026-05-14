@@ -1,7 +1,7 @@
 import uuid
 from typing import Optional, List
 from sqlmodel import SQLModel, Field, Relationship
-from core.models import ERPBase
+from core.models import BESBase
 from decimal import Decimal
 from enum import Enum
 from sqlalchemy import Column, Numeric
@@ -22,7 +22,7 @@ class JournalEntryStatus(str, Enum):
 
 # --- DB Table Models (no API schemas here) ---
 
-class Account(ERPBase, table=True):
+class Account(BESBase, table=True):
     __tablename__ = "finance_accounts"
 
     code: str = Field(index=True, unique=True)
@@ -36,7 +36,7 @@ class Account(ERPBase, table=True):
     )
 
 
-class Invoice(ERPBase, table=True):
+class Invoice(BESBase, table=True):
     __tablename__ = "finance_invoices"
     customer_id: uuid.UUID = Field(foreign_key="customers.id")
     amount: Decimal = Field(
@@ -46,7 +46,7 @@ class Invoice(ERPBase, table=True):
     is_paid: bool = Field(default=False)
 
 
-class JournalEntry(ERPBase, table=True):
+class JournalEntry(BESBase, table=True):
     __tablename__ = "finance_journal_entries"
 
     date: str  # ISO Date string YYYY-MM-DD
@@ -55,7 +55,7 @@ class JournalEntry(ERPBase, table=True):
     status: JournalEntryStatus = Field(default=JournalEntryStatus.DRAFT)
 
 
-class JournalEntryLine(ERPBase, table=True):
+class JournalEntryLine(BESBase, table=True):
     __tablename__ = "finance_journal_entry_lines"
 
     journal_entry_id: uuid.UUID = Field(foreign_key="finance_journal_entries.id")

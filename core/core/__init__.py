@@ -1,1 +1,1 @@
-"""ERP Core Kernel"""
+"""BES Core Kernel"""

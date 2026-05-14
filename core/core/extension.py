@@ -5,7 +5,7 @@ from fastapi import APIRouter
 
 class ExtensionManifest(ABC):
     """
-    Formal contract for ERP extension modules.
+    Formal contract for BES extension modules.
     
     Every extension MUST implement this manifest to be discoverable
     by the dynamic bootstrapper. This replaces the implicit convention

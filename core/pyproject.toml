@@ -1,7 +1,7 @@
 [project]
 name = "core"
 version = "0.1.0"
-description = "ERP Core Kernel"
+description = "BES Core Kernel"
 requires-python = ">=3.10"
 dependencies = [
     "sqlmodel",

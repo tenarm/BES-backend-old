@@ -112,7 +112,7 @@ async def lifespan(app: FastAPI):
 
 # --- 3. App Initialization ---
 app = FastAPI(
-    title=client_config.get("client_name", "Dynamic ERP"),
+    title=client_config.get("client_name", "Dynamic BES"),
     lifespan=lifespan,
     version="0.1.0"
 )

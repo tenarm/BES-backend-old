@@ -291,7 +291,7 @@ async def seed_admin_user(session: AsyncSession):
 
     admin = User(
         username="admin",
-        email="admin@erp.com",
+        email="admin@bes.com",
         hashed_password=get_password_hash(admin_password),
         full_name="System Administrator",
         is_superuser=True,

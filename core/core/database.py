@@ -16,7 +16,7 @@ def get_engine(database_url: str | None = None) -> AsyncEngine:
     Caches engines by URL to avoid creating duplicates.
     SQL echo is controlled via the SQL_ECHO environment variable.
     """
-    url = database_url or os.environ.get("DATABASE_URL", "sqlite+aiosqlite:///./erp.db")
+    url = database_url or os.environ.get("DATABASE_URL", "sqlite+aiosqlite:///./bes.db")
     if url not in _engines:
         echo = os.getenv("SQL_ECHO", "false").lower() == "true"
         _engines[url] = create_async_engine(url, echo=echo)
