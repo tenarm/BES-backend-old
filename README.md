@@ -1,47 +1,56 @@
 # BES Factory Backend
 
-This is the "Repo-Ready" Modular Monolith backend for the BES Factory. It uses a PDM-based monorepo structure to maintain strict boundaries between the Core Kernel, Product Extensions, and Client Instances.
+This is the modular monorepo for the **BES (Business Execution System)** backend, built using [FastAPI](https://fastapi.tiangolo.com/), [SQLModel](https://sqlmodel.tiangolo.com/), and [PDM](https://pdm-project.org/).
 
-## Directory Structure
+## 🏗️ Architecture
 
-- `core/`: The BES Kernel (Auth, DB Foundation, Event Bus, Base Models).
-- `extensions/`: Shared Product Modules (e.g., Sales, Finance).
-- `instances/`: Client-specific deployment entry points.
+The backend follows a **Kernel-and-Plugin** structure within a PDM workspace.
 
-## Getting Started
+- **`core/`**: The BES Kernel. Contains the foundation: Auth, DB Session management, RBAC logic, Event Bus, and Base Models (`BESBase`).
+- **`extensions/`**: Domain-specific modules (Finance, HR, Sales, etc.). These depend on `core` but are isolated from each other.
+- **`instances/`**: Deployment entry points. An instance "fuses" the Core with a set of licensed Extensions for a specific client.
+- **`onboarded/`**: JSON configuration files for each client instance.
+
+---
+
+## 🚀 Getting Started
 
 ### 1. Requirements
 - Python 3.10+
 - [PDM](https://pdm-project.org/)
 
 ### 2. Installation
-Install all dependencies for the workspace:
 ```bash
 pdm install
 ```
 
-### 3. Activating the Environment
-To activate the virtual environment manually:
+### 3. Running an Instance
+To run the server for a specific client (e.g., Acme Corp):
 ```bash
-source .venv/bin/activate
+pdm run uvicorn instances.acme_corp.acme_corp.main:app --reload
 ```
 
-## Running the Server
+### 4. API Documentation
+Once running, visit:
+- **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- **Bootstrap Info**: [http://127.0.0.1:8000/api/v1/bootstrap](http://127.0.0.1:8000/api/v1/bootstrap)
 
-In this architecture, you run a specific **Instance** rather than individual modules.
-navigate to their location
+---
 
-### Run Acme Corp Instance
-```bash
-pdm run uvicorn acme_corp.main:app --reload
+## 🛠️ Development Workflow
+
+### Adding a New Extension
+Use the AI assistant with the **`create-extension`** skill to scaffold a new module. This ensures all layers (models, schemas, services, routers, events) are correctly created.
+
+### Database Migrations
+For Day 1, the backend performs a "Self-Healing" boot:
+```python
+SQLModel.metadata.create_all(engine)
 ```
-Once running, you can access:
-- **API Documentation**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **Bootstrap Endpoint**: [http://127.0.0.1:8000/api/v1/bootstrap](http://127.0.0.1:8000/api/v1/bootstrap)
+This automatically creates missing tables in the client's dedicated database based on the active extensions.
 
-## Architectural Rules
+---
 
-1. **Strict Dependency Direction**: Extensions can import from `core`, but `core` must NEVER import from extensions.
-2. **Module Isolation**: Modules (e.g., Sales and Finance) must not import from each other directly. Use the **Event Bus** for cross-module communication.
-3. **No Cross-Module Joins**: Avoid SQL joins across different domain tables. Perform separate queries and link by ID to maintain future repository independence.
-4. **Master Data**: Follow the Hybrid Strategy (Base Table in Core + Detail Table in Extension).
+## 📜 Coding Rules
+All backend code MUST comply with the **[Backend Coding Rules](../.gemini/rules/backend.md)**.
+Specifically, remember the **Money Rule**: Never use `float` for financial values; always use `Decimal`.

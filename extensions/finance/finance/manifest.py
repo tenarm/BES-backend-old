@@ -1,4 +1,3 @@
-"""Finance extension manifest — formal contract for the bootstrapper."""
 from fastapi import APIRouter
 from core.extension import ExtensionManifest
 
@@ -13,8 +12,8 @@ class FinanceManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import Account, Invoice, JournalEntry, JournalEntryLine
-        return [Account, Invoice, JournalEntry, JournalEntryLine]
+        from .models import FinanceRecord
+        return [FinanceRecord]
 
     def get_event_handlers(self):
         from .events import register_event_handlers

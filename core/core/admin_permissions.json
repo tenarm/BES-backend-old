@@ -15,7 +15,9 @@
     "project_cost_accounting": { "read": true, "write": true, "delete": true },
     "intercompany": { "read": true, "write": true, "delete": true },
     "mis_reporting": { "read": true, "write": true, "delete": true },
-    "audit_trail": { "read": true, "write": true, "delete": true }
+    "audit_trail": { "read": true, "write": true, "delete": true },
+    "vendors": { "read": true, "write": true, "delete": true },
+    "purchase_invoices": { "read": true, "write": true, "delete": true }
   },
   "sales": {
     "customer_master": { "read": true, "write": true, "delete": true },

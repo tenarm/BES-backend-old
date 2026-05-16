@@ -73,6 +73,14 @@ class Customer(BESBase, table=True):
     primary_email: Optional[str] = None
 
 
+class Vendor(BESBase, table=True):
+    __tablename__ = "vendors"
+    name: str
+    tax_id: Optional[str] = None
+    primary_email: Optional[str] = None
+    payment_terms: Optional[str] = None  # e.g., "Net 30"
+
+
 class Product(BESBase, table=True):
     __tablename__ = "products"
     name: str
