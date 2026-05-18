@@ -17,6 +17,11 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/v1/auth", tags=["Authentication"])
 
+# Fix #10: Audit endpoints separated from auth endpoints.
+# Auth = identity (login/refresh/revoke/me).
+# Audit = observability (timelines, chains, SSE stream).
+audit_router = APIRouter(prefix="/api/v1/audit", tags=["Audit & Observability"])
+
 
 # --- Schemas ---
 class RefreshRequest(BaseModel):
@@ -120,18 +125,18 @@ async def revoke(
 @router.get("/me")
 async def get_me(
     user: User = Depends(get_current_user),
-    session: AsyncSession = Depends(get_async_session)
 ):
-    # Load the user's role permissions
-    permissions = {}
-    if user.is_superuser:
-        permissions = PERMISSIONS_SCHEMA
-    elif user.role_id:
-        role_stmt = select(Role).where(Role.id == user.role_id)
-        role_result = await session.execute(role_stmt)
-        role = role_result.scalars().first()
-        if role:
-            permissions = role.permissions
+    """
+    Returns the authenticated user's profile and their full role permission set.
+
+    Contract:
+    - Returns complete permissions for the user's assigned role.
+    - Does NOT filter to licensed modules — that is the responsibility of
+      /bootstrap (instance-level), which knows the client's LICENSED_MODULES.
+    - No second DB query: get_current_user() already loaded
+      user._cached_permissions eagerly.
+    """
+    permissions = get_user_permissions(user)
 
     return {
         "id": str(user.id),
@@ -143,8 +148,8 @@ async def get_me(
     }
 
 
-# --- Audit Timeline Endpoints ---
-@router.get("/audit/{entity_type}/{entity_id}")
+# --- Audit Timeline Endpoints (on audit_router, not auth router) ---
+@audit_router.get("/{entity_type}/{entity_id}")
 async def get_entity_audit_timeline(
     entity_type: str,
     entity_id: str,
@@ -159,7 +164,7 @@ async def get_entity_audit_timeline(
     return {"status": "success", "data": timeline}
 
 
-@router.get("/audit/chain/{correlation_id}")
+@audit_router.get("/chain/{correlation_id}")
 async def get_correlation_chain(
     correlation_id: str,
     user: User = Depends(get_current_user),
@@ -171,8 +176,8 @@ async def get_correlation_chain(
     return {"status": "success", "data": chain}
 
 
-# --- SSE: Real-Time Activity Stream ---
-@router.get("/audit/stream")
+# --- SSE: Real-Time Activity Stream (on audit_router) ---
+@audit_router.get("/stream")
 async def audit_sse_stream(
     module: str | None = None,
     entity_type: str | None = None,
@@ -238,16 +243,6 @@ async def seed_roles(session: AsyncSession):
             "name": "admin",
             "description": "Full administrative access to all modules and actions",
             "permissions": PERMISSIONS_SCHEMA
-        },
-        {
-            "name": "manager",
-            "description": "Read and write access to all modules, no delete privileges",
-            "permissions": generate_manager_permissions()
-        },
-        {
-            "name": "staff",
-            "description": "Read-only access across all licensed modules",
-            "permissions": generate_staff_permissions()
         }
     ]
 
@@ -300,3 +295,29 @@ async def seed_admin_user(session: AsyncSession):
     session.add(admin)
     await session.commit()
     logger.info("Seeded admin user")
+
+
+async def cleanup_expired_tokens(session: AsyncSession) -> int:
+    """
+    Fix #14: Purges revoked and expired RefreshToken rows.
+
+    RefreshToken rows accumulate indefinitely without cleanup. Call this
+    from the instance lifespan (e.g., on startup or via a scheduler) to
+    keep the table lean and revocation checks fast.
+
+    Returns the number of rows deleted.
+    """
+    from sqlalchemy import delete as sa_delete
+    from datetime import datetime, timezone
+
+    cutoff = datetime.now(timezone.utc)
+    stmt = sa_delete(RefreshToken).where(
+        (RefreshToken.is_revoked == True) |  # noqa: E712
+        (RefreshToken.expires_at < cutoff)
+    )
+    result = await session.execute(stmt)
+    await session.commit()
+    deleted = result.rowcount
+    if deleted:
+        logger.info(f"[TokenCleanup] Purged {deleted} expired/revoked refresh tokens.")
+    return deleted

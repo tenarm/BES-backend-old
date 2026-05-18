@@ -55,17 +55,13 @@ class InMemoryEventBus(AbstractEventBus):
             except Exception:
                 pass
 
-        # Persist event to EventStore (best-effort — don't block emission)
-        await self._persist_event(event_payload)
-
         handlers = self._subscribers.get(event_payload.event_type, [])
         if not handlers:
             logger.debug(f"No handlers found for event: {event_payload.event_type}")
-            return
 
         handler_count = len(handlers)
         completed = 0
-        errors = []
+        errors: list[str] = []
 
         async def safe_execute(handler: Callable, payload: BaseEventPayload):
             nonlocal completed
@@ -74,23 +70,45 @@ class InMemoryEventBus(AbstractEventBus):
                 completed += 1
             except Exception as e:
                 errors.append(str(e))
-                logger.error(f"Event handler {handler.__name__} failed for {payload.event_type}: {e}", exc_info=True)
+                logger.error(
+                    f"Event handler {handler.__name__} failed for "
+                    f"{payload.event_type}: {e}", exc_info=True
+                )
 
-        await asyncio.gather(*(safe_execute(handler, event_payload) for handler in handlers))
+        if handlers:
+            await asyncio.gather(*(safe_execute(h, event_payload) for h in handlers))
 
-        # Update EventStore with processing result
-        await self._update_event_status(
-            event_payload.event_id,
-            handler_count,
-            completed,
-            errors
-        )
+        # Fix #6: Single DB session after handlers complete — was previously
+        # two sessions (persist on EMITTED + update status after handlers).
+        # Now we know the final outcome before touching the DB.
+        await self._persist_and_update_event(event_payload, handler_count, completed, errors)
 
-    async def _persist_event(self, payload: BaseEventPayload):
-        """Persists the event to EventStore for audit trail and replay."""
+    async def _persist_and_update_event(
+        self,
+        payload: BaseEventPayload,
+        handler_count: int,
+        completed: int,
+        errors: list[str],
+    ):
+        """
+        Persists the event to EventStore with its final status in ONE session.
+
+        Fix #6: Replaces the former _persist_event() + _update_event_status()
+        pair which opened two separate DB connections per event. Running handlers
+        first means we can write the definitive status in a single commit.
+        """
         try:
             from .audit import EventStore
             from .database import get_session_maker
+
+            if errors and completed == 0:
+                status = "FAILED"
+            elif errors:
+                status = "PARTIAL"
+            elif handler_count > 0:
+                status = "PROCESSED"
+            else:
+                status = "EMITTED"  # No subscribers — event recorded but unhandled
 
             session_maker = get_session_maker()
             async with session_maker() as session:
@@ -100,37 +118,17 @@ class InMemoryEventBus(AbstractEventBus):
                     emitter_module=payload.emitter_module,
                     correlation_id=payload.correlation_id,
                     payload=payload.data,
-                    status="EMITTED",
-                    handler_count=len(self._subscribers.get(payload.event_type, [])),
+                    status=status,
+                    handler_count=handler_count,
+                    handlers_completed=completed,
+                    processed_at=datetime.now(timezone.utc),
+                    error_message="; ".join(errors) if errors else None,
                 )
                 session.add(event_record)
                 await session.commit()
         except Exception as e:
             logger.warning(f"Could not persist event {payload.event_type}: {e}")
 
-    async def _update_event_status(self, event_id: uuid.UUID, total: int, completed: int, errors: list):
-        """Updates the EventStore with processing results."""
-        try:
-            from .audit import EventStore
-            from .database import get_session_maker
-            from sqlmodel import select
-
-            session_maker = get_session_maker()
-            async with session_maker() as session:
-                stmt = select(EventStore).where(EventStore.id == event_id)
-                result = await session.execute(stmt)
-                record = result.scalars().first()
-                if record:
-                    record.status = "PROCESSED" if completed == total else "FAILED"
-                    record.handlers_completed = completed
-                    record.processed_at = datetime.now(timezone.utc)
-                    if errors:
-                        record.error_message = "; ".join(errors)
-                        record.status = "FAILED" if completed == 0 else "PARTIAL"
-                    session.add(record)
-                    await session.commit()
-        except Exception as e:
-            logger.warning(f"Could not update event status: {e}")
 
 # Singleton instance
 event_bus: AbstractEventBus = InMemoryEventBus()

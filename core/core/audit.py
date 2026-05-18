@@ -28,27 +28,36 @@ logger = logging.getLogger(__name__)
 # Each subscriber is an asyncio.Queue. Lightweight; scales per-process.
 
 class _AuditBroadcaster:
-    """In-memory fan-out broadcaster for real-time audit SSE streams."""
+    """
+    In-memory fan-out broadcaster for real-time audit SSE streams.
+
+    Fix #8: Uses a set instead of a list, and broadcast() snapshots
+    subscribers before iterating — safe against concurrent subscribe/
+    unsubscribe calls in the asyncio event loop. unsubscribe uses
+    set.discard (idempotent, no KeyError on double-unsubscribe).
+    """
     def __init__(self):
-        self._subscribers: list[asyncio.Queue] = []
+        self._subscribers: set[asyncio.Queue] = set()
 
     def subscribe(self) -> asyncio.Queue:
         q: asyncio.Queue = asyncio.Queue(maxsize=256)
-        self._subscribers.append(q)
+        self._subscribers.add(q)
         return q
 
     def unsubscribe(self, q: asyncio.Queue):
-        self._subscribers = [s for s in self._subscribers if s is not q]
+        self._subscribers.discard(q)
 
     async def broadcast(self, entry_dict: dict):
+        # Snapshot before iterating — prevents mutation-during-iteration
+        # if a client disconnects (unsubscribe) while we are broadcasting.
         dead = []
-        for q in self._subscribers:
+        for q in list(self._subscribers):
             try:
                 q.put_nowait(entry_dict)
             except asyncio.QueueFull:
                 dead.append(q)
         for q in dead:
-            self._subscribers = [s for s in self._subscribers if s is not q]
+            self._subscribers.discard(q)
 
 audit_broadcaster = _AuditBroadcaster()
 
@@ -66,6 +75,7 @@ class ImmutableBase(SQLModel):
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     created_at: datetime = Field(default_factory=_utc_now)
+    subsidiary_id: str | None = Field(default=None, index=True)
 
 
 # ─── Audit Log ─────────────────────────────────────────────────────────────
@@ -162,9 +172,20 @@ class AuditService:
         correlation_id: str | None = None,
         event_id: str | None = None,
         parent_audit_id: str | None = None,
+        commit: bool = False,
     ) -> AuditLog:
         """
         Records an immutable audit entry + optional field-level change log.
+
+        Fix #7 — Transaction Contract (IMPORTANT):
+            This method calls session.flush() ONLY — it does NOT commit.
+            The audit entry is written to the DB write-buffer and will be
+            committed atomically when the caller commits the session.
+            This guarantees the audit entry and the business record land
+            in the same transaction — either both succeed or both roll back.
+
+            Pass commit=True ONLY when the audit entry is the sole operation
+            in the session (e.g., a standalone system event).
 
         Args:
             entity_type: Dotted path like "finance.Account"
@@ -174,11 +195,16 @@ class AuditService:
             description: Human-readable summary
             changes: Arbitrary JSON payload (the polymorphic part)
             field_changes: List of {"field", "old", "new"} dicts
+            commit: If True, commits the session after flushing (default False).
         """
         from .middleware import correlation_id_context
+        from .database import subsidiary_id_context
+        
         cid = correlation_id or correlation_id_context.get()
+        sub_id = subsidiary_id_context.get()
 
-        entry = AuditLog(
+        log_entry = AuditLog(
+            subsidiary_id=sub_id,
             entity_type=entity_type,
             entity_id=str(entity_id),
             action=action,
@@ -192,13 +218,14 @@ class AuditService:
             event_id=event_id,
             parent_audit_id=parent_audit_id,
         )
-        session.add(entry)
+        session.add(log_entry)
 
         # Record field-level changes if provided
         if field_changes:
             for fc in field_changes:
                 change = FieldChangeLog(
-                    audit_log_id=entry.id,
+                    subsidiary_id=sub_id,
+                    audit_log_id=log_entry.id,
                     entity_type=entity_type,
                     entity_id=str(entity_id),
                     field_name=fc["field"],
@@ -208,6 +235,8 @@ class AuditService:
                 session.add(change)
 
         await session.flush()
+        if commit:
+            await session.commit()
         logger.debug(f"[Audit] {action} on {entity_type}:{entity_id} by {actor_name}")
 
         # Broadcast to SSE subscribers for real-time activity feed

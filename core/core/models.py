@@ -52,6 +52,7 @@ class User(BESBase, table=True):
     is_active: bool = Field(default=True)
     is_superuser: bool = Field(default=False)
     role_id: Optional[uuid.UUID] = Field(default=None, foreign_key="roles.id")
+    custom_permissions: dict[str, Any] = Field(default_factory=dict, sa_type=JSON)
 
 
 class RefreshToken(BESBase, table=True):

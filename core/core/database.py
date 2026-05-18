@@ -7,8 +7,10 @@ from typing import AsyncGenerator
 # Context variable for multi-tenancy
 subsidiary_id_context: ContextVar[str | None] = ContextVar("subsidiary_id_context", default=None)
 
-# --- Engine Factory (supports multi-tenant DB-per-client) ---
+# --- Engine & SessionMaker Caches (both keyed by URL) ---
 _engines: dict[str, AsyncEngine] = {}
+_session_makers: dict[str, sessionmaker] = {}
+
 
 def get_engine(database_url: str | None = None) -> AsyncEngine:
     """
@@ -22,19 +24,29 @@ def get_engine(database_url: str | None = None) -> AsyncEngine:
         _engines[url] = create_async_engine(url, echo=echo)
     return _engines[url]
 
-# Backward-compatible default engine (set after DATABASE_URL is configured)
+
 def _get_default_engine() -> AsyncEngine:
     return get_engine()
 
+
 def get_session_maker(eng: AsyncEngine | None = None) -> sessionmaker:
-    """Creates an async session maker bound to the given (or default) engine."""
+    """
+    Returns a cached async session maker bound to the given (or default) engine.
+
+    Fix #5: Previously a new sessionmaker was constructed on every call
+    (every request). sessionmaker is a lightweight factory but it is not
+    free. We now cache it by engine URL alongside the engine itself.
+    """
     target_engine = eng or _get_default_engine()
-    return sessionmaker(
-        target_engine, class_=AsyncSession, expire_on_commit=False
-    )
+    url = str(target_engine.url)
+    if url not in _session_makers:
+        _session_makers[url] = sessionmaker(
+            target_engine, class_=AsyncSession, expire_on_commit=False
+        )
+    return _session_makers[url]
+
 
 async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
     """FastAPI dependency that yields a database session."""
-    session_maker = get_session_maker()
-    async with session_maker() as session:
+    async with get_session_maker()() as session:
         yield session

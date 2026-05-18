@@ -30,7 +30,10 @@ def elevate_context():
 # --- Admin Permissions Schema (used for seeding and reference) ---
 def _load_permissions() -> Dict[str, Any]:
     """Loads the master permission configuration from the JSON file."""
-    config_path = os.path.join(os.path.dirname(__file__), "admin_permissions.json")
+    config_path = os.environ.get("ADMIN_PERMISSIONS_PATH")
+    if not config_path or not os.path.exists(config_path):
+        config_path = os.path.join(os.path.dirname(__file__), "admin_permissions.json")
+    
     with open(config_path, "r") as f:
         return json.load(f)
 
@@ -39,6 +42,19 @@ PERMISSIONS_SCHEMA = _load_permissions()
 def _has_permission(user_perms: Dict[str, Any], module: str, resource: str, action: str) -> bool:
     """Checks if the given permission exists in the nested structure."""
     return user_perms.get(module, {}).get(resource, {}).get(action, False)
+
+def deep_merge_permissions(base: Dict[str, Any], custom: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Recursively merges custom permissions into the base role permissions.
+    Custom permissions always win in a conflict, allowing direct user overrides.
+    """
+    merged = base.copy()
+    for key, value in custom.items():
+        if isinstance(value, dict) and key in merged and isinstance(merged[key], dict):
+            merged[key] = deep_merge_permissions(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
 
 # --- FastAPI Dependency Injector ---
 def require_permission(permission_string: str):
@@ -131,29 +147,4 @@ def get_simplified_json(user: User, licensed_modules: list[str] | None = None) -
     }
 
 
-# --- Role Permission Generators ---
-def generate_manager_permissions() -> Dict[str, Any]:
-    """Generates manager-level permissions: read + write on all resources, no delete."""
-    manager_perms = {}
-    for module, resources in PERMISSIONS_SCHEMA.items():
-        manager_perms[module] = {}
-        for resource, actions in resources.items():
-            manager_perms[module][resource] = {
-                "read": actions.get("read", False),
-                "write": actions.get("write", False),
-                "delete": False  # Managers cannot delete
-            }
-    return manager_perms
 
-def generate_staff_permissions() -> Dict[str, Any]:
-    """Generates staff-level permissions: read-only on all resources."""
-    staff_perms = {}
-    for module, resources in PERMISSIONS_SCHEMA.items():
-        staff_perms[module] = {}
-        for resource, actions in resources.items():
-            staff_perms[module][resource] = {
-                "read": actions.get("read", False),
-                "write": False,
-                "delete": False
-            }
-    return staff_perms
