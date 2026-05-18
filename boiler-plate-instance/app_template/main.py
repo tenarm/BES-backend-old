@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # ─── 1. Bootstrap Configuration (Must be imported first) ──────────────────────
-from acme_corp.bootstrap import CLIENT_CONFIG, LICENSED_MODULES
+from {{client_id}}.bootstrap import CLIENT_CONFIG, LICENSED_MODULES
 
 # ─── 2. Core Imports ────────────────────────────────────────────────────────
 from core.responses import setup_exception_handlers
@@ -18,9 +18,9 @@ from core.middleware import (
 )
 
 # ─── 3. Instance Modules ────────────────────────────────────────────────────
-from acme_corp.manifests import _MODULE_MANIFESTS
-from acme_corp.lifespan import lifespan
-from acme_corp.api.endpoints import router as endpoints_router
+from {{client_id}}.manifests import _MODULE_MANIFESTS
+from {{client_id}}.lifespan import lifespan
+from {{client_id}}.api.endpoints import router as endpoints_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

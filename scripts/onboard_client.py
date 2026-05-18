@@ -1,6 +1,7 @@
 import os
 import json
 import argparse
+import shutil
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -70,6 +71,33 @@ def main():
     with open(admin_perms_path, "w") as f:
         json.dump(filtered_perms, f, indent=2)
     print(f"Created {admin_perms_path}")
+    
+    # Copy boilerplate template if it exists
+    boilerplate_dir = BASE_DIR / "boiler-plate-instance" / "app_template"
+    if boilerplate_dir.exists():
+        target_app_dir = BASE_DIR / "instances" / client_id / client_id
+        print(f"\nCopying boilerplate from {boilerplate_dir} to {target_app_dir}...")
+        
+        shutil.copytree(boilerplate_dir, target_app_dir, dirs_exist_ok=True)
+        
+        # Iterate over all .py files and replace {{client_id}} with actual client_id
+        replaced_count = 0
+        for root, dirs, files in os.walk(target_app_dir):
+            for file in files:
+                if file.endswith(".py"):
+                    filepath = Path(root) / file
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    
+                    if "{{client_id}}" in content:
+                        new_content = content.replace("{{client_id}}", client_id)
+                        with open(filepath, "w", encoding="utf-8") as f:
+                            f.write(new_content)
+                        replaced_count += 1
+                        
+        print(f"Templated {replaced_count} boilerplate files with client_id '{client_id}'.")
+    else:
+        print("\nSkipping boilerplate copying (boiler-plate-instance/app_template not found).")
     
     print("\nOnboarding complete!")
 
