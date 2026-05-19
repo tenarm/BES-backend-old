@@ -2,6 +2,7 @@ import os
 import json
 import argparse
 import shutil
+import subprocess
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -72,6 +73,53 @@ def main():
         json.dump(filtered_perms, f, indent=2)
     print(f"Created {admin_perms_path}")
     
+    # Generate pyproject.toml
+    pyproject_data = f"""[project]
+name = "{client_id.replace('_', '-')}"
+version = "0.1.0"
+description = "{client_name} Client Instance"
+requires-python = ">=3.10"
+dependencies = [
+"""
+    for mod in licensed_modules:
+        pyproject_data += f'    "{mod}",\n'
+    pyproject_data += "]\n"
+
+    pyproject_data += f"""
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["{client_id}"]
+"""
+
+    instance_root = BASE_DIR / "instances" / client_id
+    pyproject_path = instance_root / "pyproject.toml"
+    with open(pyproject_path, "w", encoding="utf-8") as f:
+        f.write(pyproject_data)
+    print(f"Created {pyproject_path}")
+    
+    # Generate Dockerfile
+    dockerfile_data = f"""FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY pyproject.toml .
+# Assuming pip for now, can be changed to pdm if preferred
+RUN pip install .
+
+# Copy application code
+COPY . .
+
+CMD ["uvicorn", "{client_id}.main:app", "--host", "0.0.0.0", "--port", "8000"]
+"""
+    dockerfile_path = instance_root / "Dockerfile"
+    with open(dockerfile_path, "w", encoding="utf-8") as f:
+        f.write(dockerfile_data)
+    print(f"Created {dockerfile_path}")
+    
     # Copy boilerplate template if it exists
     boilerplate_dir = BASE_DIR / "boiler-plate-instance" / "app_template"
     if boilerplate_dir.exists():
@@ -99,6 +147,13 @@ def main():
     else:
         print("\nSkipping boilerplate copying (boiler-plate-instance/app_template not found).")
     
+    print(f"\nBuilding '{client_id}' to generate .egg-info...")
+    try:
+        subprocess.run(["pdm", "build"], cwd=instance_root, check=True)
+        print("Build successful. .egg-info generated.")
+    except subprocess.CalledProcessError:
+        print(f"Warning: Auto-build failed. You may need to run `pdm build` manually inside instances/{client_id}.")
+        
     print("\nOnboarding complete!")
 
 if __name__ == "__main__":
