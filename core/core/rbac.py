@@ -109,7 +109,7 @@ def require_permission(permission_string: str):
 
     return permission_checker
 
-
+#BVK
 def get_user_permissions(user: User) -> Dict[str, Any]:
     """
     Returns the effective permission set for a given user.
