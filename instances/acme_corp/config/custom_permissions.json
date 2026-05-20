@@ -1,0 +1,19 @@
+{
+  "mobile_app": {
+    "tracking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "register": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "close": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  }
+}

@@ -11,7 +11,7 @@ from .auth import (
     create_access_token, create_refresh_token, decode_token,
     verify_password, get_current_user, get_password_hash
 )
-from .rbac import PERMISSIONS_SCHEMA, get_user_permissions, generate_manager_permissions, generate_staff_permissions
+from .rbac import PERMISSIONS_SCHEMA, get_user_permissions
 
 logger = logging.getLogger(__name__)
 
@@ -174,6 +174,49 @@ async def get_correlation_chain(
     from .audit import AuditService
     chain = await AuditService.get_correlation_chain(session, correlation_id)
     return {"status": "success", "data": chain}
+
+
+@audit_router.get("/processes", response_model=dict)
+async def get_processes(
+    module: str | None = None,
+    user: User = Depends(get_current_user)
+):
+    """
+    Returns process workflow schema definitions.
+    Can be optionally filtered by module (e.g., ?module=finance).
+    Definitions are dynamically filtered and resolved based on client licenses.
+    """
+    from .processes import PROCESS_DEFINITIONS, resolve_process_for_client
+    
+    # Resolve definitions for the active client context
+    resolved_defs = {
+        pid: resolve_process_for_client(pdef)
+        for pid, pdef in PROCESS_DEFINITIONS.items()
+    }
+    
+    if module:
+        module_procs = {
+            pid: pdef for pid, pdef in resolved_defs.items()
+            if pdef.get("module") == module
+        }
+        return {"status": "success", "data": module_procs}
+    return {"status": "success", "data": resolved_defs}
+
+
+@audit_router.get("/processes/{process_id}", response_model=dict)
+async def get_process_definition(
+    process_id: str,
+    user: User = Depends(get_current_user)
+):
+    """Returns the process workflow schema definition for the given process_id."""
+    from .processes import PROCESS_DEFINITIONS, resolve_process_for_client
+    definition = PROCESS_DEFINITIONS.get(process_id)
+    if not definition:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Process definition for '{process_id}' not found."
+        )
+    return {"status": "success", "data": resolve_process_for_client(definition)}
 
 
 # --- SSE: Real-Time Activity Stream (on audit_router) ---

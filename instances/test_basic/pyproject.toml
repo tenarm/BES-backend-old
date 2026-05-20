@@ -1,0 +1,17 @@
+[project]
+name = "test-basic"
+version = "0.1.0"
+description = "Test Basic Client Client Instance"
+requires-python = ">=3.10"
+dependencies = [
+    "sales",
+    "inventory",
+    "settings",
+]
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["test_basic"]

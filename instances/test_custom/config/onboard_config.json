@@ -1,0 +1,11 @@
+{
+  "client_id": "test_custom",
+  "client_name": "Test Custom Client",
+  "database_url": "sqlite+aiosqlite:///./instances/test_custom/data/test_custom.db",
+  "licensed_modules": [
+    "sales",
+    "inventory",
+    "settings",
+    "sap_integration"
+  ]
+}
