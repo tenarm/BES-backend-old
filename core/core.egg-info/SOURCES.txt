@@ -5,9 +5,11 @@ core/auth.py
 core/database.py
 core/events.py
 core/extension.py
+core/licensing.py
 core/middleware.py
 core/models.py
 core/pagination.py
+core/processes.py
 core/rbac.py
 core/repository.py
 core/responses.py

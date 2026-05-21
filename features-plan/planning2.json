@@ -1,0 +1,62 @@
+{
+  "phase": 2,
+  "phase_name": "Extended Operations, HR & CRM (Phase 2)",
+  "description": "Establish the human resources lifecycle, customer acquisition funnel, advanced shipping/pricing controls, and core collaboration.",
+  "development_phases": {
+    "day_4": {
+      "phase_name": "Lead Funnel & Basic HR Registry",
+      "description": "Deploy lead capture, deal pipelines, and standard employee records to unify staff and sales CRM registries.",
+      "modules": {
+        "crm": [
+          "lead_management",
+          "deal_pipeline",
+          "contact_account",
+          "activity_tracking"
+        ],
+        "hr": [
+          "employee_master",
+          "org_structure",
+          "leave_management"
+        ]
+      }
+    },
+    "day_5": {
+      "phase_name": "Workforce Attendance, Payroll & Self-Service",
+      "description": "Implement time tracking, automated payroll calculations, and the employee self-service portal.",
+      "modules": {
+        "hr": [
+          "attendance",
+          "ess_portal",
+          "payroll_processing"
+        ]
+      }
+    },
+    "day_6": {
+      "phase_name": "Advanced Fulfillment, Cycle Counting & Document Management",
+      "description": "Deploy pricing engines, shipping/dispatch validation, physical inventory cycle counts, and core document attachments.",
+      "modules": {
+        "sales": [
+          "pricing_discount",
+          "delivery_dispatch"
+        ],
+        "inventory": [
+          "inventory_reports",
+          "cycle_count"
+        ],
+        "document_management": [
+          "document_upload",
+          "document_linking"
+        ]
+      }
+    }
+  },
+  "tier_eligibility": {
+    "crm": "pro",
+    "hr": "pro",
+    "sales.pricing_discount": "pro",
+    "sales.delivery_dispatch": "pro",
+    "inventory.inventory_reports": "pro",
+    "inventory.cycle_count": "pro",
+    "document_management": "pro"
+  }
+}

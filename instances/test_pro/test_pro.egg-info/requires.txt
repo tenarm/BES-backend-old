@@ -1,0 +1,7 @@
+sales
+inventory
+finance
+hr
+crm
+supply_chain
+settings

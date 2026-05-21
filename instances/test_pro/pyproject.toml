@@ -1,0 +1,21 @@
+[project]
+name = "test-pro"
+version = "0.1.0"
+description = "Test Pro Client Client Instance"
+requires-python = ">=3.10"
+dependencies = [
+    "sales",
+    "inventory",
+    "finance",
+    "hr",
+    "crm",
+    "supply_chain",
+    "settings",
+]
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["test_pro"]

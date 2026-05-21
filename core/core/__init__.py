@@ -40,6 +40,14 @@ from .rbac import (
     elevate_context,
 )
 
+# --- Licensing ---
+from .licensing import (
+    is_feature_licensed,
+    require_licensed_feature,
+    LicensingError,
+)
+
+
 # --- Repository ---
 from .repository import BaseRepository
 
@@ -106,6 +114,9 @@ __all__ = [
     # RBAC
     "require_permission", "get_user_permissions", "get_simplified_json",
     "PERMISSIONS_SCHEMA", "ExecutionContextType", "elevate_context",
+    # Licensing
+    "is_feature_licensed", "require_licensed_feature", "LicensingError",
+
     # Repository
     "BaseRepository",
     # Responses

@@ -1,0 +1,47 @@
+{
+  "GL_ENTRY_CREATION": {
+    "processId": "GL_ENTRY_CREATION",
+    "module": "finance",
+    "label": "General Ledger Transaction Synchronization",
+    "entity": "gl_entry",
+    "steps": [
+      {
+        "id": "gl_created",
+        "label": "GL Entry Registered",
+        "type": "direct",
+        "statusEvent": "gl_created",
+        "description": "Transaction recorded in the accounting register"
+      },
+      {
+        "id": "coa_updated",
+        "label": "Chart of Accounts Recalculated",
+        "type": "sequence",
+        "statusEvent": "coa_updated",
+        "dependsOn": [
+          "gl_created"
+        ],
+        "description": "Dynamic mapping and ledger totals updated instantly"
+      },
+      {
+        "id": "ledger_synced",
+        "label": "Double-Entry Ledgers Posted",
+        "type": "sequence",
+        "statusEvent": "ledger_synced",
+        "dependsOn": [
+          "coa_updated"
+        ],
+        "description": "Sub-ledger posting confirmation and integrity seal applied"
+      },
+      {
+        "id": "dashboard_refreshed",
+        "label": "Financial Performance Dashboard Refreshed",
+        "type": "sequence",
+        "statusEvent": "dashboard_refreshed",
+        "dependsOn": [
+          "ledger_synced"
+        ],
+        "description": "Updates UI widgets across all modules instantly"
+      }
+    ]
+  }
+}

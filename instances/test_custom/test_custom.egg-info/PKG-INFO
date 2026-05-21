@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: test-custom
+Version: 0.1.0
+Summary: Test Custom Client Client Instance
+Requires-Python: >=3.10
+Requires-Dist: sales
+Requires-Dist: inventory
+Requires-Dist: settings

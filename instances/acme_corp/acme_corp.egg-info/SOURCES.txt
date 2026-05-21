@@ -1,6 +1,9 @@
 pyproject.toml
 acme_corp/__init__.py
+acme_corp/bootstrap.py
+acme_corp/lifespan.py
 acme_corp/main.py
+acme_corp/manifests.py
 acme_corp.egg-info/PKG-INFO
 acme_corp.egg-info/SOURCES.txt
 acme_corp.egg-info/dependency_links.txt

@@ -1,0 +1,33 @@
+# Python artifacts
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# Virtual environment and PDM runtime files
+.venv/
+.pdm-python
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+**/*.egg-info/
+core/build/
+extensions/*/build/
+
+# Test and coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Environment files
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
