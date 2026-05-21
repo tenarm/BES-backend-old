@@ -1,8 +1,0 @@
-pyproject.toml
-quality_management/__init__.py
-quality_management/models.py
-quality_management/router.py
-quality_management.egg-info/PKG-INFO
-quality_management.egg-info/SOURCES.txt
-quality_management.egg-info/dependency_links.txt
-quality_management.egg-info/top_level.txt

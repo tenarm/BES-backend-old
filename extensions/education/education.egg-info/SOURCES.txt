@@ -1,8 +1,0 @@
-pyproject.toml
-education/__init__.py
-education/models.py
-education/router.py
-education.egg-info/PKG-INFO
-education.egg-info/SOURCES.txt
-education.egg-info/dependency_links.txt
-education.egg-info/top_level.txt

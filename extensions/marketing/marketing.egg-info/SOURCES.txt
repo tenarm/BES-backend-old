@@ -1,8 +1,0 @@
-pyproject.toml
-marketing/__init__.py
-marketing/models.py
-marketing/router.py
-marketing.egg-info/PKG-INFO
-marketing.egg-info/SOURCES.txt
-marketing.egg-info/dependency_links.txt
-marketing.egg-info/top_level.txt

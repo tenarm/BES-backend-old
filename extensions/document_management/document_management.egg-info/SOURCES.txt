@@ -1,8 +1,0 @@
-pyproject.toml
-document_management/__init__.py
-document_management/models.py
-document_management/router.py
-document_management.egg-info/PKG-INFO
-document_management.egg-info/SOURCES.txt
-document_management.egg-info/dependency_links.txt
-document_management.egg-info/top_level.txt

@@ -1,8 +1,0 @@
-pyproject.toml
-service_desk/__init__.py
-service_desk/models.py
-service_desk/router.py
-service_desk.egg-info/PKG-INFO
-service_desk.egg-info/SOURCES.txt
-service_desk.egg-info/dependency_links.txt
-service_desk.egg-info/top_level.txt

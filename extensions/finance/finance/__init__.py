@@ -1,1 +1,1 @@
-"""Finance Extension"""
+"""finance Extension"""

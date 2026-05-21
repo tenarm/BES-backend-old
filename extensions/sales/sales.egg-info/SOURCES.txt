@@ -5,6 +5,7 @@ sales/manifest.py
 sales/models.py
 sales/router.py
 sales/schemas.py
+sales/services.py
 sales.egg-info/PKG-INFO
 sales.egg-info/SOURCES.txt
 sales.egg-info/dependency_links.txt

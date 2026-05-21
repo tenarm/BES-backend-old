@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from core.extension import ExtensionManifest
 
-
 class FinanceManifest(ExtensionManifest):
     @property
     def module_name(self) -> str:
@@ -12,12 +11,11 @@ class FinanceManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import FinanceRecord
-        return [FinanceRecord]
+        from .models import FinanceEntity
+        return [FinanceEntity]
 
     def get_event_handlers(self):
         from .events import register_event_handlers
         return register_event_handlers
-
 
 manifest = FinanceManifest()

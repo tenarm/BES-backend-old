@@ -2,27 +2,30 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select, func
 
-from .models import FinanceRecord
-from .schemas import FinanceRecordCreate
-from .services import create_finance_record
+from .models import FinanceEntity
+from .schemas import FinanceEntityCreate
+from .services import create_entity
 from core.database import get_async_session
 from core.responses import success_response, paginated_response
 from core.pagination import PaginationParams
+from core.licensing import require_licensed_feature
+from core.rbac import require_permission
 
 router = APIRouter(prefix="/api/v1/finance", tags=["finance"])
 
-
-@router.get("/records")
-async def list_finance_records(
+@router.get("/entities", dependencies=[Depends(require_permission("finance:entity:read"))])
+async def list_entities(
     pagination: PaginationParams = Depends(),
     session: AsyncSession = Depends(get_async_session)
 ):
-    count_stmt = select(func.count()).select_from(FinanceRecord).where(FinanceRecord.is_deleted == False)
+    require_licensed_feature("finance", "entity_management")
+
+    count_stmt = select(func.count()).select_from(FinanceEntity).where(FinanceEntity.is_deleted == False)
     total = (await session.execute(count_stmt)).scalar() or 0
     
     stmt = (
-        select(FinanceRecord)
-        .where(FinanceRecord.is_deleted == False)
+        select(FinanceEntity)
+        .where(FinanceEntity.is_deleted == False)
         .offset(pagination.offset)
         .limit(pagination.limit)
     )
@@ -31,11 +34,12 @@ async def list_finance_records(
     
     return paginated_response(data=items, total=total, page=pagination.page, page_size=pagination.page_size)
 
-
-@router.post("/records")
-async def create_finance_record_endpoint(
-    data: FinanceRecordCreate,
+@router.post("/entities", dependencies=[Depends(require_permission("finance:entity:write"))])
+async def create_entity_endpoint(
+    data: FinanceEntityCreate,
     session: AsyncSession = Depends(get_async_session)
 ):
-    item = await create_finance_record(session, data)
+    require_licensed_feature("finance", "entity_management")
+
+    item = await create_entity(session, data)
     return success_response(data=item)

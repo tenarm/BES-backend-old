@@ -20,6 +20,15 @@ from .models import (
     UOM,
 )
 
+# --- Notifications ---
+from .notifications import (
+    NotificationRule,
+    Notification,
+    NotificationService,
+    notification_broadcaster,
+)
+
+
 # --- Auth ---
 from .auth import (
     get_current_user,
@@ -97,6 +106,7 @@ from .middleware import (
 from .router import (
     router as auth_router,
     audit_router,
+    notification_router,
     seed_roles,
     seed_admin_user,
     cleanup_expired_tokens,
@@ -135,7 +145,9 @@ __all__ = [
     "RequestLoggingMiddleware", "ContextAwareSecurityMiddleware",
     "correlation_id_context", "current_user_id_context", "current_user_name_context",
     # Routers & Seeds
-    "auth_router", "audit_router", "seed_roles", "seed_admin_user",
+    "auth_router", "audit_router", "notification_router", "seed_roles", "seed_admin_user",
     "cleanup_expired_tokens",
+    # Notifications
+    "NotificationRule", "Notification", "NotificationService", "notification_broadcaster",
 ]
 #BVK

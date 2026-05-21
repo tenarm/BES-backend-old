@@ -1,8 +1,0 @@
-pyproject.toml
-crm/__init__.py
-crm/models.py
-crm/router.py
-crm.egg-info/PKG-INFO
-crm.egg-info/SOURCES.txt
-crm.egg-info/dependency_links.txt
-crm.egg-info/top_level.txt

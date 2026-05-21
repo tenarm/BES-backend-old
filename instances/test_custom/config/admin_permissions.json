@@ -14,25 +14,48 @@
       "read": true,
       "write": true,
       "delete": true
-    }
-  },
-  "inventory": {
-    "item_master": {
+    },
+    "pricing_discount": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "warehouse_location": {
+    "delivery_dispatch": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "goods_receipt": {
+    "sales_invoice": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "goods_issue": {
+    "sales_returns": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_commission": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "territory_channel": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_analytics": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ecommerce": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_contracts": {
       "read": true,
       "write": true,
       "delete": true
@@ -53,20 +76,28 @@
       "read": true,
       "write": true,
       "delete": true
-    }
-  },
-  "sap_integration": {
-    "sync": {
+    },
+    "workflow_config": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "logs": {
+    "notification_rules": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "config": {
+    "number_series": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "email_templates": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "audit_log": {
       "read": true,
       "write": true,
       "delete": true

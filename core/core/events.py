@@ -55,6 +55,13 @@ class InMemoryEventBus(AbstractEventBus):
             except Exception:
                 pass
 
+        # Trigger notification service asynchronously
+        try:
+            from .notifications import NotificationService
+            asyncio.create_task(NotificationService.process_event_notifications(event_payload))
+        except Exception as e:
+            logger.error(f"Failed to trigger NotificationService for event {event_payload.event_type}: {e}")
+
         handlers = self._subscribers.get(event_payload.event_type, [])
         if not handlers:
             logger.debug(f"No handlers found for event: {event_payload.event_type}")

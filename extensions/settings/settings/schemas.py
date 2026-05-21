@@ -2,11 +2,11 @@ import uuid
 from typing import Optional
 from sqlmodel import SQLModel
 
-class FinanceEntityCreate(SQLModel):
+class SettingsEntityCreate(SQLModel):
     name: str
     description: str = ""
 
-class FinanceEntityRead(SQLModel):
+class SettingsEntityRead(SQLModel):
     id: uuid.UUID
     name: str
     description: str

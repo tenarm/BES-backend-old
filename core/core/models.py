@@ -99,3 +99,9 @@ class UOM(BESBase, table=True):
     code: str = Field(index=True, unique=True)  # e.g., 'KG', 'EA'
     name: str  # e.g., 'Kilograms', 'Each'
     description: Optional[str] = None
+
+
+# --- Register Notification Models ---
+from .notifications import NotificationRule, Notification
+
+

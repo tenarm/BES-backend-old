@@ -1,8 +1,0 @@
-pyproject.toml
-manufacturing/__init__.py
-manufacturing/models.py
-manufacturing/router.py
-manufacturing.egg-info/PKG-INFO
-manufacturing.egg-info/SOURCES.txt
-manufacturing.egg-info/dependency_links.txt
-manufacturing.egg-info/top_level.txt

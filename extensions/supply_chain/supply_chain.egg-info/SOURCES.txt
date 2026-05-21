@@ -1,8 +1,0 @@
-pyproject.toml
-supply_chain/__init__.py
-supply_chain/models.py
-supply_chain/router.py
-supply_chain.egg-info/PKG-INFO
-supply_chain.egg-info/SOURCES.txt
-supply_chain.egg-info/dependency_links.txt
-supply_chain.egg-info/top_level.txt

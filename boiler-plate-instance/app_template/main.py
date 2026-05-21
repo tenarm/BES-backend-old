@@ -11,6 +11,7 @@ from core.responses import setup_exception_handlers
 from core.router import (
     router as auth_router,
     audit_router,
+    notification_router,
 )
 from core.middleware import (
     RequestLoggingMiddleware,
@@ -55,6 +56,7 @@ setup_exception_handlers(app)
 # Core routers
 app.include_router(auth_router)
 app.include_router(audit_router)
+app.include_router(notification_router)
 
 # Instance standalone endpoints
 app.include_router(endpoints_router)

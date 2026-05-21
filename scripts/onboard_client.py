@@ -3,6 +3,7 @@ import json
 import argparse
 import shutil
 import subprocess
+import datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -18,8 +19,9 @@ def update_root_pyproject(client_id):
     with open(pyproject_path, "r", encoding="utf-8") as f:
         content = f.read()
         
-    client_entry = f"-e file:///${{PROJECT_ROOT}}/instances/{client_id}"
-    if client_entry in content:
+    client_entry_double = f'-e file:///${{PROJECT_ROOT}}/instances/{client_id}'
+    client_entry_single = f"-e file:///${{PROJECT_ROOT}}/instances/{client_id}"
+    if client_entry_double in content or client_entry_single in content:
         print(f"Root pyproject.toml already contains reference to {client_id}.")
         return True
         
@@ -45,7 +47,7 @@ def update_root_pyproject(client_id):
                     break
                     
     if insert_idx != -1:
-        lines.insert(insert_idx, f"    \"{client_entry}\",")
+        lines.insert(insert_idx, f"    \"{client_entry_single}\",")
         new_content = "\n".join(lines) + "\n"
         with open(pyproject_path, "w", encoding="utf-8") as f:
             f.write(new_content)
@@ -54,7 +56,7 @@ def update_root_pyproject(client_id):
     else:
         # Append new section
         with open(pyproject_path, "a", encoding="utf-8") as f:
-            f.write(f"\n[dependency-groups]\ndev = [\n    \"{client_entry}\",\n]\n")
+            f.write(f"\n[dependency-groups]\ndev = [\n    \"{client_entry_single}\",\n]\n")
         print(f"Created [dependency-groups] and added {client_id} to root pyproject.toml.")
         return True
 
@@ -96,9 +98,11 @@ def main():
     
     licensed_modules = []
     filtered_perms = {}
+    plan_name = "custom"
     
     if package_choice == "1":
         # Basic
+        plan_name = "basic"
         plan = packages_data["basic"]
         plan_modules = plan["modules"]
         print(f"\nSelected Package: {plan['display_name']}")
@@ -113,6 +117,7 @@ def main():
                     
     elif package_choice == "2":
         # Pro
+        plan_name = "pro"
         plan = packages_data["pro"]
         plan_modules = plan["modules"]
         print(f"\nSelected Package: {plan['display_name']}")
@@ -127,6 +132,7 @@ def main():
                     
     elif package_choice == "3":
         # Premium
+        plan_name = "premium"
         print("\nSelected Package: Enterprise Premium Plan")
         # Under premium, all modules are licensed
         licensed_modules = [m for m in all_modules if m not in ("core", "settings")]
@@ -199,10 +205,17 @@ def main():
     config_dir.mkdir(parents=True, exist_ok=True)
     
     # Write onboard_config.json
+    now_iso = datetime.datetime.now().isoformat()
+    has_custom = (package_choice == "4") or custom_perms_path.exists()
     config_data = {
         "client_id": client_id,
         "client_name": client_name,
         "database_url": database_url,
+        "plan": plan_name,
+        "custom_config": has_custom,
+        "status": "active",
+        "registered_at": now_iso,
+        "updated_at": now_iso,
         "licensed_modules": licensed_modules
     }
     

@@ -1,8 +1,0 @@
-pyproject.toml
-bi/__init__.py
-bi/models.py
-bi/router.py
-bi.egg-info/PKG-INFO
-bi.egg-info/SOURCES.txt
-bi.egg-info/dependency_links.txt
-bi.egg-info/top_level.txt

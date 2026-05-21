@@ -14,38 +14,27 @@ dependencies = [
     "python-jose[cryptography]>=3.5.0",
     "passlib[bcrypt]>=1.7.4",
     "python-multipart>=0.0.27",
-    "bcrypt<4.0.0"
+    "bcrypt<4.0.0",
+    "jinja2"
 ]
 
 [tool.pdm]
 distribution = false
 
 [tool.pdm.workspace]
-members = [
+packages = [
     "core",
     "extensions/*",
     "instances/*"
 ]
 
+
 [dependency-groups]
 dev = [
     "-e file:///${PROJECT_ROOT}/core",
-    "-e file:///${PROJECT_ROOT}/instances/acme_corp",
-    "-e file:///${PROJECT_ROOT}/extensions/finance",
     "-e file:///${PROJECT_ROOT}/extensions/sales",
-    "-e file:///${PROJECT_ROOT}/extensions/inventory",
-    "-e file:///${PROJECT_ROOT}/extensions/hr",
-    "-e file:///${PROJECT_ROOT}/extensions/crm",
-    "-e file:///${PROJECT_ROOT}/extensions/manufacturing",
-    "-e file:///${PROJECT_ROOT}/extensions/project_management",
-    "-e file:///${PROJECT_ROOT}/extensions/supply_chain",
-    "-e file:///${PROJECT_ROOT}/extensions/quality_management",
-    "-e file:///${PROJECT_ROOT}/extensions/asset_management",
-    "-e file:///${PROJECT_ROOT}/extensions/bi",
-    "-e file:///${PROJECT_ROOT}/extensions/document_management",
-    "-e file:///${PROJECT_ROOT}/extensions/marketing",
-    "-e file:///${PROJECT_ROOT}/extensions/service_desk",
-    "-e file:///${PROJECT_ROOT}/extensions/education",
     "-e file:///${PROJECT_ROOT}/extensions/settings",
+    "-e file:///${PROJECT_ROOT}/instances/test_custom",
+    "-e file:///${PROJECT_ROOT}/extensions/finance",
 ]
 

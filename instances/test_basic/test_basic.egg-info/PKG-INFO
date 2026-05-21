@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: test-basic
-Version: 0.1.0
-Summary: Test Basic Client Client Instance
-Requires-Python: >=3.10
-Requires-Dist: sales
-Requires-Dist: inventory
-Requires-Dist: settings

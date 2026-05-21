@@ -242,8 +242,8 @@ class AuditService:
         # Broadcast to SSE subscribers for real-time activity feed
         try:
             await audit_broadcaster.broadcast({
-                "id": str(entry.id),
-                "created_at": entry.created_at.isoformat(),
+                "id": str(log_entry.id),
+                "created_at": log_entry.created_at.isoformat(),
                 "entity_type": entity_type,
                 "entity_id": str(entity_id),
                 "action": action,
@@ -258,7 +258,7 @@ class AuditService:
         except Exception:
             pass  # SSE broadcast is best-effort, never block the main flow
 
-        return entry
+        return log_entry
 
     @staticmethod
     async def get_entity_timeline(

@@ -1,11 +1,14 @@
 {
   "client_id": "test_custom",
-  "client_name": "Test Custom Client",
+  "client_name": "Test Custom",
   "database_url": "sqlite+aiosqlite:///./instances/test_custom/data/test_custom.db",
+  "plan": "custom",
+  "custom_config": true,
+  "status": "active",
+  "registered_at": "2026-05-22T00:06:02.134628",
+  "updated_at": "2026-05-22T00:06:27.849198",
   "licensed_modules": [
     "sales",
-    "inventory",
-    "settings",
-    "sap_integration"
+    "settings"
   ]
 }

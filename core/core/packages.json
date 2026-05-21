@@ -5,7 +5,7 @@
       "modules": {
         "sales": ["customer_master", "quotation", "sales_order"],
         "inventory": ["item_master", "warehouse_location", "goods_receipt", "goods_issue"],
-        "settings": ["company_setup", "user_management", "module_toggle"]
+        "settings": ["company_setup", "user_management", "module_toggle", "notification_rules"]
       }
     },
     "pro": {

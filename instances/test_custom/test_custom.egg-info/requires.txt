@@ -1,3 +1,2 @@
 sales
-inventory
 settings
