@@ -9,6 +9,55 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 CORE_ADMIN_PERMS_PATH = BASE_DIR / "core" / "core" / "admin_permissions.json"
 PACKAGES_SPEC_PATH = BASE_DIR / "core" / "core" / "packages.json"
 
+def update_root_pyproject(client_id):
+    pyproject_path = BASE_DIR / "pyproject.toml"
+    if not pyproject_path.exists():
+        print(f"Warning: Root pyproject.toml not found at {pyproject_path}")
+        return False
+        
+    with open(pyproject_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        
+    client_entry = f"-e file:///${{PROJECT_ROOT}}/instances/{client_id}"
+    if client_entry in content:
+        print(f"Root pyproject.toml already contains reference to {client_id}.")
+        return True
+        
+    lines = content.splitlines()
+    in_dep_groups = False
+    in_dev = False
+    insert_idx = -1
+    
+    for i, line in enumerate(lines):
+        trimmed = line.strip()
+        if trimmed == "[dependency-groups]":
+            in_dep_groups = True
+            continue
+        if in_dep_groups:
+            if trimmed.startswith("[") and trimmed.endswith("]"):
+                break
+            if trimmed.startswith("dev = ["):
+                in_dev = True
+                continue
+            if in_dev:
+                if trimmed == "]":
+                    insert_idx = i
+                    break
+                    
+    if insert_idx != -1:
+        lines.insert(insert_idx, f"    \"{client_entry}\",")
+        new_content = "\n".join(lines) + "\n"
+        with open(pyproject_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print(f"Added {client_id} to root pyproject.toml dev dependency group.")
+        return True
+    else:
+        # Append new section
+        with open(pyproject_path, "a", encoding="utf-8") as f:
+            f.write(f"\n[dependency-groups]\ndev = [\n    \"{client_entry}\",\n]\n")
+        print(f"Created [dependency-groups] and added {client_id} to root pyproject.toml.")
+        return True
+
 def main():
     print("=== BES Client Onboarding CLI ===")
     
@@ -252,6 +301,17 @@ CMD ["uvicorn", "{client_id}.main:app", "--host", "0.0.0.0", "--port", "8000"]
     except subprocess.CalledProcessError:
         print(f"Warning: Auto-build failed. You may need to run `pdm build` manually inside instances/{client_id}.")
         
+    print("\nUpdating root workspace pyproject.toml...")
+    if update_root_pyproject(client_id):
+        print("Syncing root workspace environment...")
+        try:
+            subprocess.run(["pdm", "lock", "-d"], cwd=BASE_DIR, check=True)
+            subprocess.run(["pdm", "install", "-d"], cwd=BASE_DIR, check=True)
+            print("Workspace environment synced successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"Warning: Failed to sync workspace environment automatically ({e}).")
+            print("Please run `pdm lock -d && pdm install -d` manually in the root directory.")
+            
     print("\nOnboarding complete!")
 
 if __name__ == "__main__":
