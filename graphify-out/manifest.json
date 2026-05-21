@@ -1,0 +1,372 @@
+{
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/bootstrap.py": {
+    "mtime": 1779282246.1707175,
+    "ast_hash": "99f47e1e298826cc3690787e3629eea6",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/manifests.py": {
+    "mtime": 1779282246.1711936,
+    "ast_hash": "718a72d9ad47587f52cc0cc32e531574",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/__init__.py": {
+    "mtime": 1779282246.1697717,
+    "ast_hash": "2f930726990bdad10ba3fdaecd6b53b2",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/main.py": {
+    "mtime": 1779380315.1076748,
+    "ast_hash": "158697b4562334b127e9e3097b956caa",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/lifespan.py": {
+    "mtime": 1779282246.1709573,
+    "ast_hash": "08d45623c7a7cdc8dfeebef4c91caa4b",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/dependencies/__init__.py": {
+    "mtime": 1779282246.1707928,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/models/__init__.py": {
+    "mtime": 1779282246.171272,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/schemas/__init__.py": {
+    "mtime": 1779282246.1714013,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/api/__init__.py": {
+    "mtime": 1779282246.1702662,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/api/endpoints.py": {
+    "mtime": 1779282246.1704588,
+    "ast_hash": "59823eb6cd464550bce269477e25e512",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/api/routers/__init__.py": {
+    "mtime": 1779282246.1705484,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/boiler-plate-instance/app_template/services/__init__.py": {
+    "mtime": 1779282246.1715224,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/auth.py": {
+    "mtime": 1779282246.1770837,
+    "ast_hash": "5ffa196575c2ee414312592d3737c0d6",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/responses.py": {
+    "mtime": 1778430012.392212,
+    "ast_hash": "e7724658c0bda045d5c515a0de59ebf1",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/admin_permissions.json": {
+    "mtime": 1779282246.1766896,
+    "ast_hash": "0c59b74f14a5b91d9dd23196128324a1",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/audit.py": {
+    "mtime": 1779380230.5198905,
+    "ast_hash": "d4d379388dab90d9eb0095fbde70cafc",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/models.py": {
+    "mtime": 1779380409.105368,
+    "ast_hash": "bbffc24c6047df3823e0ba88d00ef399",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/events.py": {
+    "mtime": 1779380252.3811343,
+    "ast_hash": "5df9966eaa5ae6f4735e13effb22246c",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/database.py": {
+    "mtime": 1779282246.1772277,
+    "ast_hash": "85a2fecc0679b392c640687214d72b0f",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/rbac.py": {
+    "mtime": 1779282246.1779723,
+    "ast_hash": "59271fb7c96dd8173138c6f4c5bbe232",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/__init__.py": {
+    "mtime": 1779380302.037923,
+    "ast_hash": "eccb22281a337b50db8c2e0eba69c3a8",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/processes.py": {
+    "mtime": 1779354331.1936612,
+    "ast_hash": "46eeca261e21b2375e2c7acd68326c4a",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/extension.py": {
+    "mtime": 1778772142.7017083,
+    "ast_hash": "33cafe2ae75fb19eb5920f25cf2626a7",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/storage.py": {
+    "mtime": 1777917056.4301715,
+    "ast_hash": "de7933091ba0a4d71b9c5c80a1f4e864",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/packages.json": {
+    "mtime": 1779380725.9399557,
+    "ast_hash": "ef46967c2f108634d0ef2f18a63b6cf2",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/licensing.py": {
+    "mtime": 1779354331.1934018,
+    "ast_hash": "05fa9492b675ffbaf97937ba2c9e2cab",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/notifications.py": {
+    "mtime": 1779380658.3263123,
+    "ast_hash": "0758e98ed8bee4cf8db0500f991e8ff8",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/pagination.py": {
+    "mtime": 1779282246.17775,
+    "ast_hash": "fc34783445ab935ed912e40d1181b3a7",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/router.py": {
+    "mtime": 1779380299.0657585,
+    "ast_hash": "c2d03059764d0c47787cadde52f8c773",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/repository.py": {
+    "mtime": 1778432015.0335774,
+    "ast_hash": "59c62272fd314adfd60504fb6dacce80",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/core/core/middleware.py": {
+    "mtime": 1778431997.7212837,
+    "ast_hash": "be92a6da16935efefc4805cd9fbe1c8f",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/services.py": {
+    "mtime": 1779385629.799016,
+    "ast_hash": "7a2377662e3a788b7caa50a54f960be1",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/models.py": {
+    "mtime": 1779385629.7988844,
+    "ast_hash": "5c81323b611c19f2e3ef141028ca482e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/manifest.py": {
+    "mtime": 1779385629.7991762,
+    "ast_hash": "73ba249ee40c71bfd5cda9ac90ae804c",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/events.py": {
+    "mtime": 1779385629.7991235,
+    "ast_hash": "fcb9b1e76907333df5f555b8a90545cf",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/__init__.py": {
+    "mtime": 1779385629.7988207,
+    "ast_hash": "dfaf09729f2413c2bcfcc67589926074",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/schemas.py": {
+    "mtime": 1779385629.798944,
+    "ast_hash": "a66fa304e5224ce0732523bd6643183d",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/settings/settings/router.py": {
+    "mtime": 1779385629.799072,
+    "ast_hash": "97307be208360c2d7795f397275458e5",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/services.py": {
+    "mtime": 1779385571.73541,
+    "ast_hash": "2c5d10ad7c13fd4a0f42178151ad2c7e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/models.py": {
+    "mtime": 1779385571.7352827,
+    "ast_hash": "9c134f0f3db5870532a3ad93aace0522",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/manifest.py": {
+    "mtime": 1779385571.735584,
+    "ast_hash": "f3ace382b1eb8b5efbd2996325b98c6a",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/events.py": {
+    "mtime": 1779385571.7355297,
+    "ast_hash": "a0e42ed7617372e2fdf8b6ac144fcae3",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/__init__.py": {
+    "mtime": 1779385571.7352183,
+    "ast_hash": "a08586d6ae94ba4a21ab8572c5028e13",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/schemas.py": {
+    "mtime": 1779385571.7353437,
+    "ast_hash": "56e6f2f60ca0c746b1099864ffb71234",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/sales/sales/router.py": {
+    "mtime": 1779385571.7354717,
+    "ast_hash": "4d3e25a31054603750a52ad31557c859",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/services.py": {
+    "mtime": 1779387959.3970933,
+    "ast_hash": "257bd205bfe097b3853c860360c95a44",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/models.py": {
+    "mtime": 1779387959.3969424,
+    "ast_hash": "7389281a236470e1886c018894e4b62c",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/manifest.py": {
+    "mtime": 1779387959.3972814,
+    "ast_hash": "ee4739637c001205a02499e1ddf31ad6",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/events.py": {
+    "mtime": 1779387959.3972104,
+    "ast_hash": "b32ad30ff22728aec18fdd0cc01eaad0",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/__init__.py": {
+    "mtime": 1779387959.3968785,
+    "ast_hash": "309140650e4d7b067b65f8df36e7c88c",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/schemas.py": {
+    "mtime": 1779387959.39701,
+    "ast_hash": "5243b95e5d1f0cd7ead8855244c15223",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/extensions/finance/finance/router.py": {
+    "mtime": 1779387959.3971548,
+    "ast_hash": "c95033aaeeb0c9f6361861a65f87e997",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scratch/sync_db.py": {
+    "mtime": 1778813136.9317143,
+    "ast_hash": "9c8b4da63b715ced7a0237814c6e7a26",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scratch/test_notifications.py": {
+    "mtime": 1779380734.402555,
+    "ast_hash": "5350251834e8d2f8e047b39a33bc98b3",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scratch/seed_ap.py": {
+    "mtime": 1778814296.7342412,
+    "ast_hash": "1867b64595ea8f415e27322edcd11476",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scripts/add_extension.py": {
+    "mtime": 1779385547.1608768,
+    "ast_hash": "d8c0ea5a4d31ba1cf48b3b35b7f7b9d8",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scripts/custom_feature_config.py": {
+    "mtime": 1779354331.2161062,
+    "ast_hash": "68d4cae06f0c215cfa23c92f43353bbe",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scripts/onboard_client.py": {
+    "mtime": 1779391891.0927274,
+    "ast_hash": "f1e44f109b2903c3916ba7bcb5511ec5",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/scripts/change_license.py": {
+    "mtime": 1779388557.0946991,
+    "ast_hash": "3ef3441d361dca99bebe5c327dbee9e2",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/config/admin_permissions.json": {
+    "mtime": 1779388587.8494382,
+    "ast_hash": "73ae2ae0c518cbcf8c73b5f2d6b58ddb",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/config/onboard_config.json": {
+    "mtime": 1779388587.84931,
+    "ast_hash": "e45501cd1888203a338040ecf0c979c9",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/bootstrap.py": {
+    "mtime": 1779385655.9528236,
+    "ast_hash": "b35b85cbc88fca382e9d27a8ee4b18de",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/manifests.py": {
+    "mtime": 1779385655.9528992,
+    "ast_hash": "ac07bbdb57963f5ddca1706091756a1d",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/__init__.py": {
+    "mtime": 1779282246.1697717,
+    "ast_hash": "2f930726990bdad10ba3fdaecd6b53b2",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/main.py": {
+    "mtime": 1779385655.953004,
+    "ast_hash": "f10b562ffdcef8090f8549162cf5ec2b",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/lifespan.py": {
+    "mtime": 1779385655.9530818,
+    "ast_hash": "ae473408ebc90b2fe909353b87d008da",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/dependencies/__init__.py": {
+    "mtime": 1779282246.1707928,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/models/__init__.py": {
+    "mtime": 1779282246.171272,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/schemas/__init__.py": {
+    "mtime": 1779282246.1714013,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/api/__init__.py": {
+    "mtime": 1779282246.1702662,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/api/endpoints.py": {
+    "mtime": 1779385655.9533625,
+    "ast_hash": "d3d31e651ec833ef9c868f5d261931db",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/api/routers/__init__.py": {
+    "mtime": 1779282246.1705484,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/instances/test_custom/test_custom/services/__init__.py": {
+    "mtime": 1779282246.1715224,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "/Users/bvk/BVK_Workspace/BES/bes-backend/README.md": {
+    "mtime": 1778811679.7374122,
+    "ast_hash": "bb93d5160b123b2f60c58a542dc3e9a2",
+    "semantic_hash": ""
+  }
+}

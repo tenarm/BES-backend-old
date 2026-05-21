@@ -1,13 +1,24 @@
 FROM python:3.10-slim
 
+# Install system dependencies & PDM
+RUN pip install --no-cache-dir pdm
+
 WORKDIR /app
 
-# Install dependencies
-COPY pyproject.toml .
-# Assuming pip for now, can be changed to pdm if preferred
-RUN pip install .
+# Copy monorepo workspace configuration files
+COPY pyproject.toml pdm.lock ./
 
-# Copy application code
-COPY . .
+# Copy core, extensions, and the specific client instance folder
+COPY core ./core
+COPY extensions ./extensions
+COPY instances/test_custom ./instances/test_custom
 
-CMD ["uvicorn", "test_custom.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Install production dependencies (resolving workspace links)
+RUN pdm install --prod --no-editable
+
+EXPOSE 8000
+
+# Set pythonpath so Uvicorn can resolve import paths correctly
+ENV PYTHONPATH="/app"
+
+CMD ["pdm", "run", "uvicorn", "instances.test_custom.test_custom.main:app", "--host", "0.0.0.0", "--port", "8000"]

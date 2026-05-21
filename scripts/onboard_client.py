@@ -263,17 +263,28 @@ packages = ["{client_id}"]
     # Generate Dockerfile
     dockerfile_data = f"""FROM python:3.10-slim
 
+# Install system dependencies & PDM
+RUN pip install --no-cache-dir pdm
+
 WORKDIR /app
 
-# Install dependencies
-COPY pyproject.toml .
-# Assuming pip for now, can be changed to pdm if preferred
-RUN pip install .
+# Copy monorepo workspace configuration files
+COPY pyproject.toml pdm.lock ./
 
-# Copy application code
-COPY . .
+# Copy core, extensions, and the specific client instance folder
+COPY core ./core
+COPY extensions ./extensions
+COPY instances/{client_id} ./instances/{client_id}
 
-CMD ["uvicorn", "{client_id}.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Install production dependencies (resolving workspace links)
+RUN pdm install --prod --no-editable
+
+EXPOSE 8000
+
+# Set pythonpath so Uvicorn can resolve import paths correctly
+ENV PYTHONPATH="/app"
+
+CMD ["pdm", "run", "uvicorn", "instances.{client_id}.{client_id}.main:app", "--host", "0.0.0.0", "--port", "8000"]
 """
     dockerfile_path = instance_root / "Dockerfile"
     with open(dockerfile_path, "w", encoding="utf-8") as f:
