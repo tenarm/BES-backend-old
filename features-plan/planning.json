@@ -1,0 +1,92 @@
+{
+  "development_phases": {
+    "day_1": {
+      "phase_name": "Bootstrap & Foundational Setup",
+      "description": "Establish workspace configuration, database schema initialization, core security/RBAC, and primary Master Data registries.",
+      "modules": {
+        "settings": [
+          "company_setup",
+          "user_management"
+        ],
+        "sales": [
+          "customer_master"
+        ],
+        "supply_chain": [
+          "supplier_master"
+        ],
+        "inventory": [
+          "item_master",
+          "warehouse_location"
+        ]
+      }
+    },
+    "day_2": {
+      "phase_name": "Transactional Core & Inventory Operations",
+      "description": "Implement core operational business flows including quoting, ordering, purchasing, and physically receiving/issuing goods.",
+      "modules": {
+        "sales": [
+          "quotation",
+          "sales_order"
+        ],
+        "supply_chain": [
+          "purchase_order"
+        ],
+        "inventory": [
+          "goods_receipt",
+          "goods_issue",
+          "stock_transfer"
+        ]
+      }
+    },
+    "day_3": {
+      "phase_name": "Invoicing, Core Finance & Process Control",
+      "description": "Deploy billing, double-entry financial accounting, bank tracking, sequence number management, and basic approval workflows.",
+      "modules": {
+        "sales": [
+          "sales_invoice"
+        ],
+        "finance": [
+          "coa",
+          "gl",
+          "ap",
+          "ar",
+          "bank_cash",
+          "tax"
+        ],
+        "settings": [
+          "number_series",
+          "workflow_config"
+        ]
+      }
+    }
+  },
+  "tier_mapping": {
+    "basic": {
+      "display_name": "Basic Plan",
+      "target_audience": "Small businesses needing entry-level lead-to-order operations and inventory tracking.",
+      "modules": {
+        "settings": ["company_setup", "user_management", "module_toggle"],
+        "sales": ["customer_master", "quotation", "sales_order"],
+        "inventory": ["item_master", "warehouse_location", "goods_receipt", "goods_issue"]
+      }
+    },
+    "pro": {
+      "display_name": "Professional Plan",
+      "target_audience": "Mid-sized businesses requiring full purchase cycles, accounts payable/receivable, financial general ledger, and basic team HR/CRM.",
+      "modules": {
+        "settings": ["company_setup", "user_management", "module_toggle", "workflow_config", "notification_rules", "number_series"],
+        "sales": ["customer_master", "quotation", "sales_order", "pricing_discount", "delivery_dispatch", "sales_invoice"],
+        "inventory": ["item_master", "warehouse_location", "goods_receipt", "goods_issue", "stock_transfer", "inventory_reports"],
+        "finance": ["coa", "gl", "ap", "ar", "bank_cash", "tax", "budgeting", "cost_center", "multi_currency"],
+        "hr": ["employee_master", "org_structure", "attendance", "leave_management", "ess_portal"],
+        "crm": ["lead_management", "deal_pipeline", "contact_account", "activity_tracking"],
+        "supply_chain": ["supplier_master", "purchase_requisition", "purchase_order", "grn"]
+      }
+    },
+    "premium": {
+      "display_name": "Enterprise Premium Plan",
+      "target_audience": "Large or scaling enterprises requiring manufacturing (MRP), custom workflows, project management, and specialized service/quality management.",
+      "modules": "*"
+    }
+  }
+}

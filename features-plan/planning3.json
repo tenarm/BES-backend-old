@@ -1,0 +1,61 @@
+{
+  "phase": 3,
+  "phase_name": "Specialized Enterprise Verticals & BI (Phase 3)",
+  "description": "Deploy complex manufacturing, professional project execution, asset maintenance, quality audits, internal help desk ticketing, and custom analytics.",
+  "development_phases": {
+    "day_7": {
+      "phase_name": "Project Management & Professional Services",
+      "description": "Implement multi-phase projects, Work Breakdown Structures (WBS), resource scheduling, timesheets, and milestone billing rules.",
+      "modules": {
+        "project_management": [
+          "project_master",
+          "wbs",
+          "resource_allocation",
+          "timesheet_tracking",
+          "project_billing"
+        ]
+      }
+    },
+    "day_8": {
+      "phase_name": "Manufacturing Shop Floor & Quality Checks",
+      "description": "Establish Bill of Materials (BOM), production routing cards, work centers, and post-production Quality Inspections with Non-Conformance tracking.",
+      "modules": {
+        "manufacturing": [
+          "bom",
+          "production_order",
+          "work_center_routing"
+        ],
+        "quality_management": [
+          "quality_inspection",
+          "non_conformance"
+        ]
+      }
+    },
+    "day_9": {
+      "phase_name": "Asset Maintenance, Service Desk & Custom BI",
+      "description": "Deploy corporate asset tracking, preventive maintenance, support ticketing/SLA workflows, and custom dashboard/widget builders.",
+      "modules": {
+        "asset_management": [
+          "asset_master",
+          "preventive_maintenance"
+        ],
+        "service_desk": [
+          "ticket_management",
+          "sla_monitoring"
+        ],
+        "bi": [
+          "dashboard_builder",
+          "custom_report_builder"
+        ]
+      }
+    }
+  },
+  "tier_eligibility": {
+    "project_management": "premium",
+    "manufacturing": "premium",
+    "quality_management": "premium",
+    "asset_management": "premium",
+    "service_desk": "premium",
+    "bi": "premium"
+  }
+}
