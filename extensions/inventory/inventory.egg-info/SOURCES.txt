@@ -1,0 +1,8 @@
+pyproject.toml
+inventory/__init__.py
+inventory/models.py
+inventory/router.py
+inventory.egg-info/PKG-INFO
+inventory.egg-info/SOURCES.txt
+inventory.egg-info/dependency_links.txt
+inventory.egg-info/top_level.txt

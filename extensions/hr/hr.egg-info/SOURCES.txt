@@ -1,0 +1,8 @@
+pyproject.toml
+hr/__init__.py
+hr/models.py
+hr/router.py
+hr.egg-info/PKG-INFO
+hr.egg-info/SOURCES.txt
+hr.egg-info/dependency_links.txt
+hr.egg-info/top_level.txt
