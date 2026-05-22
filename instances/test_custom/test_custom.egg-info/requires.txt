@@ -1,2 +1,4 @@
 sales
+finance
 settings
+ai

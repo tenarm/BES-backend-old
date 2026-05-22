@@ -70,6 +70,10 @@
           "workflow_config",
           "notification_rules",
           "number_series"
+        ],
+        "ai": [
+          "chat",
+          "copilot"
         ]
       }
     },

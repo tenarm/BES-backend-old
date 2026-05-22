@@ -29,33 +29,170 @@
       "read": true,
       "write": true,
       "delete": true
-    },
-    "sales_returns": {
+    }
+  },
+  "inventory": {
+    "item_master": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "sales_commission": {
+    "warehouse_location": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "territory_channel": {
+    "goods_receipt": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "sales_analytics": {
+    "goods_issue": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "ecommerce": {
+    "stock_transfer": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "sales_contracts": {
+    "inventory_reports": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "finance": {
+    "coa": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "gl": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ap": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ar": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "bank_cash": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "budgeting": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "cost_center": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "multi_currency": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "hr": {
+    "employee_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "org_structure": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "attendance": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "leave_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ess_portal": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "payroll_processing": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "crm": {
+    "lead_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "deal_pipeline": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "contact_account": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "activity_tracking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "supply_chain": {
+    "supplier_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_requisition": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_order": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "grn": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "document_management": {
+    "document_upload": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "document_linking": {
       "read": true,
       "write": true,
       "delete": true
@@ -91,16 +228,14 @@
       "read": true,
       "write": true,
       "delete": true
+    }
+  },
+  "ai": {
+    "chat": {
+      "execute": true
     },
-    "email_templates": {
-      "read": true,
-      "write": true,
-      "delete": true
-    },
-    "audit_log": {
-      "read": true,
-      "write": true,
-      "delete": true
+    "copilot": {
+      "execute": true
     }
   }
 }

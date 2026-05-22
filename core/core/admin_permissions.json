@@ -870,5 +870,16 @@
       "write": true,
       "delete": true
     }
+  },
+  "ai": {
+    "chat": {
+      "execute": true
+    },
+    "copilot": {
+      "execute": true
+    },
+    "workflows": {
+      "execute": true
+    }
   }
 }

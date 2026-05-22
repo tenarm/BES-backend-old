@@ -36,5 +36,7 @@ dev = [
     "-e file:///${PROJECT_ROOT}/extensions/settings",
     "-e file:///${PROJECT_ROOT}/instances/test_custom",
     "-e file:///${PROJECT_ROOT}/extensions/finance",
+    "-e file:///${PROJECT_ROOT}/extensions/ai",
 ]
+
 

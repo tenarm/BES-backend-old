@@ -4,4 +4,6 @@ Version: 0.1.0
 Summary: Test Custom Client Instance
 Requires-Python: >=3.10
 Requires-Dist: sales
+Requires-Dist: finance
 Requires-Dist: settings
+Requires-Dist: ai
