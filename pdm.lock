@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:09f17de7da1dd4ce7f161d19cd81fa34a99c4eb24a526e4fab2260e60e9d2654"
+content_hash = "sha256:f0d894e8ec71a89d41e72e1bd0ec93748296ff0a1e3b5ddce82523be39e408b9"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -531,6 +531,18 @@ files = [
 ]
 
 [[package]]
+name = "inventory"
+version = "0.1.0"
+requires_python = ">=3.10"
+editable = true
+path = "./extensions/inventory"
+summary = "Inventory Extension Module"
+groups = ["dev"]
+dependencies = [
+    "core",
+]
+
+[[package]]
 name = "jinja2"
 version = "3.1.6"
 requires_python = ">=3.7"
@@ -990,6 +1002,18 @@ dependencies = [
 files = [
     {file = "starlette-1.0.1-py3-none-any.whl", hash = "sha256:7c0e69b2ee1c848bd54669d908500117a3ee13de603a21427e5c6fc1adf98dcd"},
     {file = "starlette-1.0.1.tar.gz", hash = "sha256:512399c5f1de7fac99c88572212ded9ddeddef2fb32afa82d724000e88b38f4f"},
+]
+
+[[package]]
+name = "supply-chain"
+version = "0.1.0"
+requires_python = ">=3.10"
+editable = true
+path = "./extensions/supply_chain"
+summary = "Supply chain Extension Module"
+groups = ["dev"]
+dependencies = [
+    "core",
 ]
 
 [[package]]

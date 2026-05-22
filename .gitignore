@@ -16,6 +16,7 @@ dist/
 **/*.egg-info/
 core/build/
 extensions/*/build/
+instances/*/dist/
 
 # Test and coverage
 .pytest_cache/
