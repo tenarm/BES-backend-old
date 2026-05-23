@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from fastapi import Request, FastAPI, status, Query
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from .exceptions import ConcurrencyError
 import logging
 
 logger = logging.getLogger(__name__)
@@ -66,9 +68,27 @@ def setup_exception_handlers(app: FastAPI):
             content=error_response("Internal Server Error").model_dump()
         )
 
+    @app.exception_handler(ConcurrencyError)
+    async def concurrency_exception_handler(request: Request, exc: ConcurrencyError):
+        logger.warning(f"Concurrency conflict: {exc.message}")
+        return JSONResponse(
+            status_code=status.HTTP_409_CONFLICT,
+            content=error_response(exc.message).model_dump()
+        )
+
+    @app.exception_handler(StarletteHTTPException)
+    async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+        logger.warning(f"HTTPException caught: {exc.detail} (status: {exc.status_code})")
+        return JSONResponse(
+            status_code=exc.status_code,
+            content=error_response(exc.detail).model_dump()
+        )
+
+
     @app.exception_handler(RequestValidationError)
     async def validation_exception_handler(request: Request, exc: RequestValidationError):
         return JSONResponse(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             content=error_response(f"Validation Error: {exc.errors()}").model_dump()
         )
+

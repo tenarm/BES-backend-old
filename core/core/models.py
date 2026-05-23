@@ -4,6 +4,8 @@ from typing import Optional, Any
 from decimal import Decimal
 from sqlmodel import SQLModel, Field
 from sqlalchemy import Column, JSON, Numeric, event
+from sqlalchemy.orm import declared_attr
+
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
@@ -22,6 +24,20 @@ class BESBase(SQLModel):
     is_deleted: bool = Field(default=False)
     # Using JSON for sqlite compatibility
     metadata_: dict[str, Any] = Field(default_factory=dict, sa_type=JSON)
+
+    # Concurrency control: Optimistic locking version field
+    version_id: int = Field(
+        default=1,
+        sa_column_kwargs={"server_default": "1"}
+    )
+
+    @declared_attr
+    def __mapper_args__(cls):
+        return {
+            "version_id_col": cls.version_id
+        }
+
+
 
 # --- SQLAlchemy event to auto-update `updated_at` on modification ---
 @event.listens_for(BESBase, "before_update", propagate=True)

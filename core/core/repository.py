@@ -1,8 +1,10 @@
 from typing import TypeVar, Type, Optional, Sequence, Generic, Any
 from sqlmodel import select, SQLModel
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm.exc import StaleDataError
 from .database import subsidiary_id_context
 from .middleware import correlation_id_context, current_user_id_context, current_user_name_context
+from .exceptions import ConcurrencyError
 import uuid
 
 ModelType = TypeVar("ModelType", bound=SQLModel)
@@ -33,6 +35,23 @@ class BaseRepository(Generic[ModelType]):
         result = await session.execute(stmt)
         return result.scalars().first()
 
+    async def get_with_lock(
+        self,
+        session: AsyncSession,
+        id: uuid.UUID | str,
+        nowait: bool = False,
+        skip_locked: bool = False
+    ) -> Optional[ModelType]:
+        """
+        Fetches a record by ID and applies a pessimistic lock (FOR UPDATE).
+        """
+        stmt = select(self.model).where(self.model.id == id)
+        stmt = self._apply_scopes(stmt)
+        stmt = stmt.with_for_update(nowait=nowait, skip_locked=skip_locked)
+        result = await session.execute(stmt)
+        return result.scalars().first()
+
+
     async def get_all(self, session: AsyncSession, skip: int = 0, limit: int = 100) -> Sequence[ModelType]:
         stmt = select(self.model).offset(skip).limit(limit)
         stmt = self._apply_scopes(stmt)
@@ -59,13 +78,30 @@ class BaseRepository(Generic[ModelType]):
 
     async def update(self, session: AsyncSession, db_obj: ModelType, obj_in: dict[str, Any] | SQLModel) -> ModelType:
         update_data = obj_in if isinstance(obj_in, dict) else obj_in.model_dump(exclude_unset=True)
+        
+        # Concurrency verification: check version_id if present
+        if hasattr(db_obj, "version_id") and "version_id" in update_data:
+            client_version = update_data["version_id"]
+            if client_version is not None and db_obj.version_id != client_version:
+                raise ConcurrencyError(
+                    f"Stale data detected. Database version is {db_obj.version_id}, "
+                    f"but update request specified version {client_version}."
+                )
+
         for field, value in update_data.items():
             setattr(db_obj, field, value)
             
         session.add(db_obj)
-        await session.commit()
+        try:
+            await session.commit()
+        except StaleDataError as e:
+            await session.rollback()
+            raise ConcurrencyError(
+                "Concurrency conflict detected: The record was modified by another transaction."
+            ) from e
         await session.refresh(db_obj)
         return db_obj
+
 
     async def delete(self, session: AsyncSession, db_obj: ModelType) -> ModelType:
         """

@@ -57,8 +57,12 @@ from .licensing import (
 )
 
 
+# --- Exceptions ---
+from .exceptions import ConcurrencyError
+
 # --- Repository ---
 from .repository import BaseRepository
+
 
 # --- Responses ---
 from .responses import (
@@ -126,6 +130,9 @@ __all__ = [
     "PERMISSIONS_SCHEMA", "ExecutionContextType", "elevate_context",
     # Licensing
     "is_feature_licensed", "require_licensed_feature", "LicensingError",
+    # Exceptions
+    "ConcurrencyError",
+
 
     # Repository
     "BaseRepository",
