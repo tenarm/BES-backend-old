@@ -40,5 +40,32 @@ dev = [
     "-e file:///${PROJECT_ROOT}/extensions/supply_chain",
     "-e file:///${PROJECT_ROOT}/extensions/inventory",
 ]
+test = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-mock>=3.12.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.26.0",
+]
+
+[tool.pdm.scripts]
+test = "pytest"
+test-cov = "pytest --cov=core --cov=extensions --cov-report=term-missing"
+test-core = "pytest core/tests"
+test-extensions = "pytest extensions/"
+test-instances = "pytest instances/"
+
+[tool.pytest.ini_options]
+norecursedirs = [
+    "*.egg",
+    ".git",
+    ".venv",
+    ".pdm-build",
+    "scratch",
+    "dist",
+    "build"
+]
+
+
 
 
