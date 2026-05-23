@@ -55,5 +55,17 @@ test-core = "pytest core/tests"
 test-extensions = "pytest extensions/"
 test-instances = "pytest instances/"
 
+[tool.pytest.ini_options]
+norecursedirs = [
+    "*.egg",
+    ".git",
+    ".venv",
+    ".pdm-build",
+    "scratch",
+    "dist",
+    "build"
+]
+
+
 
 
