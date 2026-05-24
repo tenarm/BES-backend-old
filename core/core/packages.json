@@ -5,7 +5,7 @@
       "modules": {
         "sales": ["customer_master", "quotation", "sales_order"],
         "inventory": ["item_master", "warehouse_location", "goods_receipt", "goods_issue"],
-        "settings": ["company_setup", "user_management", "module_toggle", "notification_rules"]
+        "settings": ["company_setup", "user_management", "module_toggle", "notification_rules", "company_profile"]
       }
     },
     "pro": {
@@ -69,7 +69,11 @@
           "module_toggle",
           "workflow_config",
           "notification_rules",
-          "number_series"
+          "number_series",
+          "company_profile",
+          "subsidiary_registry",
+          "fiscal_calendar",
+          "tax_profile"
         ],
         "ai": [
           "chat",
