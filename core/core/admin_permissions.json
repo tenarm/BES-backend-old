@@ -92,6 +92,16 @@
     }
   },
   "sales": {
+    "customer": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "credit": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
     "customer_master": {
       "read": true,
       "write": true,
@@ -866,6 +876,31 @@
       "delete": true
     },
     "audit_log": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "company_profile": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "subsidiary_registry": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "fiscal_calendar": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax_profile": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "data_sharing": {
       "read": true,
       "write": true,
       "delete": true

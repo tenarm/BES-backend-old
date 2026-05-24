@@ -228,6 +228,31 @@
       "read": true,
       "write": true,
       "delete": true
+    },
+    "company_profile": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "subsidiary_registry": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "fiscal_calendar": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax_profile": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "data_sharing": {
+      "read": true,
+      "write": true,
+      "delete": true
     }
   },
   "ai": {

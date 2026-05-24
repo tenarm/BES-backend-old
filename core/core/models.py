@@ -88,6 +88,8 @@ class Customer(BESBase, table=True):
     name: str
     tax_id: Optional[str] = None
     primary_email: Optional[str] = None
+    parent_customer_id: Optional[uuid.UUID] = Field(default=None, foreign_key="customers.id")
+    status: str = Field(default="ACTIVE")
 
 
 class Vendor(BESBase, table=True):
