@@ -11,8 +11,8 @@ class SalesManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import SalesEntity
-        return [SalesEntity]
+        from .models import SalesEntity, CustomerAddress, CustomerContact, CustomerCredit
+        return [SalesEntity, CustomerAddress, CustomerContact, CustomerCredit]
 
     def get_event_handlers(self):
         from .events import register_event_handlers

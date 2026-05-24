@@ -1,0 +1,105 @@
+{
+  "posting_period_closure": {
+    "processId": "posting_period_closure",
+    "module": "settings",
+    "label": "Accounting Period Closure",
+    "entity": "posting_periods",
+    "steps": [
+      {
+        "id": "initiate_closure",
+        "label": "Initiate Period Closure",
+        "type": "direct",
+        "statusEvent": "POSTING_PERIOD_LOCKED",
+        "requiredRole": "accountant",
+        "description": "Trigger period sealing to block back-dated ledger postings.",
+        "action": {
+          "label": "Initiate Lock",
+          "apiEndpoint": "/api/v1/settings/periods/{id}/lock",
+          "method": "POST"
+        }
+      },
+      {
+        "id": "unposted_entry_validation",
+        "label": "Validate Unposted Entries",
+        "type": "sequence",
+        "statusEvent": "UNPOSTED_VALIDATED",
+        "dependsOn": ["initiate_closure"],
+        "requiredModule": "finance",
+        "requiredFeature": "gl",
+        "description": "System check searching for unposted transaction drafts in GL."
+      },
+      {
+        "id": "bank_reconciliation_check",
+        "label": "Verify Bank Reconciliation",
+        "type": "approval",
+        "statusEvent": "BANK_RECONCILIATION_VERIFIED",
+        "dependsOn": ["unposted_entry_validation"],
+        "requiredRole": "finance_controller",
+        "requiredModule": "finance",
+        "requiredFeature": "bank_cash",
+        "description": "Auditor verification ensuring bank account balances are balanced."
+      },
+      {
+        "id": "cfo_final_approval",
+        "label": "CFO Final Approval & Lock",
+        "type": "approval",
+        "statusEvent": "PERIOD_SEALED",
+        "dependsOn": ["bank_reconciliation_check"],
+        "requiredRole": "cfo",
+        "description": "CFO confirmation seal to lock sub-ledgers permanently."
+      }
+    ]
+  },
+  "user_offboarding": {
+    "processId": "user_offboarding",
+    "module": "settings",
+    "label": "User Offboarding & Deprovisioning",
+    "entity": "users",
+    "steps": [
+      {
+        "id": "initiate_deprovisioning",
+        "label": "Initiate Offboarding",
+        "type": "direct",
+        "statusEvent": "USER_OFFBOARDED",
+        "requiredRole": "admin",
+        "description": "Trigger user offboarding process, deactivating account and revoking active sessions.",
+        "action": {
+          "label": "Offboard User",
+          "apiEndpoint": "/api/v1/settings/users/{id}/offboard",
+          "method": "PUT"
+        }
+      },
+      {
+        "id": "check_workflow_owners",
+        "label": "Check Active Workflow Steps",
+        "type": "sequence",
+        "statusEvent": "AUTO_CHECKED_WORKFLOWS",
+        "dependsOn": ["initiate_deprovisioning"],
+        "requiredModule": "settings",
+        "requiredFeature": "workflow_config",
+        "description": "System check searching if the offboarded user is the active owner/approver for active process pipelines."
+      },
+      {
+        "id": "transfer_crm_assets",
+        "label": "Transfer CRM Accounts",
+        "type": "approval",
+        "statusEvent": "CRM_ASSETS_TRANSFERRED",
+        "dependsOn": ["check_workflow_owners"],
+        "requiredRole": "admin",
+        "requiredModule": "crm",
+        "requiredFeature": "lead_management",
+        "description": "Deprovisioning checklist task to transfer all active CRM leads/accounts to a new owner."
+      },
+      {
+        "id": "finalize_termination",
+        "label": "Finalize Lockout & Deactivate",
+        "type": "approval",
+        "statusEvent": "USER_DEACTIVATED",
+        "dependsOn": ["transfer_crm_assets"],
+        "requiredRole": "admin",
+        "description": "Confirm deprovisioning completion and finalize user lockout."
+      }
+    ]
+  }
+}
+

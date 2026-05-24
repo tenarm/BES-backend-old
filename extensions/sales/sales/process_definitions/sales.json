@@ -1,0 +1,47 @@
+{
+  "credit_hold_resolution": {
+    "processId": "credit_hold_resolution",
+    "module": "sales",
+    "label": "Customer Credit Hold Resolution",
+    "entity": "sales_orders",
+    "steps": [
+      {
+        "id": "credit_hold_block",
+        "label": "Credit Hold Block",
+        "type": "direct",
+        "statusEvent": "CUSTOMER_CREDIT_HOLD",
+        "requiredRole": "system",
+        "description": "Sales order confirmation blocked due to credit limit breach."
+      },
+      {
+        "id": "finance_risk_review",
+        "label": "Accounts Receivable Review",
+        "type": "sequence",
+        "statusEvent": "CUSTOMER_AR_REVIEWED",
+        "dependsOn": [
+          "credit_hold_block"
+        ],
+        "requiredRole": "finance_controller",
+        "requiredModule": "finance",
+        "requiredFeature": "ar",
+        "description": "Accounts receivable review verifying payment aging records."
+      },
+      {
+        "id": "manager_override",
+        "label": "Manager Override Authorization",
+        "type": "approval",
+        "statusEvent": "CUSTOMER_CREDIT_RELEASED",
+        "dependsOn": [
+          "finance_risk_review"
+        ],
+        "requiredRole": "finance_manager",
+        "description": "Manager override approval to release credit hold on the sales order.",
+        "action": {
+          "label": "Approve Override",
+          "apiEndpoint": "/api/v1/sales/customers/credit-override/{id}",
+          "method": "PUT"
+        }
+      }
+    ]
+  }
+}
