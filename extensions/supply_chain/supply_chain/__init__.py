@@ -1,1 +1,1 @@
-"""Supply chain Extension"""
+"""Supply Chain Extension"""

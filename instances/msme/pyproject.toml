@@ -1,10 +1,13 @@
 [project]
-name = "supply_chain"
+name = "msme"
 version = "0.1.0"
-description = "Supply Chain Extension Module"
+description = "msme Client Instance"
 requires-python = ">=3.10"
 dependencies = [
-    "core"
+    "sales",
+    "inventory",
+    "supply_chain",
+    "settings",
 ]
 
 [build-system]
@@ -12,4 +15,4 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["supply_chain"]
+packages = ["msme"]

@@ -1,0 +1,37 @@
+{
+  "period_close_pipeline": {
+    "processId": "period_close_pipeline",
+    "module": "settings",
+    "label": "Fiscal Month & Posting Period Close Pipeline",
+    "entity": "PostingPeriod",
+    "steps": [
+      {
+        "id": "invoice_verification",
+        "label": "Draft Invoices Verification",
+        "type": "direct",
+        "statusEvent": "INVOICES_VERIFIED",
+        "dependsOn": [],
+        "requiredRole": "Finance Manager",
+        "description": "Ensure all sales/purchase invoices are posted or cancelled"
+      },
+      {
+        "id": "inventory_reconciliation",
+        "label": "Stock Counts Lock",
+        "type": "direct",
+        "statusEvent": "STOCK_COUNTS_LOCKED",
+        "dependsOn": ["invoice_verification"],
+        "requiredRole": "Warehouse Manager",
+        "description": "Confirm all physical counts are resolved"
+      },
+      {
+        "id": "cfo_signoff",
+        "label": "CFO Period Lock Sign-off",
+        "type": "approval",
+        "statusEvent": "POSTING_PERIOD_CLOSED",
+        "dependsOn": ["inventory_reconciliation"],
+        "requiredRole": "CFO",
+        "description": "Executive CFO authorization approval"
+      }
+    ]
+  }
+}

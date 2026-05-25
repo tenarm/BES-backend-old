@@ -111,6 +111,7 @@ def main():
     parser = argparse.ArgumentParser(description="Create a new BES backend extension module.")
     parser.add_argument("--id", help="The unique snake_case ID of the extension (e.g. procurement).")
     parser.add_argument("--name", help="The display name of the extension (e.g. Procurement).")
+    parser.add_argument("--modular", action="store_true", help="Scaffold a modular directory structure instead of flat files.")
     args = parser.parse_args()
     
     print("=== BES Extension Creation CLI ===")
@@ -127,6 +128,11 @@ def main():
         extension_name = input("Enter extension display name (e.g. Procurement): ").strip()
     if not extension_name:
         extension_name = to_camel_case(extension_id)
+        
+    modular = args.modular
+    if not args.id:
+        mod_input = input("Use a modular directory structure? [y/N]: ").strip().lower()
+        modular = modular or (mod_input in ["y", "yes"])
         
     extension_class = to_camel_case(extension_id)
     
@@ -170,9 +176,19 @@ packages = ["{extension_id}"]
         f.write(f'"""{extension_name} Extension"""\n')
     print(f"Created: {init_py}")
     
-    # 4. models.py
-    models_py = ext_pkg_dir / "models.py"
-    models_content = f"""import uuid
+    if modular:
+        # Create package subdirectories
+        (ext_pkg_dir / "models").mkdir(exist_ok=True)
+        (ext_pkg_dir / "schemas").mkdir(exist_ok=True)
+        (ext_pkg_dir / "services").mkdir(exist_ok=True)
+        (ext_pkg_dir / "router").mkdir(exist_ok=True)
+        
+        # 4a. models/__init__.py
+        with open(ext_pkg_dir / "models" / "__init__.py", "w", encoding="utf-8") as f:
+            f.write(f"from .entity import {extension_class}Entity\n")
+            
+        # 4b. models/entity.py
+        models_content = f"""import uuid
 from sqlmodel import Field
 from core.models import BESBase
 
@@ -182,13 +198,16 @@ class {extension_class}Entity(BESBase, table=True):
     name: str = Field(index=True)
     description: str = Field(default="")
 """
-    with open(models_py, "w", encoding="utf-8") as f:
-        f.write(models_content)
-    print(f"Created: {models_py}")
-    
-    # 5. schemas.py
-    schemas_py = ext_pkg_dir / "schemas.py"
-    schemas_content = f"""import uuid
+        with open(ext_pkg_dir / "models" / "entity.py", "w", encoding="utf-8") as f:
+            f.write(models_content)
+        print(f"Created modular package: {ext_pkg_dir}/models")
+            
+        # 5a. schemas/__init__.py
+        with open(ext_pkg_dir / "schemas" / "__init__.py", "w", encoding="utf-8") as f:
+            f.write(f"from .entity import {extension_class}EntityCreate, {extension_class}EntityRead\n")
+            
+        # 5b. schemas/entity.py
+        schemas_content = f"""import uuid
 from typing import Optional
 from sqlmodel import SQLModel
 
@@ -201,13 +220,134 @@ class {extension_class}EntityRead(SQLModel):
     name: str
     description: str
 """
-    with open(schemas_py, "w", encoding="utf-8") as f:
-        f.write(schemas_content)
-    print(f"Created: {schemas_py}")
+        with open(ext_pkg_dir / "schemas" / "entity.py", "w", encoding="utf-8") as f:
+            f.write(schemas_content)
+        print(f"Created modular package: {ext_pkg_dir}/schemas")
+            
+        # 6a. services/__init__.py
+        with open(ext_pkg_dir / "services" / "__init__.py", "w", encoding="utf-8") as f:
+            f.write("from .entity import create_entity\n")
+            
+        # 6b. services/entity.py
+        services_content = f"""import logging
+from sqlalchemy.ext.asyncio import AsyncSession
+from ..models.entity import {extension_class}Entity
+from ..schemas.entity import {extension_class}EntityCreate
+
+logger = logging.getLogger(__name__)
+
+async def create_entity(session: AsyncSession, data: {extension_class}EntityCreate) -> {extension_class}Entity:
+    db_obj = {extension_class}Entity.model_validate(data)
+    session.add(db_obj)
+    await session.commit()
+    await session.refresh(db_obj)
+    return db_obj
+"""
+        with open(ext_pkg_dir / "services" / "entity.py", "w", encoding="utf-8") as f:
+            f.write(services_content)
+        print(f"Created modular package: {ext_pkg_dir}/services")
+            
+        # 7a. router/__init__.py
+        router_init_content = f"""from fastapi import APIRouter
+from .entity import router as entity_router
+
+router = APIRouter(prefix="/api/v1/{extension_id}", tags=["{extension_id}"])
+router.include_router(entity_router)
+
+__all__ = ["router"]
+"""
+        with open(ext_pkg_dir / "router" / "__init__.py", "w", encoding="utf-8") as f:
+            f.write(router_init_content)
+            
+        # 7b. router/entity.py
+        router_content = f"""from fastapi import APIRouter, Depends
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlmodel import select, func
+
+from ..models.entity import {extension_class}Entity
+from ..schemas.entity import {extension_class}EntityCreate
+from ..services.entity import create_entity
+from core.database import get_async_session
+from core.responses import success_response, paginated_response
+from core.pagination import PaginationParams
+from core.licensing import require_licensed_feature
+from core.rbac import require_permission
+
+router = APIRouter()
+
+@router.get("/entities", dependencies=[Depends(require_permission("{extension_id}:entity:read"))])
+async def list_entities(
+    pagination: PaginationParams = Depends(),
+    session: AsyncSession = Depends(get_async_session)
+):
+    require_licensed_feature("{extension_id}", "entity_management")
+
+    count_stmt = select(func.count()).select_from({extension_class}Entity).where({extension_class}Entity.is_deleted == False)
+    total = (await session.execute(count_stmt)).scalar() or 0
     
-    # 6. services.py
-    services_py = ext_pkg_dir / "services.py"
-    services_content = f"""import logging
+    stmt = (
+        select({extension_class}Entity)
+        .where({extension_class}Entity.is_deleted == False)
+        .offset(pagination.offset)
+        .limit(pagination.limit)
+    )
+    result = await session.execute(stmt)
+    items = result.scalars().all()
+    
+    return paginated_response(data=items, total=total, page=pagination.page, page_size=pagination.page_size)
+
+@router.post("/entities", dependencies=[Depends(require_permission("{extension_id}:entity:write"))])
+async def create_entity_endpoint(
+    data: {extension_class}EntityCreate,
+    session: AsyncSession = Depends(get_async_session)
+):
+    require_licensed_feature("{extension_id}", "entity_management")
+
+    item = await create_entity(session, data)
+    return success_response(data=item)
+"""
+        with open(ext_pkg_dir / "router" / "entity.py", "w", encoding="utf-8") as f:
+            f.write(router_content)
+        print(f"Created modular package: {ext_pkg_dir}/router")
+    else:
+        # 4. models.py
+        models_py = ext_pkg_dir / "models.py"
+        models_content = f"""import uuid
+from sqlmodel import Field
+from core.models import BESBase
+
+class {extension_class}Entity(BESBase, table=True):
+    __tablename__ = "{extension_id}_entities"
+    
+    name: str = Field(index=True)
+    description: str = Field(default="")
+"""
+        with open(models_py, "w", encoding="utf-8") as f:
+            f.write(models_content)
+        print(f"Created: {models_py}")
+        
+        # 5. schemas.py
+        schemas_py = ext_pkg_dir / "schemas.py"
+        schemas_content = f"""import uuid
+from typing import Optional
+from sqlmodel import SQLModel
+
+class {extension_class}EntityCreate(SQLModel):
+    name: str
+    description: str = ""
+
+class {extension_class}EntityRead(SQLModel):
+    id: uuid.UUID
+    name: str
+    description: str
+"""
+        with open(schemas_py, "w", encoding="utf-8") as f:
+            f.write(schemas_content)
+        print(f"Created: {schemas_py}")
+        
+        # 6. services.py
+        services_py = ext_pkg_dir / "services.py"
+        services_content = f"""import logging
 from sqlalchemy.ext.asyncio import AsyncSession
 from .models import {extension_class}Entity
 from .schemas import {extension_class}EntityCreate
@@ -221,13 +361,13 @@ async def create_entity(session: AsyncSession, data: {extension_class}EntityCrea
     await session.refresh(db_obj)
     return db_obj
 """
-    with open(services_py, "w", encoding="utf-8") as f:
-        f.write(services_content)
-    print(f"Created: {services_py}")
-    
-    # 7. router.py
-    router_py = ext_pkg_dir / "router.py"
-    router_content = f"""from fastapi import APIRouter, Depends
+        with open(services_py, "w", encoding="utf-8") as f:
+            f.write(services_content)
+        print(f"Created: {services_py}")
+        
+        # 7. router.py
+        router_py = ext_pkg_dir / "router.py"
+        router_content = f"""from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select, func
 
@@ -273,9 +413,9 @@ async def create_entity_endpoint(
     item = await create_entity(session, data)
     return success_response(data=item)
 """
-    with open(router_py, "w", encoding="utf-8") as f:
-        f.write(router_content)
-    print(f"Created: {router_py}")
+        with open(router_py, "w", encoding="utf-8") as f:
+            f.write(router_content)
+        print(f"Created: {router_py}")
     
     # 8. events.py
     events_py = ext_pkg_dir / "events.py"
@@ -326,6 +466,7 @@ manifest = {extension_class}Manifest()
     with open(manifest_py, "w", encoding="utf-8") as f:
         f.write(manifest_content)
     print(f"Created: {manifest_py}")
+
     
     # 10. Update configurations
     update_root_pyproject(extension_id)

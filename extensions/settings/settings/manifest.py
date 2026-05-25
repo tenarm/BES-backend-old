@@ -11,8 +11,14 @@ class SettingsManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import SettingsEntity
-        return [SettingsEntity]
+        from .models import (
+            CompanyProfile, Subsidiary, FiscalCalendar, PostingPeriod, TaxProfile,
+            UserSubsidiaryAccess, SSOConfiguration, APIKey
+        )
+        return [
+            CompanyProfile, Subsidiary, FiscalCalendar, PostingPeriod, TaxProfile,
+            UserSubsidiaryAccess, SSOConfiguration, APIKey
+        ]
 
     def get_event_handlers(self):
         from .events import register_event_handlers

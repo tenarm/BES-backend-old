@@ -12,4 +12,4 @@ async def emit_entity_created(entity_id: str, entity_name: str):
     await event_bus.emit(payload)
 
 def register_event_handlers():
-    logger.info("[Supply chain] Event handlers registered")
+    logger.info("[Supply Chain] Event handlers registered")

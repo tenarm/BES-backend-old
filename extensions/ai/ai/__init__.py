@@ -1,1 +1,1 @@
-"""AI Copilot Extension"""
+"""ai Extension"""

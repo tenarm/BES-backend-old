@@ -12,4 +12,4 @@ async def emit_entity_created(entity_id: str, entity_name: str):
     await event_bus.emit(payload)
 
 def register_event_handlers():
-    logger.info("[AI Copilot] Event handlers registered")
+    logger.info("[ai] Event handlers registered")
