@@ -1,4 +1,0 @@
-sales
-finance
-settings
-ai
