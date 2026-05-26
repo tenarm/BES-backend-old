@@ -29,6 +29,7 @@ async def bootstrap(user: User = Depends(get_current_user)):
         "data": {
             "client_name": CLIENT_CONFIG.get("client_name"),
             "active_modules": LICENSED_MODULES,
+            "plan": CLIENT_CONFIG.get("plan", "premium"),
             "user_id": str(user.id),
             "username": user.username,
             "permissions": user_perms["permissions"],

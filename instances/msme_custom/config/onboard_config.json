@@ -1,0 +1,20 @@
+{
+  "client_id": "msme_custom",
+  "client_name": "msme custom",
+  "database_url": "sqlite+aiosqlite:///./instances/msme_custom/data/msme_custom.db",
+  "plan": "custom",
+  "custom_config": true,
+  "status": "active",
+  "registered_at": "2026-05-26T02:21:57.415527",
+  "updated_at": "2026-05-26T02:21:57.415527",
+  "licensed_modules": [
+    "finance",
+    "inventory",
+    "crm",
+    "manufacturing",
+    "project_management",
+    "supply_chain",
+    "ai",
+    "settings"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "client_id": "msme_basic",
+  "client_name": "msme basic",
+  "database_url": "sqlite+aiosqlite:///./instances/msme_basic/data/msme_basic.db",
+  "plan": "basic",
+  "custom_config": false,
+  "status": "active",
+  "registered_at": "2026-05-26T02:20:10.002786",
+  "updated_at": "2026-05-26T02:20:10.002786",
+  "licensed_modules": [
+    "settings",
+    "sales",
+    "inventory"
+  ]
+}

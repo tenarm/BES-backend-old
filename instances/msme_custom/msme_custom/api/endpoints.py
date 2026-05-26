@@ -3,7 +3,7 @@ from core.auth import get_current_user
 from core.models import User
 from core.rbac import get_simplified_json
 
-from msme.bootstrap import CLIENT_CONFIG, LICENSED_MODULES
+from msme_custom.bootstrap import CLIENT_CONFIG, LICENSED_MODULES
 
 router = APIRouter()
 

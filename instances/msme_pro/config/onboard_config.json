@@ -1,0 +1,21 @@
+{
+  "client_id": "msme_pro",
+  "client_name": "msme pro",
+  "database_url": "sqlite+aiosqlite:///./instances/msme_pro/data/msme_pro.db",
+  "plan": "pro",
+  "custom_config": false,
+  "status": "active",
+  "registered_at": "2026-05-26T02:20:50.687457",
+  "updated_at": "2026-05-26T02:20:50.687457",
+  "licensed_modules": [
+    "settings",
+    "sales",
+    "inventory",
+    "finance",
+    "hr",
+    "crm",
+    "supply_chain",
+    "document_management",
+    "ai"
+  ]
+}

@@ -1,4 +1,220 @@
 {
+  "finance": {
+    "coa": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "gl": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ap": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ar": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "bank_cash": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "fixed_asset": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "budgeting": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "cost_center": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "multi_currency": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "period_end_close": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "payroll_integration": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "project_cost_accounting": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "intercompany": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "mis_reporting": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "audit_trail": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "vendors": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_invoices": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "sales": {
+    "customer_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "quotation": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_order": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "pricing_discount": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "delivery_dispatch": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_invoice": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_returns": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_commission": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "territory_channel": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_analytics": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ecommerce": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_contracts": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "inventory": {
+    "item_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "warehouse_location": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "goods_receipt": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "goods_issue": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "stock_transfer": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "inventory_valuation": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "physical_inventory": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "auto_replenishment": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "batch_tracking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "serial_tracking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "bin_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "inventory_reports": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
   "hr": {
     "employee_master": {
       "read": true,
@@ -232,6 +448,58 @@
       "delete": true
     },
     "project_reports": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "supply_chain": {
+    "supplier_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_requisition": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_order": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "grn": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "vendor_evaluation": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "rfq": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_contract": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "returns_to_vendor": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "landed_cost": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "scm_analytics": {
       "read": true,
       "write": true,
       "delete": true
@@ -603,32 +871,15 @@
       "delete": true
     }
   },
-  "sales": {
-    "entity_management": {
-      "read": true,
-      "write": true,
-      "delete": true
-    }
-  },
-  "supply_chain": {
-    "entity_management": {
-      "read": true,
-      "write": true,
-      "delete": true
-    }
-  },
-  "inventory": {
-    "entity_management": {
-      "read": true,
-      "write": true,
-      "delete": true
-    }
-  },
   "ai": {
-    "entity_management": {
-      "read": true,
-      "write": true,
-      "delete": true
+    "chat": {
+      "execute": true
+    },
+    "copilot": {
+      "execute": true
+    },
+    "workflows": {
+      "execute": true
     }
   }
 }

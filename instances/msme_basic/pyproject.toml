@@ -1,0 +1,17 @@
+[project]
+name = "msme-basic"
+version = "0.1.0"
+description = "msme basic Client Instance"
+requires-python = ">=3.10"
+dependencies = [
+    "settings",
+    "sales",
+    "inventory",
+]
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["msme_basic"]

@@ -5,7 +5,7 @@
 groups = ["default", "dev", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:d3586cc74d6f89475bad6f50a7ab0ae97ab91f973dc9826f01834aa8ed452823"
+content_hash = "sha256:c89350e4e6ce4fd1ebcc8ca801873678ec45a27ae1abf6192701c771bf5ef67a"
 
 [[metadata.targets]]
 requires_python = ">=3.10"
@@ -941,6 +941,51 @@ path = "./instances/msme"
 summary = "msme Client Instance"
 groups = ["dev"]
 dependencies = [
+    "inventory",
+    "sales",
+    "settings",
+    "supply-chain",
+]
+
+[[package]]
+name = "msme-basic"
+version = "0.1.0"
+requires_python = ">=3.10"
+editable = true
+path = "./instances/msme_basic"
+summary = "msme basic Client Instance"
+groups = ["dev"]
+dependencies = [
+    "inventory",
+    "sales",
+    "settings",
+]
+
+[[package]]
+name = "msme-custom"
+version = "0.1.0"
+requires_python = ">=3.10"
+editable = true
+path = "./instances/msme_custom"
+summary = "msme custom Client Instance"
+groups = ["dev"]
+dependencies = [
+    "ai",
+    "inventory",
+    "settings",
+    "supply-chain",
+]
+
+[[package]]
+name = "msme-pro"
+version = "0.1.0"
+requires_python = ">=3.10"
+editable = true
+path = "./instances/msme_pro"
+summary = "msme pro Client Instance"
+groups = ["dev"]
+dependencies = [
+    "ai",
     "inventory",
     "sales",
     "settings",
