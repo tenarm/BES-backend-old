@@ -1,25 +1,27 @@
 {
   "credit_limit_approval": {
     "processId": "credit_limit_approval",
-    "name": "Credit Limit Increase Approval",
     "module": "sales",
+    "label": "Credit Limit Increase Approval",
+    "entity": "Customer",
     "steps": [
       {
         "id": "propose_limit",
-        "name": "Propose Credit Limit",
+        "label": "Propose Credit Limit",
         "type": "direct",
         "statusEvent": "CUSTOMER_CREDIT_LIMIT_REQUESTED"
       },
       {
         "id": "risk_check",
-        "name": "Risk Analyst Review",
+        "label": "Risk Analyst Review",
         "type": "approval",
         "requiredRole": "risk_analyst",
+        "statusEvent": "CUSTOMER_RISK_CHECKED",
         "dependsOn": ["propose_limit"]
       },
       {
         "id": "manager_approve",
-        "name": "Credit Manager Approval",
+        "label": "Credit Manager Approval",
         "type": "approval",
         "requiredRole": "credit_manager",
         "dependsOn": ["risk_check"],

@@ -11,8 +11,20 @@ class SupplyChainManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import SupplyChainEntity
-        return [SupplyChainEntity]
+        from .models import (
+            SupplyChainEntity,
+            SupplierDetails,
+            SupplierAddress,
+            SupplierContact,
+            SupplierCertification,
+        )
+        return [
+            SupplyChainEntity,
+            SupplierDetails,
+            SupplierAddress,
+            SupplierContact,
+            SupplierCertification,
+        ]
 
     def get_event_handlers(self):
         from .events import register_event_handlers

@@ -1,0 +1,32 @@
+{
+  "supplier_onboarding": {
+    "processId": "supplier_onboarding",
+    "module": "supply_chain",
+    "label": "Supplier Onboarding Verification",
+    "entity": "Supplier",
+    "steps": [
+      {
+        "id": "draft_onboard",
+        "label": "Draft Onboarding Init",
+        "type": "direct",
+        "statusEvent": "SUPPLIER_ONBOARDING_INITIATED"
+      },
+      {
+        "id": "tax_verification",
+        "label": "Tax Compliance Review",
+        "type": "approval",
+        "requiredRole": "compliance_officer",
+        "statusEvent": "SUPPLIER_TAX_VERIFIED",
+        "dependsOn": ["draft_onboard"]
+      },
+      {
+        "id": "bank_verification",
+        "label": "Banking Coordination Review",
+        "type": "approval",
+        "requiredRole": "finance_admin",
+        "statusEvent": "SUPPLIER_ONBOARDING_APPROVED",
+        "dependsOn": ["tax_verification"]
+      }
+    ]
+  }
+}

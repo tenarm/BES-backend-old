@@ -1,0 +1,79 @@
+{
+  "item_master_qualification": {
+    "processId": "item_master_qualification",
+    "module": "inventory",
+    "label": "Item Catalog Qualification",
+    "entity": "inventory_item",
+    "steps": [
+      {
+        "id": "draft_creation",
+        "label": "Draft Specification Entry",
+        "type": "direct",
+        "statusEvent": "ITEM_DRAFT_CREATED"
+      },
+      {
+        "id": "engineering_review",
+        "label": "Engineering Specification Audit",
+        "type": "approval",
+        "statusEvent": "ITEM_SPECS_VERIFIED",
+        "requiredRole": "engineering_specialist",
+        "dependsOn": ["draft_creation"],
+        "requiredModule": "inventory",
+        "requiredFeature": "item_master"
+      },
+      {
+        "id": "financial_costing_approval",
+        "label": "Costing & Tax Mappings Review",
+        "type": "approval",
+        "statusEvent": "ITEM_FINANCIALS_APPROVED",
+        "requiredRole": "finance_controller",
+        "dependsOn": ["engineering_review"],
+        "requiredModule": "finance",
+        "requiredFeature": "general_ledger"
+      },
+      {
+        "id": "final_release",
+        "label": "Release to Catalog",
+        "type": "sequence",
+        "statusEvent": "ITEM_RELEASED",
+        "dependsOn": ["financial_costing_approval"]
+      }
+    ]
+  },
+  "location_qualification": {
+    "processId": "location_qualification",
+    "module": "inventory",
+    "label": "Warehouse Location Qualification",
+    "entity": "inventory_warehouse_location",
+    "steps": [
+      {
+        "id": "location_setup",
+        "label": "Location Setup & Capacity Profiling",
+        "type": "direct",
+        "statusEvent": "LOCATION_DRAFT_CREATED"
+      },
+      {
+        "id": "safety_compliance_audit",
+        "label": "Safety Compliance & Quality Audit",
+        "type": "approval",
+        "statusEvent": "LOCATION_SAFETY_AUDITED",
+        "requiredRole": "safety_inspector",
+        "dependsOn": [
+          "location_setup"
+        ],
+        "requiredModule": "inventory",
+        "requiredFeature": "warehouse_location"
+      },
+      {
+        "id": "operations_release",
+        "label": "Operations Release & Activation",
+        "type": "sequence",
+        "statusEvent": "LOCATION_ACTIVATED",
+        "dependsOn": [
+          "safety_compliance_audit"
+        ]
+      }
+    ]
+  }
+}
+

@@ -11,8 +11,8 @@ class InventoryManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import InventoryEntity
-        return [InventoryEntity]
+        from .models import InventoryEntity, InventoryItemDetails, InventoryUomConversion, InventoryLot, InventoryWarehouseLocation
+        return [InventoryEntity, InventoryItemDetails, InventoryUomConversion, InventoryLot, InventoryWarehouseLocation]
 
     def get_event_handlers(self):
         from .events import register_event_handlers
