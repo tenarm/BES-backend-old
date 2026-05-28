@@ -14,42 +14,60 @@
       "read": true,
       "write": true,
       "delete": true
+    },
+    "number_series": {
+      "read": true,
+      "write": true,
+      "delete": true
     }
   },
   "sales": {
-    "customer_master": {
+    "quotations": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "quotation": {
-      "read": true,
-      "write": true,
-      "delete": true
-    },
-    "sales_order": {
+    "orders": {
       "read": true,
       "write": true,
       "delete": true
     }
   },
   "inventory": {
-    "item_master": {
+    "products": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "warehouse_location": {
+    "warehouses": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "finance": {
+    "ar": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "goods_receipt": {
+    "ap": {
       "read": true,
       "write": true,
       "delete": true
     },
-    "goods_issue": {
+    "invoices": {
+      "read": true,
+      "write": true,
+      "send": true,
+      "delete": true
+    },
+    "payments": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax": {
       "read": true,
       "write": true,
       "delete": true

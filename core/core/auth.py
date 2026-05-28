@@ -14,9 +14,11 @@ from .models import User, Role, RefreshToken
 
 logger = logging.getLogger(__name__)
 
-# --- Configuration (fail-fast if secrets are missing) ---
-# Fix #13: Cache the secret after first read — os.environ is fast but
-# reading it on every create/decode call (3× per request) is unnecessary.
+# ---------------------------------------------------------------------------
+# Configuration — fail-fast on missing secrets
+# ---------------------------------------------------------------------------
+# The secret is read once from the environment and cached to avoid repeated
+# os.environ lookups on every token creation and decode call.
 _JWT_SECRET: str | None = None
 
 
@@ -32,6 +34,7 @@ def _get_secret_key() -> str:
         _JWT_SECRET = key
     return _JWT_SECRET
 
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
 REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "7"))
@@ -39,15 +42,36 @@ REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRE_DAYS", "7"))
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 
-# --- Password Hashing ---
+
+# ---------------------------------------------------------------------------
+# Password hashing
+# ---------------------------------------------------------------------------
+
 def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """Returns True if the plain-text password matches the stored bcrypt hash."""
     return pwd_context.verify(plain_password, hashed_password)
 
+
 def get_password_hash(password: str) -> str:
+    """Returns a bcrypt hash of the given plain-text password."""
     return pwd_context.hash(password)
 
-# --- JWT Token Management ---
+
+# ---------------------------------------------------------------------------
+# JWT token management
+# ---------------------------------------------------------------------------
+
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+    """
+    Creates a short-lived JWT access token.
+
+    Args:
+        data:          Payload claims (must include 'sub' = username).
+        expires_delta: Custom TTL. Defaults to ACCESS_TOKEN_EXPIRE_MINUTES.
+
+    Returns:
+        Signed JWT string.
+    """
     secret = _get_secret_key()
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + (
@@ -56,36 +80,53 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     to_encode.update({"exp": expire, "type": "access"})
     return jwt.encode(to_encode, secret, algorithm=ALGORITHM)
 
+
 def create_refresh_token(data: dict) -> tuple[str, datetime]:
-    """Creates a refresh token and returns (token_string, expiry_datetime)."""
+    """
+    Creates a long-lived JWT refresh token.
+
+    Each refresh token includes a unique 'jti' claim for revocation tracking.
+
+    Returns:
+        (token_string, expiry_datetime)
+    """
     secret = _get_secret_key()
     to_encode = data.copy()
     expires_at = datetime.now(timezone.utc) + timedelta(days=REFRESH_TOKEN_EXPIRE_DAYS)
     to_encode.update({
         "exp": expires_at,
         "type": "refresh",
-        "jti": str(uuid.uuid4())  # Unique token ID for revocation
+        "jti": str(uuid.uuid4()),
     })
     token = jwt.encode(to_encode, secret, algorithm=ALGORITHM)
     return token, expires_at
 
+
 def decode_token(token: str) -> dict:
-    """Decodes and validates a JWT token. Raises on failure."""
+    """
+    Decodes and validates a JWT token.
+
+    Raises:
+        jose.JWTError: If the token is expired, tampered, or otherwise invalid.
+    """
     secret = _get_secret_key()
     return jwt.decode(token, secret, algorithms=[ALGORITHM])
 
-# --- Dependencies ---
+
+# ---------------------------------------------------------------------------
+# FastAPI dependency: current user resolver
+# ---------------------------------------------------------------------------
+
 async def get_current_user(
     token: str = Depends(oauth2_scheme),
     session: AsyncSession = Depends(get_async_session)
 ) -> User:
     """
-    FastAPI dependency that validates the JWT and returns the active User.
+    FastAPI dependency that validates the JWT access token and returns the active User.
 
-    Eagerly loads the user's Role.permissions and attaches them as
-    `user._cached_permissions` so that `require_permission` and
-    `get_user_permissions` work correctly for ALL non-superusers
-    without additional DB queries downstream.
+    Eagerly loads the user's Role.permissions and caches them on ``user._cached_permissions``
+    so that ``require_permission`` and ``get_user_permissions`` work for all non-superusers
+    without issuing additional DB queries on every RBAC check within the same request.
     """
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -109,14 +150,12 @@ async def get_current_user(
     if user is None:
         raise credentials_exception
 
-    # --- Eagerly load Role permissions & Custom User Permissions ---
-    # Superusers get the full schema (handled in get_user_permissions).
-    # For role-based users: fetch Role once here, merge with user's custom 
-    # permissions, and cache on the object so every downstream RBAC check 
-    # uses the same pre-loaded permissions without extra DB hits.
+    # Eagerly resolve and cache permissions for this request.
+    # Superusers receive the full schema; regular users receive their Role's
+    # permissions merged with any per-user custom overrides.
     if not user.is_superuser:
         from .rbac import deep_merge_permissions
-        role_perms = {}
+        role_perms: dict = {}
         if user.role_id is not None:
             role_stmt = select(Role).where(Role.id == user.role_id)
             role_result = await session.execute(role_stmt)
@@ -124,7 +163,7 @@ async def get_current_user(
             if role:
                 role_perms = role.permissions
 
-        user_custom_perms = getattr(user, "custom_permissions", {}) or {}
+        user_custom_perms: dict = getattr(user, "custom_permissions", {}) or {}
         user._cached_permissions = deep_merge_permissions(role_perms, user_custom_perms)
 
     return user

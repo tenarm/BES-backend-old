@@ -33,14 +33,11 @@ packages = [
 dev = [
     "-e file:///${PROJECT_ROOT}/core",
     "-e file:///${PROJECT_ROOT}/extensions/settings",
-    "-e file:///${PROJECT_ROOT}/instances/msme",
     "-e file:///${PROJECT_ROOT}/extensions/sales",
-    "-e file:///${PROJECT_ROOT}/extensions/supply_chain",
     "-e file:///${PROJECT_ROOT}/extensions/inventory",
-    "-e file:///${PROJECT_ROOT}/extensions/ai",
+    "-e file:///${PROJECT_ROOT}/extensions/finance",
     "-e file:///${PROJECT_ROOT}/instances/msme_basic",
-    "-e file:///${PROJECT_ROOT}/instances/msme_pro",
-    "-e file:///${PROJECT_ROOT}/instances/msme_custom",
+    "-e file:///${PROJECT_ROOT}/instances/msme_premium",
 ]
 test = [
     "pytest>=8.0.0",

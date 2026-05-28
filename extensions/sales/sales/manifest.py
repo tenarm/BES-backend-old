@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from core.extension import ExtensionManifest
 
+
 class SalesManifest(ExtensionManifest):
     @property
     def module_name(self) -> str:
@@ -11,11 +12,14 @@ class SalesManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import SalesEntity, SalesCustomerDetails, SalesCustomerAddress, SalesCustomerContact
-        return [SalesEntity, SalesCustomerDetails, SalesCustomerAddress, SalesCustomerContact]
+        from .models import (
+            SalesQuotation, SalesQuotationLine, SalesOrder, SalesOrderLine
+        )
+        return [SalesQuotation, SalesQuotationLine, SalesOrder, SalesOrderLine]
 
     def get_event_handlers(self):
         from .events import register_event_handlers
         return register_event_handlers
+
 
 manifest = SalesManifest()

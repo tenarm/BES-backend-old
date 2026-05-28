@@ -1,27 +1,38 @@
 import sys
-import pytest
 from pathlib import Path
-from fastapi import FastAPI
+import pytest
 
-# Resolve the core path to inherit standard database/client overrides
 core_path = str(Path(__file__).resolve().parents[3] / "core")
 if core_path not in sys.path:
     sys.path.append(core_path)
 
-from tests.conftest import *
+from tests.conftest import *  # Inherit and reuse all core fixtures
+from fastapi import FastAPI
 from core.database import get_async_session
+
+from inventory.manifest import manifest as inventory_manifest
+
 
 @pytest.fixture
 def test_app(db_session) -> FastAPI:
-    """App fixture containing core routers + the extension under test."""
-    from inventory.manifest import manifest
+    """FastAPI app override for inventory extension tests."""
+    from core.router import router as auth_router
+
     app = FastAPI()
-    
-    # Register extension router dynamically
-    app.include_router(manifest.get_router())
-    
-    # Override DB dependencies
+    app.include_router(auth_router)
+
+    app.include_router(inventory_manifest.get_router())
+
     async def override_get_async_session():
         yield db_session
     app.dependency_overrides[get_async_session] = override_get_async_session
+
     return app
+
+
+@pytest_asyncio.fixture(autouse=True)
+async def seed_test_sequences(db_session):
+    from core.sequences import SequenceService
+    sequence_service = SequenceService()
+    await sequence_service.ensure_sequence(db_session, "inventory_shipment", "SH", pattern="{PREFIX}-{YYYY}{SEQ:05d}")
+    await db_session.commit()

@@ -1,0 +1,27 @@
+{
+  "client_id": "msme_premium",
+  "client_name": "msme premium",
+  "database_url": "sqlite+aiosqlite:///./instances/msme_premium/data/msme_premium.db",
+  "plan": "premium",
+  "custom_config": false,
+  "status": "active",
+  "registered_at": "2026-05-28T21:53:43.264840",
+  "updated_at": "2026-05-28T21:53:43.264840",
+  "licensed_modules": [
+    "finance",
+    "sales",
+    "inventory",
+    "hr",
+    "crm",
+    "manufacturing",
+    "project_management",
+    "quality_management",
+    "asset_management",
+    "bi",
+    "document_management",
+    "marketing",
+    "service_desk",
+    "education",
+    "settings"
+  ]
+}

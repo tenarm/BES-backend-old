@@ -72,7 +72,7 @@ class BaseRepository(Generic[ModelType]):
                 obj_in.created_by = user_name
         
         session.add(obj_in)
-        await session.commit()
+        await session.flush()
         await session.refresh(obj_in)
         return obj_in
 
@@ -92,13 +92,7 @@ class BaseRepository(Generic[ModelType]):
             setattr(db_obj, field, value)
             
         session.add(db_obj)
-        try:
-            await session.commit()
-        except StaleDataError as e:
-            await session.rollback()
-            raise ConcurrencyError(
-                "Concurrency conflict detected: The record was modified by another transaction."
-            ) from e
+        await session.flush()
         await session.refresh(db_obj)
         return db_obj
 
@@ -110,9 +104,27 @@ class BaseRepository(Generic[ModelType]):
         if hasattr(db_obj, "is_deleted"):
             db_obj.is_deleted = True
             session.add(db_obj)
-            await session.commit()
+            await session.flush()
             await session.refresh(db_obj)
         else:
             await session.delete(db_obj)
-            await session.commit()
+            await session.flush()
         return db_obj
+
+    async def count(self, session: AsyncSession) -> int:
+        """Returns total count of records matching current scopes."""
+        from sqlalchemy import func
+        stmt = select(func.count()).select_from(self.model)
+        stmt = self._apply_scopes(stmt)
+        result = await session.execute(stmt)
+        return result.scalar_one()
+
+    async def filter_by(self, session: AsyncSession, skip: int = 0, limit: int = 100, **kwargs) -> Sequence[ModelType]:
+        """Filters records by keyword arguments matching model columns."""
+        stmt = select(self.model).offset(skip).limit(limit)
+        for key, value in kwargs.items():
+            if hasattr(self.model, key):
+                stmt = stmt.where(getattr(self.model, key) == value)
+        stmt = self._apply_scopes(stmt)
+        result = await session.execute(stmt)
+        return result.scalars().all()

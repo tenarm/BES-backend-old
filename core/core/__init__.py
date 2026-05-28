@@ -8,7 +8,7 @@ from .database import (
     subsidiary_id_context,
 )
 
-# --- Base Models ---
+# --- Base Models (from models/ package) ---
 from .models import (
     BESBase,
     User,
@@ -27,7 +27,6 @@ from .notifications import (
     NotificationService,
     notification_broadcaster,
 )
-
 
 # --- Auth ---
 from .auth import (
@@ -56,13 +55,18 @@ from .licensing import (
     LicensingError,
 )
 
-
 # --- Exceptions ---
-from .exceptions import ConcurrencyError
+from .exceptions import (
+    DomainException,
+    ConcurrencyError,
+    ValidationError,
+    StateTransitionError,
+    EntityNotFoundError,
+    InsufficientPermissionError,
+)
 
 # --- Repository ---
 from .repository import BaseRepository
-
 
 # --- Responses ---
 from .responses import (
@@ -106,7 +110,7 @@ from .middleware import (
     current_user_name_context,
 )
 
-# --- Routers & Seed Utilities ---
+# --- Routers & Seed Utilities (from router/ package) ---
 from .router import (
     router as auth_router,
     audit_router,
@@ -115,6 +119,35 @@ from .router import (
     seed_admin_user,
     cleanup_expired_tokens,
 )
+
+# --- Flow Engine ---
+from .flows import (
+    FlowPipelineOverride,
+    FlowTask,
+    FlowEntityLink,
+    FlowStep,
+    FlowDefinition,
+    FlowTaskCreate,
+    FlowTaskRead,
+    FlowResolver,
+    evaluate_condition,
+)
+
+# --- Attachments ---
+from .attachments import EntityAttachment, AttachmentService
+
+# --- Comments ---
+from .comments import EntityComment, CommentService
+
+# --- Number Sequences ---
+from .sequences import NumberSequence, SequenceService
+
+# --- Custom Fields ---
+from .custom_fields import CustomFieldDefinition, CustomFieldService
+
+# --- Document Generation ---
+from .documents import DocumentService
+
 
 __all__ = [
     # Database
@@ -131,9 +164,8 @@ __all__ = [
     # Licensing
     "is_feature_licensed", "require_licensed_feature", "LicensingError",
     # Exceptions
-    "ConcurrencyError",
-
-
+    "DomainException", "ConcurrencyError", "ValidationError",
+    "StateTransitionError", "EntityNotFoundError", "InsufficientPermissionError",
     # Repository
     "BaseRepository",
     # Responses
@@ -152,9 +184,22 @@ __all__ = [
     "RequestLoggingMiddleware", "ContextAwareSecurityMiddleware",
     "correlation_id_context", "current_user_id_context", "current_user_name_context",
     # Routers & Seeds
-    "auth_router", "audit_router", "notification_router", "seed_roles", "seed_admin_user",
-    "cleanup_expired_tokens",
+    "auth_router", "audit_router", "notification_router",
+    "seed_roles", "seed_admin_user", "cleanup_expired_tokens",
     # Notifications
     "NotificationRule", "Notification", "NotificationService", "notification_broadcaster",
+    # Flows
+    "FlowPipelineOverride", "FlowTask", "FlowEntityLink",
+    "FlowStep", "FlowDefinition", "FlowTaskCreate", "FlowTaskRead",
+    "FlowResolver", "evaluate_condition",
+    # Attachments
+    "EntityAttachment", "AttachmentService",
+    # Comments
+    "EntityComment", "CommentService",
+    # Sequences
+    "NumberSequence", "SequenceService",
+    # Custom Fields
+    "CustomFieldDefinition", "CustomFieldService",
+    # Documents
+    "DocumentService",
 ]
-#BVK

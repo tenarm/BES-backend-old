@@ -5,11 +5,12 @@
   "plan": "basic",
   "custom_config": false,
   "status": "active",
-  "registered_at": "2026-05-26T02:20:10.002786",
-  "updated_at": "2026-05-26T02:20:10.002786",
+  "registered_at": "2026-05-28T16:11:31.285043",
+  "updated_at": "2026-05-28T16:11:31.285043",
   "licensed_modules": [
     "settings",
     "sales",
-    "inventory"
+    "inventory",
+    "finance"
   ]
 }

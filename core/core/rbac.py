@@ -11,42 +11,77 @@ from .models import User
 
 logger = logging.getLogger(__name__)
 
-# --- Execution Context (User vs System) ---
+
+# ---------------------------------------------------------------------------
+# Execution context — USER vs SYSTEM
+# ---------------------------------------------------------------------------
+
 class ExecutionContextType(str, Enum):
+    """Indicates whether the current call originates from a user request or an internal system action."""
     USER = "USER"
     SYSTEM = "SYSTEM"
 
-execution_context: ContextVar[ExecutionContextType] = ContextVar("execution_context", default=ExecutionContextType.USER)
+
+execution_context: ContextVar[ExecutionContextType] = ContextVar(
+    "execution_context", default=ExecutionContextType.USER
+)
+
 
 @contextmanager
 def elevate_context():
-    """Context manager to temporarily elevate execution privileges to SYSTEM level."""
+    """
+    Context manager that temporarily promotes execution privileges to SYSTEM level.
+
+    Use this in event-driven handlers and background workers to bypass RBAC and
+    licensing guards that are only meaningful for user-initiated requests.
+
+    Example::
+
+        with elevate_context():
+            await order_service.auto_post_journal(session, order_id)
+    """
     token = execution_context.set(ExecutionContextType.SYSTEM)
     try:
         yield
     finally:
         execution_context.reset(token)
 
-# --- Admin Permissions Schema (used for seeding and reference) ---
+
+# ---------------------------------------------------------------------------
+# Permission schema (master reference for seeding and superuser resolution)
+# ---------------------------------------------------------------------------
+
 def _load_permissions() -> Dict[str, Any]:
-    """Loads the master permission configuration from the JSON file."""
+    """Loads the master permission configuration from admin_permissions.json."""
     config_path = os.environ.get("ADMIN_PERMISSIONS_PATH")
     if not config_path or not os.path.exists(config_path):
         config_path = os.path.join(os.path.dirname(__file__), "admin_permissions.json")
-    
+
     with open(config_path, "r") as f:
         return json.load(f)
 
-PERMISSIONS_SCHEMA = _load_permissions()
+
+PERMISSIONS_SCHEMA: Dict[str, Any] = _load_permissions()
+
 
 def _has_permission(user_perms: Dict[str, Any], module: str, resource: str, action: str) -> bool:
-    """Checks if the given permission exists in the nested structure."""
+    """Returns True if the nested permission map grants the given module/resource/action triple."""
     return user_perms.get(module, {}).get(resource, {}).get(action, False)
+
 
 def deep_merge_permissions(base: Dict[str, Any], custom: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Recursively merges custom permissions into the base role permissions.
-    Custom permissions always win in a conflict, allowing direct user overrides.
+    Recursively merges ``custom`` permissions into ``base``, with custom values winning on conflict.
+
+    This allows per-user permission overrides to extend or narrow the role's default grants
+    without a full replacement.
+
+    Args:
+        base:   The role-level permission dictionary.
+        custom: The user-level override dictionary.
+
+    Returns:
+        A new merged dictionary; the originals are not mutated.
     """
     merged = base.copy()
     for key, value in custom.items():
@@ -56,84 +91,96 @@ def deep_merge_permissions(base: Dict[str, Any], custom: Dict[str, Any]) -> Dict
             merged[key] = value
     return merged
 
-# --- FastAPI Dependency Injector ---
+
+# ---------------------------------------------------------------------------
+# FastAPI dependency: permission gate
+# ---------------------------------------------------------------------------
+
 def require_permission(permission_string: str):
     """
-    Dependency injector for FastAPI.
-    Format: "module:resource:action" (e.g., "finance:invoices:read")
-    
-    Now checks the user's Role.permissions instead of the global admin schema.
-    SYSTEM context bypasses all checks.
-    Superusers bypass all checks.
+    Returns a FastAPI dependency that asserts the authenticated user holds the named permission.
+
+    Permission format: ``"module:resource:action"``  (e.g. ``"finance:invoices:read"``).
+
+    Bypass conditions (no check performed):
+    - SYSTEM execution context (event-driven cross-module operations via ``elevate_context``).
+    - The user is a superuser.
     """
     async def permission_checker(user: User = Depends(get_current_user)):
-        # SYSTEM context bypass (for event-driven cross-module operations)
+        # SYSTEM context: internal automation bypasses all RBAC guards.
         if execution_context.get() == ExecutionContextType.SYSTEM:
             return True
 
         parts = permission_string.split(":")
         if len(parts) != 3:
-            raise HTTPException(status_code=500, detail=f"Invalid format: {permission_string}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Malformed permission string: '{permission_string}'. Expected 'module:resource:action'.",
+            )
 
         module, resource, action = parts
 
-        # Superuser bypass
+        # Superusers are granted every permission unconditionally.
         if user.is_superuser:
             return True
 
-        # --- REAL ROLE-BASED CHECK ---
-        # The user's permissions come from their Role, which was eagerly loaded
-        # For now, we fetch the role's permissions from the user object
-        if not hasattr(user, '_role_permissions'):
-            # Lazy-load role permissions if not cached
-            from sqlmodel import select
-            from .database import get_async_session
-            from .models import Role
-            # If user has no role assigned, deny by default
-            if user.role_id is None:
-                raise HTTPException(
-                    status_code=status.HTTP_403_FORBIDDEN,
-                    detail=f"Permission denied: {permission_string} (no role assigned)"
-                )
+        # Users with no role cannot hold any permissions.
+        if user.role_id is None:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail=f"Permission denied: '{permission_string}' (user has no role assigned).",
+            )
 
-        # For this to work efficiently, the bootstrap endpoint pre-computes permissions
-        # Here we check against the global schema filtered by role membership
-        # This is a simplified check — in production, cache the user's computed permissions
+        # Permissions were eagerly resolved and cached in get_current_user.
         user_perms = get_user_permissions(user)
         if not _has_permission(user_perms, module, resource, action):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail=f"Permission denied: {permission_string}"
+                detail=f"Permission denied: '{permission_string}'.",
             )
         return True
 
     return permission_checker
 
-#BVK
+
+# ---------------------------------------------------------------------------
+# Permission resolution helpers
+# ---------------------------------------------------------------------------
+
 def get_user_permissions(user: User) -> Dict[str, Any]:
     """
-    Returns the effective permission set for a given user.
-    - Superusers get the full admin schema.
-    - Regular users get their Role's permissions.
-    - Users with no role get an empty set.
+    Returns the effective permission map for a given user.
+
+    - Superusers receive the full admin schema (all permissions granted).
+    - Role-based users receive their pre-resolved ``_cached_permissions`` (set by
+      ``get_current_user`` at authentication time).
+    - Users with no role receive an empty map (no permissions).
+
+    Args:
+        user: The authenticated User ORM instance.
+
+    Returns:
+        A nested dictionary of the form ``{module: {resource: {action: bool}}}``.
     """
     if user.is_superuser:
         return PERMISSIONS_SCHEMA
 
-    # If no role assigned, return empty permissions
     if user.role_id is None:
         return {}
 
-    # The role's permissions are loaded via the bootstrap flow
-    # For inline checks, we need to look it up
-    # This will be populated by the bootstrap/login flow
-    return getattr(user, '_cached_permissions', {})
+    return getattr(user, "_cached_permissions", {})
 
 
 def get_simplified_json(user: User, licensed_modules: list[str] | None = None) -> dict:
     """
-    Returns a simplified JSON of all permissions for a user.
-    Filters to only licensed modules if provided.
+    Serialises the user's effective permissions to a JSON-friendly dictionary.
+
+    Args:
+        user:              The authenticated User ORM instance.
+        licensed_modules:  If provided, filters the output to only include these module keys.
+
+    Returns:
+        ``{"user_id": str, "role": str, "permissions": dict}``
     """
     perms = get_user_permissions(user)
 
@@ -143,8 +190,5 @@ def get_simplified_json(user: User, licensed_modules: list[str] | None = None) -
     return {
         "user_id": str(user.id),
         "role": "superuser" if user.is_superuser else "custom",
-        "permissions": perms
+        "permissions": perms,
     }
-
-
-

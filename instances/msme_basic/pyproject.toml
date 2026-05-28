@@ -7,6 +7,7 @@ dependencies = [
     "settings",
     "sales",
     "inventory",
+    "finance",
 ]
 
 [build-system]

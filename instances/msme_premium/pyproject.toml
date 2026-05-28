@@ -1,0 +1,18 @@
+[project]
+name = "msme-premium"
+version = "0.1.0"
+description = "msme premium Client Instance"
+requires-python = ">=3.10"
+dependencies = [
+    "finance",
+    "sales",
+    "inventory",
+    "settings",
+]
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["msme_premium"]

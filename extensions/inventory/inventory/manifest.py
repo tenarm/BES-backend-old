@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from core.extension import ExtensionManifest
 
+
 class InventoryManifest(ExtensionManifest):
     @property
     def module_name(self) -> str:
@@ -11,11 +12,12 @@ class InventoryManifest(ExtensionManifest):
         return router
 
     def get_models(self) -> list[type]:
-        from .models import InventoryEntity, InventoryItemDetails, InventoryUomConversion, InventoryLot, InventoryWarehouseLocation
-        return [InventoryEntity, InventoryItemDetails, InventoryUomConversion, InventoryLot, InventoryWarehouseLocation]
+        from .models import InventoryShipment, InventoryShipmentLine
+        return [InventoryShipment, InventoryShipmentLine]
 
     def get_event_handlers(self):
         from .events import register_event_handlers
         return register_event_handlers
+
 
 manifest = InventoryManifest()

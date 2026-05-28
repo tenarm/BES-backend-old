@@ -3,13 +3,16 @@ from core.events import event_bus, BaseEventPayload
 
 logger = logging.getLogger(__name__)
 
-async def emit_entity_created(entity_id: str, entity_name: str):
-    payload = BaseEventPayload(
-        emitter_module="inventory",
-        event_type="INVENTORY_ENTITY_CREATED",
-        data={"entity_id": entity_id, "name": entity_name}
-    )
-    await event_bus.emit(payload)
+
+async def handle_order_confirmed(payload: BaseEventPayload):
+    """
+    Subscribes to SELL_ORDER_CONFIRMED.
+    Stubs inventory stock reservation.
+    """
+    order_id = payload.data.get("order_id")
+    logger.info(f"[Inventory] Stub reserved stock for Order {order_id}")
+
 
 def register_event_handlers():
-    logger.info("[Inventory] Event handlers registered")
+    event_bus.subscribe("SELL_ORDER_CONFIRMED", handle_order_confirmed)
+    logger.info("[Inventory] Event handlers registered successfully")
