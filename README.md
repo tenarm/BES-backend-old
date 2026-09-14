@@ -1,4 +1,4 @@
-# BES Factory Backend
+# Business Execution System Backend
 
 This is the modular monorepo for the **BES (Business Execution System)** backend, built using [FastAPI](https://fastapi.tiangolo.com/), [SQLModel](https://sqlmodel.tiangolo.com/), and [PDM](https://pdm-project.org/).
 

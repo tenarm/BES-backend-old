@@ -1,5 +1,5 @@
 {
-  "_comment": "TenArm Subscription Tiers — authoritative source for per-tenant feature licensing. Two namespaces: 'flows' (UX-layer gate, controls sidebar visibility and upgrade gates) and 'modules' (API-layer gate, controls require_licensed_feature() enforcement). Tier inheritance is cumulative: premium ⊇ pro ⊇ basic.",
+  "_comment": "Business Execution System Subscription Tiers — authoritative source for per-tenant feature licensing. Two namespaces: 'flows' (UX-layer gate, controls sidebar visibility and upgrade gates) and 'modules' (API-layer gate, controls require_licensed_feature() enforcement). Tier inheritance is cumulative: premium ⊇ pro ⊇ basic.",
   "_tier_order": ["basic", "pro", "premium"],
 
   "packages": {

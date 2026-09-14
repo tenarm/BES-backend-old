@@ -1,7 +1,7 @@
 """
 core.licensing
 ==============
-Subscription tier enforcement for the TenArm platform.
+Subscription tier enforcement for the Business Execution System platform.
 
 Responsibilities:
   - Load the canonical packages.json tier config on startup.
