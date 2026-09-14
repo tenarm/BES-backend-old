@@ -1,0 +1,241 @@
+{
+  "sales": {
+    "customer_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "quotation": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_order": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "pricing_discount": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "delivery_dispatch": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "sales_invoice": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "inventory": {
+    "item_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "warehouse_location": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "goods_receipt": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "goods_issue": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "stock_transfer": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "inventory_reports": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "finance": {
+    "coa": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "gl": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ap": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ar": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "bank_cash": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "tax": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "budgeting": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "cost_center": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "multi_currency": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "hr": {
+    "employee_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "org_structure": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "attendance": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "leave_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "ess_portal": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "payroll_processing": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "crm": {
+    "lead_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "deal_pipeline": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "contact_account": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "activity_tracking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "supply_chain": {
+    "supplier_master": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_requisition": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "purchase_order": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "grn": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "document_management": {
+    "document_upload": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "document_linking": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "settings": {
+    "company_setup": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "user_management": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "module_toggle": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "workflow_config": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "notification_rules": {
+      "read": true,
+      "write": true,
+      "delete": true
+    },
+    "number_series": {
+      "read": true,
+      "write": true,
+      "delete": true
+    }
+  },
+  "ai": {
+    "chat": {
+      "execute": true
+    },
+    "copilot": {
+      "execute": true
+    }
+  }
+}
